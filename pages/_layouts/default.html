@@ -13,8 +13,6 @@
   </head>
   <body>
     <div id='outer'>
-      <div id='header'>
-      </div>
       <div id='menu'>
         <ol>
           <img alt='miniboxing' src='http://scala-miniboxing.org/mbox2-thumbnail.png'></a><br/>
@@ -23,14 +21,14 @@
               <li><a href='index.html'>Home</a></li>
               <li><a href='intro.html'>Introduction</a></li>
               <li><a href='benchmark.html'>Benchmarks</a></li>
-              <li><a href='quick_start.html'>Quick Start</a></li>
+              <li><a href='quick-start.html'>Quick Start</a></li>
             </ol>
           </li>
           <li>Using it
             <ol>
               <li><a href='using_sbt.html'>Using in sbt</a></li>
               <li><a href='using_out.html'>Command line</a></li>
-              <li><a href='source.html'>Source</a></li>
+              <li><a href='source.html'>Source code</a></li>
               <li><a href='license.html'>License</a></li>
             </ol>
           </li>
@@ -42,14 +40,15 @@
           </li>
           <li>Reference
             <ol>
-              <li><a href='internals.html'>Internals</a></li>
-              <li><a href='papers.html'>Papers and Talks</a></li>
+              <li><a href='transformation.html'>Transformation</a></li>
+              <li><a href='papers.html'>Papers/Talks</a></li>
               <li><a href='contact.html'>Contact</a></li>
             </ol>
           </li>
         </ol>
       </div>
       <div id='content'>
+        <br/><br/>
         <h1 id='title_{{ page.title | downcase | replace: ' ', '_' }}'>{% if page.short_title %}{{ page.short_title }}{% else %}{{ page.title }}{% endif %}</h1>
         {{ content }}
       </div>
