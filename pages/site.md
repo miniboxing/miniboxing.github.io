@@ -6,11 +6,11 @@ short_title: Welcome
 
 Miniboxing is a compilation scheme that improves the performance of generics in [Scala](http://scala-lang.org).
 
-Let''s take `class C` as an example:
+Let's take `class C` as an example:
 
-```
+{% highlight scala %}
  class C[T](t: T)
-```
+{% endhighlight %}
 
 Under the [erasure](http://en.wikipedia.org/wiki/Type_erasure) [transformation](http://homepages.inf.ed.ac.uk/wadler/gj/) in Scala, the value `t` is a pointer to a heap object. This is suboptimal, since integers and floating point numbers should be stored directly in the class, instead of separate heap objects. Using separate objects to store primitive types, a process known as [boxing](http://en.wikipedia.org/wiki/Object_type_%28object-oriented_programming%29#Boxing) has several disadvantages:
  * uses more heap memory than necessary, as the objects containing primitive types also contain headers and padding bits
@@ -19,16 +19,18 @@ Under the [erasure](http://en.wikipedia.org/wiki/Type_erasure) [transformation](
  * objects potentially break cache locality: an array of integers as values guarantees they are stored contiguously, thus guarantees locality. Contrarily, accessing an array of pointers to objects encoding integers only guarantees pointers are stored contiguously, but the objects can be randomly spread around the heap.
 
 This is exactly where miniboxing comes in:
-```
+
+{% highlight scala %}
  class C[@miniboxed T](t: T)
-```
+{% endhighlight %}
 
 Now, if you use `C` to store an integer, it will be stored in the class instead of a separate object:
-```
+
+{% highlight scala %}
  new C[Int](3) // this instance of C will store the 3 inside it
                // instead of creating a new java.lang.Integer
                // and storing the pointer to it, as in erasure.
-```
+{% endhighlight %}
 
 A few common questions:
  * Does this mean better performance? [Sure thing, check out our benchmarks: they show up to 22x speedups](benchmarks.html).

@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <meta content='text/html;charset=UTF-8' http-equiv='Content-Type'>
+    <title>Miniboxing &mdash; {{ page.title }}</title>
+    <style type='text/css'>
+      @import '/css/default.css';
+      @import '/css/syntax.css';
+    </style>
+    <style media='print' type='text/css'>
+      @import '/css/print.css';
+    </style>
+    <meta content='Miniboxing documentation' name='subject'>
+  </head>
+  <body>
+    <div id='outer'>
+      <div id='header'>
+      </div>
+      <div id='menu'>
+        <ol>
+          <img alt='miniboxing' src='http://scala-miniboxing.org/mbox2-thumbnail.png'></a><br/>
+          <li>Start Here
+            <ol>
+              <li><a href='index.html'>Home</a></li>
+              <li><a href='intro.html'>Introduction</a></li>
+              <li><a href='benchmark.html'>Benchmarks</a></li>
+              <li><a href='quick_start.html'>Quick Start</a></li>
+            </ol>
+          </li>
+          <li>Using it
+            <ol>
+              <li><a href='using_sbt.html'>Using in sbt</a></li>
+              <li><a href='using_out.html'>Command line</a></li>
+              <li><a href='source.html'>Source</a></li>
+              <li><a href='license.html'>License</a></li>
+            </ol>
+          </li>
+          <li>Examples
+            <ol>
+              <li><a href='quick_start.html'>Quick start</a></li>
+              <li><a href='example_reverse.html'>Reverse</a></li>
+            </ol>
+          </li>
+          <li>Reference
+            <ol>
+              <li><a href='internals.html'>Internals</a></li>
+              <li><a href='papers.html'>Papers and Talks</a></li>
+              <li><a href='contact.html'>Contact</a></li>
+            </ol>
+          </li>
+        </ol>
+      </div>
+      <div id='content'>
+        <h1 id='title_{{ page.title | downcase | replace: ' ', '_' }}'>{% if page.short_title %}{{ page.short_title }}{% else %}{{ page.title }}{% endif %}</h1>
+        {{ content }}
+      </div>
+      <div id='footer'>Copyright &copy; 2013 <a href="http://epfl.ch">École polytechnique fédérale de Lausanne (EPFL)</a>. Template by Nathan Bronson (<a href="http://nbronson.github.io/scala-stm">ScalaSTM</a>)</div>
+    </div>
+  </body>
+</html>
