@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <meta content='text/html;charset=UTF-8' http-equiv='Content-Type'>
+    <title>ScalaSTM &mdash; {{ page.title }}</title>
+    <style type='text/css'>
+      @import 'css/default.css';
+      @import 'css/syntax.css';
+    </style>
+    <style media='print' type='text/css'>
+      @import 'css/print.css';
+    </style>
+    <meta content='Miniboxing documentation' name='subject'>
+  </head>
+  <body>
+    <div id='outer'>
+      <div id='header'>
+      </div>
+      <div id='menu'>
+        <a href='http://scala-miniboxing.org' title="Miniboxing Plugin for Scala">
+          <img alt='miniboxing' src='mbox2-thumbnail.png'></a><br/>
+          Miniboxing
+        </a>
+        <ol>
+          <li>Start Here
+            <ol>
+              <li><a href='index.html'>Welcome</a></li>
+              <li><a href='intro.html'>Introduction</a></li>
+              <li><a href='quick_start.html'>Quick Start</a></li>
+              <li><a href='syntax_cheat_sheet.html'>Cheat Sheet</a></li>
+              <li><a href='modular_blocking.html'>Waiting</a></li>
+              <li><a href='map_snapshots.html'>Maps + Sets</a></li>
+              <li><a href='exceptions.html'>Exceptions</a></li>
+              <li><a href='faq.html'>F.A.Q.</a></li>
+            </ol>
+          </li>
+          <li>Getting it
+            <ol>
+              <li><a href='releases.html'>Releases</a></li>
+              <li><a href='snapshots.html'>Snapshots</a></li>
+              <li><a href='source.html'>Source</a></li>
+              <li><a href='license.html'>License</a></li>
+            </ol>
+          </li>
+          <li>Examples
+            <ol>
+              <li><a href='quick_start.html'>Quick Start</a></li>
+              <li><a href='indexed_map.html'>Indexed Map</a></li>
+              <li><a href='philosophers.html'>Philosophers</a></li>
+            </ol>
+          </li>
+          <li>Reference
+            <ol>
+              <li><a href='api/0.7/index.html'>ScalaDoc API</a></li>
+              <li><a href='benchmark.html'>Benchmarking</a></li>
+              <li><a href='expert_group.html'>Expert Group</a></li>
+              <li><a href='semantics.html'>Semantics</a></li>
+              <li><a href="http://groups.google.com/group/scala-stm-expert-group">Mailing List</a></li>
+              <li>&nbsp;</li>
+              <li><a href='sponsors.html'>Sponsors</a></li>
+            </ol>
+          </li>
+        </ol>
+      </div>
+      <div id='content'>
+        <h1 id='title_{{ page.title | downcase | replace(' ', '_') }}'>{% if page.short_title %}{{ page.short_title }}{% else %}{{ page.title }}{% endif %}</h1>
+        {{ content }}
+      </div>
+      <div id='footer'>Copyright &copy; 2013 <a href="http://epfl.ch">École polytechnique fédérale de Lausanne (EPFL)</a>. Template by Nathan Bronson (<a href="http://nbronson.github.io/scala-stm">ScalaSTM</a>)</div>
+    </div>
+  </body>
+</html>
