@@ -4,7 +4,7 @@ title: Miniboxing Plugin for Scala
 short_title: Welcome
 ---
 
-Miniboxing is a research project at [EPFL](http://lamp.epfl.ch) aimed at improving the performance of generic code in the [Scala programming language](http://scala-lang.org). The current implementation is a Scala compiler plugin, which can [speed up generics by up to 22x](benchmarks.html) when they are used for numeric types, such as integer or double.
+Miniboxing is a research project at [EPFL](http://lamp.epfl.ch) aimed at improving the performance of generic code running in different Java Virtual Machines. The current implementation is a [Scala compiler](scala-lang.org) plugin, which can [speed up generics by up to 22x](benchmarks.html) when they are used for numeric types, such as integer or double.
 
 You can learn more about miniboxing by reading the [introduction](intro.html), going through the [benchmarks](benchmarks.html) and digging into the [transformation details](transformation.html).
 
