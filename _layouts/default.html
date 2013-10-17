@@ -9,7 +9,8 @@
     <style media='print' type='text/css'>
       @import '/css/print.css';
     </style>
-    <meta content='Miniboxing documentation' name='subject'>
+    <meta name='subject' content='Miniboxing documentation'>
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
   </head>
   <body>
     <div id='outer'>
@@ -52,7 +53,7 @@
         <h1 id='title_{{ page.title | downcase | replace: ' ', '_' }}'>{% if page.short_title %}{{ page.short_title }}{% else %}{{ page.title }}{% endif %}</h1>
         {{ content }}
       </div>
-      <div id='footer'>Copyright &copy; 2013 <a href="http://epfl.ch">École polytechnique fédérale de Lausanne (EPFL)</a>. Template by Nathan Bronson (<a href="http://nbronson.github.io/scala-stm">ScalaSTM</a>)</div>
+      <div id='footer'>Copyright &copy; 2013 <a href="http://lamp.epfl.ch">Programming Methods Laboratory, EPFL</a>. Template by Nathan Bronson (<a href="http://nbronson.github.io/scala-stm">ScalaSTM</a>)</div>
     </div>
   </body>
 </html>
