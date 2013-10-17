@@ -29,6 +29,12 @@ code {
   font-size: 10pt;
 }
 
+p > code {
+  border: 1px solid #a0a0a0;
+  padding: 1px 5px;
+  background: #eeeedd; 
+}
+
 pre {
   border: 1px solid #a0a0a0;
   padding: 0.6em;
@@ -47,14 +53,20 @@ pre.license {
 h1 {
   font-size: 2em;
   margin: 0;
-  padding: 0.5em 0;
+  padding-top: 2em;
+  padding-bottom: 0.5em;
+  padding-left: 0;
+  padding-right: 0;
   border-bottom: 1px solid #808080;
 }
 
 h2 {
   font-size: 1.3em;
   margin: 1.5em 0.5em 0 0;
-  padding: 0 0 0.4em 0;
+  padding-top: 1em;
+  padding-bottom: 0.5em;
+  padding-left: 0;
+  padding-right: 0;
   border-bottom: 1px solid #a0a0a0;
 }
 
