@@ -35,6 +35,12 @@ p > code {
   background: #eeeedd; 
 }
 
+.paper {
+  border: 2px solid #000000;
+  padding: 5px 5px;
+  background: #EEEEEE; 
+}
+
 pre {
   border: 1px solid #a0a0a0;
   padding: 0.6em;
