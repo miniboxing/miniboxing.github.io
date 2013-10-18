@@ -6,7 +6,7 @@ short_title: Using in Sbt
 
 This page will explain how to enable miniboxing with your [sbt](http://www.scala-sbt.org) project.
 
-Miniboxing is a Scala compiler plugin, and performs its transformations as part of the compilation pipeline. In order to use miniboxing, you will need to add two components:
+Miniboxing is a Scala compiler plugin and thus performs its transformations as part of the compilation pipeline. In order to use miniboxing, you will need to add two components:
  * the miniboxing runtime support library and
  * the miniboxing compiler plugin
 
