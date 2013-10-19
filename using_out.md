@@ -42,7 +42,8 @@ Once the two artifacts have been downloaded, you can use them to run the Scala c
 {% highlight bash %}
 $ scala \ 
   -bootclasspath miniboxing-runtime.jar:miniboxing-plugin.jar \
-  -Xplugin:miniboxing-plugin.jar
+  -Xplugin:miniboxing-plugin.jar \
+  -optimize
 
 Welcome to Scala version 2.10.3 (...).
 Type in expressions to have them evaluated.
@@ -90,6 +91,7 @@ class C[@specialized T]
 $ scalac \
   -bootclasspath miniboxing-runtime.jar:miniboxing-plugin.jar \
   -Xplugin:miniboxing-plugin.jar \
+  -optimize \
   -P:minibox:hijack \
   -P:minibox:log \
   C.scala
