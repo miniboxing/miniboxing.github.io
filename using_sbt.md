@@ -33,6 +33,12 @@ addCompilerPlugin("org.scala-miniboxing.plugins" %%
                   "miniboxing-plugin" % "0.1-SNAPSHOT")
 {% endhighlight %}
 
+Finally, it is important to run the optimizer after compiling using the miniboxing plugin (this may be become redundant in future versions):
+
+{% highlight scala %}
+scalacOptions += "-optimize"
+{% endhighlight %}
+
 An example `build.sbt` file, with the required empty lines between commands, is:
 
 {% highlight scala %}
@@ -49,6 +55,8 @@ libraryDependencies += "org.scala-miniboxing.plugins" %%
 
 addCompilerPlugin("org.scala-miniboxing.plugins" %% 
                   "miniboxing-plugin" % "0.1-SNAPSHOT")
+
+scalacOptions += "-optimize"
 {% endhighlight %}
 
 This project definition file only works with sbt 0.12 or newer, so you should create `project/build.properties` to enforce using your desired sbt version:
@@ -67,7 +75,8 @@ val miniboxingSettings: Seq[Setting[_]] = Seq(
   libraryDependencies += "org.scala-miniboxing.plugins" %% 
                          "miniboxing-runtime" % "0.1-SNAPSHOT",
   addCompilerPlugin("org.scala-miniboxing.plugins" %% 
-                    "miniboxing-plugin" % "0.1-SNAPSHOT")
+                    "miniboxing-plugin" % "0.1-SNAPSHOT"),
+  scalacOptions += "-optimize"
 )
 {% endhighlight %}
 
@@ -92,7 +101,7 @@ scalacOptions += "-P:minibox:log"
 The command can be written directly in `build.sbt` or added to `miniboxingSettings` (careful, add a comma to the command before it!). Another trick is to use the sbt prompt to add arguments when needed:
 
 {% highlight scala %}
-> set scalacOptions+="-P:minibox:log"
+> set scalacOptions += "-P:minibox:log"
 [info] Defining *:scalac-options
 [info] Reapplying settings...
 [info] Set current project to hello-miniboxing-world
