@@ -13,7 +13,7 @@ $ git clone https://github.com/miniboxing/miniboxing-example.git
 {% endhighlight %}
 
 Once you cloned the project, change directory to `miniboxing-example` and run `sbt`. In the console, you'll have the following options:
- * `compile` will compile the project (running `set scalacSettings += "-P:minibox:log"` before `compile` will also log the class specialization process)
+ * `compile` will compile the project (running `set scalacOptions += "-P:minibox:log"` before `compile` will also log the class specialization process)
  * `run` will run the project: it will output the names of miniboxed classes for different cases, so you get a feeling of what miniboxing does under the hood
  * `console` is probably the most interesting task, as it allows you to try your own programs with miniboxing (the other examples rely on using the console)
 

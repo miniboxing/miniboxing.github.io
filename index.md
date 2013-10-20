@@ -5,9 +5,13 @@ short_title: Welcome
 comments: "off"
 ---
 
-Miniboxing is a research project at [EPFL](http://lamp.epfl.ch) aimed at improving the performance of generic code running in different Java Virtual Machines. The current implementation is a [Scala compiler](http://scala-lang.org) plugin, which can speed up generics by up to 22x when used for numeric types, such as integer or double. 
-You can learn more about miniboxing by reading the [introduction](intro.html).
+Miniboxing is a research project at [EPFL](http://lamp.epfl.ch) aimed at improving the performance of generic code running in different Java Virtual Machines. The current implementation is a [Scala compiler](http://scala-lang.org) plugin, and can speed up generics by up to 22x when used for numeric types, such as integer or double.
 
-<br/>
+Using miniboxing is as easy as adding an annotation:
+{% highlight scala %}
+class Vector[@miniboxed T](start: Int, end: Int) {
+  ...
+}
+{% endhighlight %}
 
-What is the difference between `int` and `java.lang.Integer`? A `@miniboxed` annotation.
+Learn more about miniboxing by reading the [introduction](intro.html).
