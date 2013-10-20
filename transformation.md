@@ -21,3 +21,6 @@ The transformation is comprehensively presented in the OOPSLA paper, so this pag
 | Characteristics   |  - annotation-driven       |  - annotation-driven        |
 |                   |  - compatible              |  - compatible               |
 |                   |  - opportunistic           |  - opportunistic            |
+
+
+{% include oopsla2.md %}
