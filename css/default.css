@@ -29,7 +29,7 @@ code {
   font-size: 10pt;
 }
 
-p > code, li > code {
+p > code, li > code, a > code{
   border: 1px solid #a0a0a0;
   padding: 1px 5px;
   background: #eeeedd; 
