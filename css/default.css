@@ -136,8 +136,10 @@ li.major {
 
 #content {
   float: right;
-  width: 80%;
   padding-bottom: 3em;
+  width: 80%;
+  padding-right: 2%;
+  padding-left: 2%;
   text-align: left;
 }
 
