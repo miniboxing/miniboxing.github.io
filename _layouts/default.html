@@ -11,6 +11,7 @@
       @import '/css/print.css';
     </style>
     <meta name='subject' content='Miniboxing documentation'>
+    <!--<link href="{{ site.url }}/feed.xml" rel="alternate" type="application/rss+xml" title="{{ site.name }}">-->
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -64,7 +65,7 @@
         <h1 id='title_{{ page.title | downcase | replace: ' ', '_' }}'>{% if page.short_title %}{{ page.short_title }}{% else %}{{ page.title }}{% endif %}</h1>
         {{ content }}
         <h1>Comments</h1>
-        <p>If you have a question, need a feature, found a bug (it's still an alpha release!) or just want to leave some feedback, we’re always glad to help! Just get in touch by commenting here or on the <a href="issues.html">Issue tracker</a>.</p>
+        <p>If you have a question, need a feature or found a bug (it's still an alpha release!) we’re always glad to help! Just get in touch by commenting here or on the <a href="issues.html">Issue tracker</a>.</p>
         <br/>
         <div id="disqus_thread"></div>
         <script type="text/javascript">
