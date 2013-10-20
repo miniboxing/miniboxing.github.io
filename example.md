@@ -4,7 +4,7 @@ title: Example Sbt Project
 short_title: Example Sbt Project
 ---
 
-This page will present `miniboxing-example`, a project meant to quickly get you up and running with the miniboxing plugin.
+This page will present an example project meant to quickly get you up and running with the miniboxing plugin.
 
 [`Miniboxing-example`](https://github.com/miniboxing/miniboxing-example) is an sbt project with [a single source file](https://github.com/miniboxing/miniboxing-example/blob/master/src/main/scala/miniboxing/example/Test.scala). It is hosted on github at <https://github.com/miniboxing/miniboxing-example> and can be cloned by running:
 
