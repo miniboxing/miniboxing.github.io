@@ -25,6 +25,10 @@
   </head>
   <body>
     <div id='outer'>
+      <p class="paper" align="center">
+        <a href="/2013/10/24/oopsla.html">Miniboxing will be presented at SPLASH 2013 in room <b>Regency AB</b> on <b>Tuesday at 2:00pm</b>.</a>
+      </p>
+      <br/>
       <div id='menu'>
         <ol>
           <img alt='miniboxing' src='http://scala-miniboxing.org/mbox2-thumbnail.png'></a><br/><br/>
@@ -62,7 +66,7 @@
         </ol>
       </div>
       <div id='content'>
-        <h1 id='title_{{ page.title | downcase | replace: ' ', '_' }}'>{% if page.short_title %}{{ page.short_title }}{% else %}{{ page.title }}{% endif %}</h1>
+       <h1 id='title_{{ page.title | downcase | replace: ' ', '_' }}'>{% if page.short_title %}{{ page.short_title }}{% else %}{{ page.title }}{% endif %}</h1>
         {{ content }}
         {% if page.comments == "off" %}
           <!-- comments are disabled on this page -->
