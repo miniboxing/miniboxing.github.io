@@ -173,7 +173,7 @@ This corresponds to some extent to the previous 3 cases:
  * optimized trace inhibitors always create the generic instance of the class
 
 
-## Classes as Optimized Stack Initiators
+## Classes as Optimized Trace Initiators
 
 Finally, we come to the last point: the code encapsulated in classes. We won't go into details on how this is achieved, but calling a method on an optimized instance of a class (`z_opt` in this case) behaves like an initiator, while calling a method on a generic instance of a class (`z_gen`) behaves as an inhibitor:
 
