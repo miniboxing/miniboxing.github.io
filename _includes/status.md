@@ -1,0 +1,5 @@
+<p class="paper">
+Please keep in mind that miniboxing plugin is an alpha release, and not a feature-complete, perfectly functional drop-in compiler addon. There are many <a href="https://github.com/miniboxing/miniboxing-plugin/issues?state=open">bugs we are working on</a> and <a href="https://github.com/miniboxing/miniboxing-plugin/wiki/Details-|-Known-Limitations">known limitations that we haven&#39;t addressed yet</a>.<br/><br/>
+
+Still, we do our best to make miniboxing a stable transformation, with <a href="https://travis-ci.org/miniboxing/miniboxing-plugin">nightly</a> <a href="https://travis-ci.org/miniboxing/miniboxing-example">builds</a> and <a href="https://github.com/miniboxing/miniboxing-plugin/tree/wip/tests/correctness/src/miniboxing/tests/compile">tens of test cases</a> running every night. That said, miniboxing is a complex transformation, so don&#39;t be surprised if the miniboxing plugin to fails on some programs -- and please, <a href="https://github.com/miniboxing/miniboxing-plugin">file bugs</a> for test cases that fail!
+</p>

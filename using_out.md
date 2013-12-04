@@ -10,7 +10,9 @@ Miniboxing is a Scala compiler plugin and thus performs its transformations as p
  * the miniboxing runtime support library and
  * the miniboxing compiler plugin
 
-Fortunately, both artifacts are [published nightly on maven](https://scala-webapps.epfl.ch/jenkins/view/All/job/miniboxing-wip-nightly/), so you can easily get them.
+Fortunately, both artifacts are [published nightly on maven](https://travis-ci.org/miniboxing/miniboxing-plugin), so you can easily get them.
+
+{% include status.md %}
 
 ## Getting the Artifact Jars
 
@@ -117,8 +119,3 @@ Specializing class C...
   }
 {% endhighlight %}
 
-## Alpha Warning
-
-Please keep in mind that miniboxing plugin is an alpha release, and not a feature-complete, perfectly functional drop-in compiler addon. There are many [bugs we are working on](https://github.com/miniboxing/miniboxing-plugin/issues?state=open) and [known limitations that we haven't addressed yet](https://github.com/miniboxing/miniboxing-plugin/wiki/Details-|-Known-Limitations).
-
-Still, we do our best to make miniboxing a stable transformation, with [nightly](https://scala-webapps.epfl.ch/jenkins/view/All/job/miniboxing-wip-nightly/) [builds](https://scala-webapps.epfl.ch/jenkins/view/All/job/miniboxing-example-nightly/) and [tens of test cases](https://github.com/miniboxing/miniboxing-plugin/tree/wip/tests/correctness/src/miniboxing/tests/compile) running every night. That said, miniboxing is a complex transformation, so don't be surprised if the miniboxing plugin to fails on some programs -- and please, try to [file bugs](https://github.com/miniboxing/miniboxing-example) for test cases that fail! 
