@@ -14,7 +14,7 @@ Before you jump in, please think how would you, as a developer, like to see the 
   * the stack trace
   * the version of Scala and the miniboxing plugin
 
-Let's take two examples:
+Let''s take two examples:
  * a good bug report, that is likely to get fixed quickly is [#43](https://github.com/miniboxing/miniboxing-plugin/issues/43).
  * a lousy bug report, that will probably still be there in a year, is [#10](https://github.com/miniboxing/miniboxing-plugin/issues/10).
 
