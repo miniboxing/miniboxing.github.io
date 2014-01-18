@@ -1,4 +1,4 @@
 miniboxing.github.com
 =====================
 
-scala-miniboxing.org web page
+Code for [the scala-miniboxing.org web site](http://scala-miniboxing.org).
