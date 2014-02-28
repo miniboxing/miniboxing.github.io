@@ -24,8 +24,6 @@ The list is quite long, but here's a summary:
  * simplified method bridging mechanism (tests: [1](https://github.com/miniboxing/miniboxing-plugin/blob/topic/erasure-rebase/tests/correctness/src/miniboxing/tests/compile/mb_signatures.scala) [2](https://github.com/miniboxing/miniboxing-plugin/blob/topic/erasure-rebase/tests/correctness/src/miniboxing/tests/compile/mb_rewire_method.scala) [3](https://github.com/miniboxing/miniboxing-plugin/blob/topic/erasure-rebase/tests/correctness/src/miniboxing/tests/compile/mb_rewire_method_advanced.scala) [4](https://github.com/miniboxing/miniboxing-plugin/blob/topic/erasure-rebase/tests/correctness/src/miniboxing/tests/compile/mb_rewire_new.scala) [5](https://github.com/miniboxing/miniboxing-plugin/blob/topic/erasure-rebase/tests/correctness/src/miniboxing/tests/compile/mb_rewire_val.scala) [6](https://github.com/miniboxing/miniboxing-plugin/blob/topic/erasure-rebase/tests/correctness/src/miniboxing/tests/compile/mb_tparams_basic.scala) [7](https://github.com/miniboxing/miniboxing-plugin/blob/topic/erasure-rebase/tests/correctness/src/miniboxing/tests/compile/mb_tparams_rewire_method.scala) [8](https://github.com/miniboxing/miniboxing-plugin/blob/topic/erasure-rebase/tests/correctness/src/miniboxing/tests/compile/mb_tparams_rewire_new.scala))
  * removing many mechanisms made redundant by the latest developments :)
 
-## Thank you!
+## Update
 
-Thank you for reading this notice, and please, if possible, help review the pull request for the new miniboxing transformation!
-
-*Vlad*
+The [pull request](https://github.com/miniboxing/miniboxing-plugin/pull/68) has been merged! For more details [see the presentation](https://speakerdeck.com/vladureche/late-data-layout-initial-presentation).
