@@ -25,14 +25,14 @@ The miniboxing runtime support library is marked as a dependency to the project 
 {% highlight scala %}
 resolvers += Resolver.sonatypeRepo("snapshots")
 libraryDependencies += "org.scala-miniboxing.plugins" %% 
-                       "miniboxing-runtime" % "0.1-SNAPSHOT"
+                       "miniboxing-runtime" % "0.2-SNAPSHOT"
 {% endhighlight %}
 
 Just by adding the library, you can already annotate type parameters with `@miniboxed`. Still, in order to have the code transformed based on the annotations, you need to add the miniboxing compiler plugin:
 
 {% highlight scala %}
 addCompilerPlugin("org.scala-miniboxing.plugins" %% 
-                  "miniboxing-plugin" % "0.1-SNAPSHOT")
+                  "miniboxing-plugin" % "0.2-SNAPSHOT")
 {% endhighlight %}
 
 Finally, it is important to run the optimizer after compiling using the miniboxing plugin (this may be become redundant in future versions):
@@ -53,10 +53,10 @@ scalaVersion := "2.10.2"
 resolvers += Resolver.sonatypeRepo("snapshots")
 
 libraryDependencies += "org.scala-miniboxing.plugins" %% 
-                       "miniboxing-runtime" % "0.1-SNAPSHOT"
+                       "miniboxing-runtime" % "0.2-SNAPSHOT"
 
 addCompilerPlugin("org.scala-miniboxing.plugins" %% 
-                  "miniboxing-plugin" % "0.1-SNAPSHOT")
+                  "miniboxing-plugin" % "0.2-SNAPSHOT")
 
 scalacOptions += "-optimize"
 {% endhighlight %}
@@ -75,9 +75,9 @@ The exact same commands are needed in the full build, except that they are now w
 val miniboxingSettings: Seq[Setting[_]] = Seq(
   resolvers += Resolver.sonatypeRepo("snapshots"),
   libraryDependencies += "org.scala-miniboxing.plugins" %% 
-                         "miniboxing-runtime" % "0.1-SNAPSHOT",
+                         "miniboxing-runtime" % "0.2-SNAPSHOT",
   addCompilerPlugin("org.scala-miniboxing.plugins" %% 
-                    "miniboxing-plugin" % "0.1-SNAPSHOT"),
+                    "miniboxing-plugin" % "0.2-SNAPSHOT"),
   scalacOptions += "-optimize"
 )
 {% endhighlight %}

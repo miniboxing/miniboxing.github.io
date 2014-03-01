@@ -16,14 +16,14 @@ Fortunately, both artifacts are [published nightly on maven](https://travis-ci.o
 
 ## Getting the Artifact Jars
 
-The two artifacts are hosted on the [Sonatype OSS snapshots repository](https://docs.sonatype.org/display/Repository/Sonatype+OSS+Maven+Repository+Usage+Guide). You can either [download them manually](https://oss.sonatype.org/content/repositories/snapshots/org/scala-miniboxing/plugins/miniboxing-runtime_2.10/0.1-SNAPSHOT/) ([runtime is here](https://oss.sonatype.org/content/repositories/snapshots/org/scala-miniboxing/plugins/miniboxing-runtime_2.10/0.1-SNAPSHOT/miniboxing-runtime_2.10-0.1-SNAPSHOT.jar) and [plugin is here](https://oss.sonatype.org/content/repositories/snapshots/org/scala-miniboxing/plugins/miniboxing-plugin_2.10/0.1-SNAPSHOT/miniboxing-plugin_2.10-0.1-SNAPSHOT.jar)) or ask your dependency manager to fetch them:
+The two artifacts are hosted on the [Sonatype OSS snapshots repository](https://docs.sonatype.org/display/Repository/Sonatype+OSS+Maven+Repository+Usage+Guide). You can either [download them manually](https://oss.sonatype.org/content/repositories/snapshots/org/scala-miniboxing/plugins/miniboxing-runtime_2.10/0.2-SNAPSHOT/) ([runtime is here](https://oss.sonatype.org/content/repositories/snapshots/org/scala-miniboxing/plugins/miniboxing-runtime_2.10/0.1-SNAPSHOT/miniboxing-runtime_2.10-0.1-SNAPSHOT.jar) and [plugin is here](https://oss.sonatype.org/content/repositories/snapshots/org/scala-miniboxing/plugins/miniboxing-plugin_2.10/0.1-SNAPSHOT/miniboxing-plugin_2.10-0.1-SNAPSHOT.jar)) or ask your dependency manager to fetch them:
 
 Runtime support library:
 {% highlight xml %}
 <dependency>
   <groupId>org.scala-miniboxing.plugins</groupId>
   <artifactId>miniboxing-runtime_2.10</artifactId>
-  <version>0.1-SNAPSHOT</version>
+  <version>0.2-SNAPSHOT</version>
 </dependency>
 {% endhighlight %}
 
@@ -33,7 +33,7 @@ Scala compiler plugin:
 <dependency>
   <groupId>org.scala-miniboxing.plugins</groupId>
   <artifactId>miniboxing-plugin_2.10</artifactId>
-  <version>0.1-SNAPSHOT</version>
+  <version>0.2-SNAPSHOT</version>
 </dependency>
 {% endhighlight %}
 
