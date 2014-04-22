@@ -5,7 +5,9 @@ short_title: Welcome
 comments: "off"
 ---
 
-Miniboxing is a research project at [EPFL](http://lamp.epfl.ch) aimed at improving the performance of generic code running on the Java Virtual Machine. Unlike [Scala specialization](http://days2010.scala-lang.org/node/138/151/15-7-E%20-%20Specialization%20-%20Dragos.mp4), miniboxing sacrifices some of the performance in order to generate less bytecode: indeed, it typically generates 4x-20x less bytecode. Miniboxing is implemented as a [Scala compiler](http://scala-lang.org) plugin, and can speed up generics by up to 22x when used for numeric types, such as integer or double.
+Miniboxing is a research project at [EPFL](http://lamp.epfl.ch) aimed at improving the performance of generic code running on the Java Virtual Machine. Compared to [Scala specialization](http://days2010.scala-lang.org/node/138/151/15-7-E%20-%20Specialization%20-%20Dragos.mp4), miniboxing typically produces 4-100x less bytecode, thus paving the way for [deeply specialized Scala collections](https://github.com/MelodyLucid/freezing-ironman). In turn, miniboxed collections can perform an order of magnitude faster operations for primitive numeric types, such as integers or floating point numbers. 
+
+Miniboxing is implemented as a [Scala compiler](http://scala-lang.org) plugin which you can [easily try on your project](/using-sbt.html).
 
 {% include status.md %}
 
