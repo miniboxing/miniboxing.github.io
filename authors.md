@@ -9,7 +9,8 @@ The miniboxing project is developed by [**Vlad Ureche**](http://vladureche.ro) a
 Commiters:
  * [Vlad Ureche](http://vladureche.ro) - main developer
  * [Cristian Talau](https://github.com/ctalau) - developed the initial prototype, as a semester project
- * [Eugene Burmako](https://github.com/xeno-by) - sbt upgrade 
+ * [Eugene Burmako](https://github.com/xeno-by) - [valium](https://github.com/miniboxing/valium)
+ * [Aymeric Genet](https://github.com/MelodyLucid) 
  * [&lt;your name here&gt;](http://lamp.epfl.ch/teaching/projects/master#faq-527294) - yes, **we need your help**!
 
 Acknowledgements:
