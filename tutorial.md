@@ -21,21 +21,21 @@ class C[@miniboxed T](var t: T) {
 }
 {% endhighlight %}
 
- * Miniboxing can speed up monomorphic code:
+* Miniboxing can speed up monomorphic code:
 {% highlight scala %}
 def bar_good(t: Int) = new C[Int](t).foo()
 {% endhighlight %}
 In this case, the miniboxing transformation will encounter an instantiation of `C` with type argument `Int`, and will rewrite the `new` instance creation and the `foo` method call to use direct value types, thus speeding up execution and avoiding boxing.
-
 <br/>
- * Miniboxing can't speed up generic code if the type parameters are not annotated with `@miniboxed`:
+
+* Miniboxing can't speed up generic code if the type parameters are not annotated with `@miniboxed`:
 {% highlight scala %}
 def bar_bad[T](t: T) = new C[T](t).foo()
 {% endhighlight %}
 Since the type parameter `T` of method `bar_bad` is not marked as `@miniboxed`, the erasure transformation will kick in instead of miniboxing. Although the `C` class is transformed by miniboxing, erasure won't perform any program rewriting to improve performance. Therefore, regardless of whether `C` is optimized by miniboxing or not, the performance for `bar_bad` will stay the same. This is intended, since miniboxed code needs to be compatible with erasure-generated code, at the cost of lower performance.
-
 <br/>
- * To recover performance for the previous case, you can annotate the method parameter as `@miniboxed`: 
+
+* To recover performance for the previous case, you can annotate the method parameter as `@miniboxed`: 
 {% highlight scala %}
 def bar_awesome[@miniboxed T](t: T) = new C[T](t).foo()
 {% endhighlight %}

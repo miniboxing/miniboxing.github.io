@@ -19,5 +19,5 @@ Let's take two examples:
  * a lousy bug report, that will probably still be there in a year, is [#10](https://github.com/miniboxing/miniboxing-plugin/issues/10).
 
 Okay, if you read so far, dig in:
-[[https://github.com/miniboxing/miniboxing-plugin/issues?state=open]]
+[https://github.com/miniboxing/miniboxing-plugin/issues?state=open](https://github.com/miniboxing/miniboxing-plugin/issues?state=open)
 

@@ -1,6 +1,7 @@
 safe: true
 lsi: false
 pygments: true
+markdown: kramdown
 name: Miniboxing News
 description: Latest development news for the miniboxing plugin for Scala.
 url: http://scala-miniboxing.org

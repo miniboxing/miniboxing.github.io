@@ -11,8 +11,9 @@ $ git clone https://github.com/miniboxing/miniboxing-plugin.git
 {% endhighlight %}
 
 The [wiki pages](https://github.com/miniboxing/miniboxing-plugin/wiki) contain a wealth of information on the source code structure. And they contain many details that are not explained anywhere else, for example:
- * how to build the project: <https://github.com/miniboxing/miniboxing-plugin/wiki/Try-|-Local-installation>
- * how to run the benchmarks: <https://github.com/miniboxing/miniboxing-plugin/wiki/Running-|-Benchmark-Numbers>
+
+* how to build the project
+* how to run the benchmarks
 
 A list of all pages is available here: <https://github.com/miniboxing/miniboxing-plugin/wiki/_pages>.
 

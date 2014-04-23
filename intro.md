@@ -74,6 +74,6 @@ Now that you know what miniboxing is about:
  * If you want to start using miniboxing in your project, have a look at the [getting started page](getting-started.html).
  * If you're interested in how miniboxing works, have a look at the [transformation description](transformation.html).
 
-Miniboxing is a research project in the [Programming Methods laboratory](http://lamp.epfl.ch) at [EPFL](http://epfl.ch). 
+Miniboxing is a research project in the [Programming Methods Laboratory](http://lamp.epfl.ch) at [EPFL](http://epfl.ch). 
 
 
