@@ -28,10 +28,11 @@ As you can see, erasure transformed `t` from a generic value into a pointer to a
 The reason it's suboptimal is because primitive value types are not compatible with pointers under the Java Virtual Machine specification, thus the only valid way to store them in `class C` is to encode them as heap objects, a process known as [boxing](http://en.wikipedia.org/wiki/Object_type_%28object-oriented_programming%29#Boxing). 
 
 But boxing primitive values has several disadvantages:
- * it uses more heap memory than necessary, as the objects containing primitive types also contain headers and padding bits
- * it makes access to primitive value types indirect, thus slowing down program execution (also known as chasing pointers)
- * objects storing primitive values need to be garbage collected, as they are not eliminated together with the class
- * objects potentially break cache locality: an array of integers as values guarantees they are stored contiguously, thus guarantees locality. Contrarily, accessing an array of pointers to objects encoding integers only guarantees pointers are stored contiguously, but the objects can be randomly spread around the heap.
+
+* it uses more heap memory than necessary, as the objects containing primitive types also contain headers and padding bits
+* it makes access to primitive value types indirect, thus slowing down program execution (also known as chasing pointers)
+* objects storing primitive values need to be garbage collected, as they are not eliminated together with the class
+* objects potentially break cache locality: an array of integers as values guarantees they are stored contiguously, thus guarantees locality. Contrarily, accessing an array of pointers to objects encoding integers only guarantees pointers are stored contiguously, but the objects can be randomly spread around the heap.
 
 As you can probably figure out from the list of disadvantages, that's a major drawback in terms of performance. This is exactly where miniboxing comes in:
 
@@ -63,14 +64,14 @@ case class Tuple3[@specialized +T1, @specialized +T2, @specialized +T3]
 Specialization generates **1000 classes**. Just change `@specialized` to `@miniboxed` and you get **only 8 classes**.
 
 **Long answer:** Aside from reducing the bytecode size, the miniboxing technique improves important aspects of specialization:
- * miniboxing-specialized classes don't inherit generic fields (see [SI-3585](https://issues.scala-lang.org/browse/SI-3585));
- * miniboxing-specialized classes can inherit from their miniboxing-specialized parents (see [this restriction](https://github.com/scala/scala/blob/master/src/compiler/scala/tools/nsc/transform/SpecializeTypes.scala#L572)).
+
+* miniboxing-specialized classes don't inherit generic fields (see [SI-3585](https://issues.scala-lang.org/browse/SI-3585));
+* miniboxing-specialized classes can inherit from their miniboxing-specialized parents (see [this restriction](https://github.com/scala/scala/blob/master/src/compiler/scala/tools/nsc/transform/SpecializeTypes.scala#L572)).
 
 While there's certainly an overlap between specialization and miniboxing, both in terms of ideas and implementation (miniboxing reuses some of the code from specialization), we hope miniboxing will soon reach the maturity necessary to replace specialization in the Scala compiler.
 
-<br/>
+## Now that you know what miniboxing is about:
 
-Now that you know what miniboxing is about:
  * If you want to start using miniboxing in your project, have a look at the [getting started page](getting-started.html).
  * If you're interested in how miniboxing works, have a look at the [transformation description](transformation.html).
 
