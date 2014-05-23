@@ -8,18 +8,52 @@ short_title: Benchmarks
 
 The OOPSLA papers presents several benchmarks:
 
-* performance microbenchmarks
-  * on the HotSpot JVM with the Server compiler
-  * on the HotSpot JVM with the Graal compiler
-* interpreter performance microbenchmarks
-* bytecode size
-* classloader overhead
-  * performance impact
-  * heap consumption
+ * performance microbenchmarks
+   * on the HotSpot JVM with the Server compiler
+   * on the HotSpot JVM with the Graal compiler
+ * interpreter performance microbenchmarks
+ * bytecode size
+ * classloader overhead
+   * performance impact
+   * heap consumption
 
 In short, miniboxed code:
-* is up to *22x faster* than generic code
-* matches the performance of specialization
-* is marginally slower compared to monomorphic code
+
+ * is up to *22x faster* than generic code
+ * matches the performance of specialization
+ * is marginally slower compared to monomorphic code
 
 {% include oopsla2.md %}
+
+<!--
+{% highlight text %}
+$ sbt
+[info] Loading project definition from ...
+[info] Set current project to miniboxing (in build file:/...)
+> miniboxing-lib-bench/test
+Starting miniboxed benchmarks. Lay back, it might take a few minutes to stabilize...
+  Miniboxed.Least Squares Method with List[Double]: Parameters(size -> 100000) :   40.17284
+  Miniboxed.Least Squares Method with List[Double]: Parameters(size -> 200000) :   86.06873
+  Miniboxed.Least Squares Method with List[Double]: Parameters(size -> 300000) :  141.54581
+  Miniboxed.Least Squares Method with List[Double]: Parameters(size -> 400000) :  207.75295
+  Miniboxed.Least Squares Method with List[Double]: Parameters(size -> 500000) :  280.18537
+  Miniboxed.Least Squares Method with List[Double]: Parameters(size -> 600000) :  323.60013
+  Miniboxed.Least Squares Method with List[Double]: Parameters(size -> 700000) :  457.84940
+  Miniboxed.Least Squares Method with List[Double]: Parameters(size -> 800000) :  484.78261
+  Miniboxed.Least Squares Method with List[Double]: Parameters(size -> 900000) :  580.94868
+  Miniboxed.Least Squares Method with List[Double]: Parameters(size -> 1000000):  705.98469
+Starting generic benchmarks. Lay back, it might take a few minutes to stabilize...
+  Generic.Least Squares Method with List[Double]  : Parameters(size -> 100000) :   47.00287
+  Generic.Least Squares Method with List[Double]  : Parameters(size -> 200000) :  107.68081
+  Generic.Least Squares Method with List[Double]  : Parameters(size -> 300000) :  170.01293
+  Generic.Least Squares Method with List[Double]  : Parameters(size -> 400000) :  243.97792
+  Generic.Least Squares Method with List[Double]  : Parameters(size -> 500000) :  480.00209
+  Generic.Least Squares Method with List[Double]  : Parameters(size -> 600000) :  449.29038
+  Generic.Least Squares Method with List[Double]  : Parameters(size -> 700000) :  537.75408
+  Generic.Least Squares Method with List[Double]  : Parameters(size -> 800000) :  715.98054
+  Generic.Least Squares Method with List[Double]  : Parameters(size -> 900000) :  888.55467
+  Generic.Least Squares Method with List[Double]  : Parameters(size -> 1000000): 1356.75306
+[info] Passed: Total 0, Failed 0, Errors 0, Passed 0
+[success] Total time: 498 s, completed May 22, 2014 1:26:31 PM
+{% endhighlight %}
+-->
