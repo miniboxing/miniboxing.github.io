@@ -33,4 +33,4 @@ Acknowledgements:
 * Hubert Plociniczak for the type notation in the [LDL paper](https://github.com/miniboxing/miniboxing-plugin/blob/wip/docs/2014-03-ldl-draft.pdf?raw=true)
 * Denys Shabalin, Dmitry Petrashko for their patient reviews of the [LDL paper](https://github.com/miniboxing/miniboxing-plugin/blob/wip/docs/2014-03-ldl-draft.pdf?raw=true)
 
-If your name should be here, [email Vlad](http://www.google.com/recaptcha/mailhide/d?k=016G8jVns__CP-wXgkd4YaJA==&c=lsV9Di2CEGkQFT3zBye4HO80J5SgNrzCv4Dv7tF30KY=) and you'll be h)ere in no time!
+If your name should be here, [email Vlad](http://www.google.com/recaptcha/mailhide/d?k=016G8jVns__CP-wXgkd4YaJA==&c=lsV9Di2CEGkQFT3zBye4HO80J5SgNrzCv4Dv7tF30KY=)!
