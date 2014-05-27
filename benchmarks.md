@@ -4,46 +4,76 @@ title: Benchmarks
 short_title: Benchmarks
 ---
 
-<!--
-In order to benchmark the performance of Miniboxing, we implemented the _Least Square method_ ; a procedure which finds the best-fitting linear curve to a given set of points. This method has been proved to give better results with Miniboxing, since the plugin aims to optimize numerical application that are likely to use primitive types. This has been done by programming a mock-up library that includes multiple patterns commonly used in official Scala collections, so it could be optimized by the plugin.
+{% include oopsla.md %}
 
-{% highlight text %}
-$ sbt
-[info] Loading project definition from ...
-[info] Set current project to miniboxing (in build file:/...)
-> miniboxing-lib-bench/test
-Starting miniboxed benchmarks. Lay back, it might take a few minutes to stabilize...
-  Miniboxed.Least Squares Method with List[Double]: Parameters(size -> 100000) :   40.17284
-  Miniboxed.Least Squares Method with List[Double]: Parameters(size -> 200000) :   86.06873
-  Miniboxed.Least Squares Method with List[Double]: Parameters(size -> 300000) :  141.54581
-  Miniboxed.Least Squares Method with List[Double]: Parameters(size -> 400000) :  207.75295
-  Miniboxed.Least Squares Method with List[Double]: Parameters(size -> 500000) :  280.18537
-  Miniboxed.Least Squares Method with List[Double]: Parameters(size -> 600000) :  323.60013
-  Miniboxed.Least Squares Method with List[Double]: Parameters(size -> 700000) :  457.84940
-  Miniboxed.Least Squares Method with List[Double]: Parameters(size -> 800000) :  484.78261
-  Miniboxed.Least Squares Method with List[Double]: Parameters(size -> 900000) :  580.94868
-  Miniboxed.Least Squares Method with List[Double]: Parameters(size -> 1000000):  705.98469
-Starting generic benchmarks. Lay back, it might take a few minutes to stabilize...
-  Generic.Least Squares Method with List[Double]  : Parameters(size -> 100000) :   47.00287
-  Generic.Least Squares Method with List[Double]  : Parameters(size -> 200000) :  107.68081
-  Generic.Least Squares Method with List[Double]  : Parameters(size -> 300000) :  170.01293
-  Generic.Least Squares Method with List[Double]  : Parameters(size -> 400000) :  243.97792
-  Generic.Least Squares Method with List[Double]  : Parameters(size -> 500000) :  480.00209
-  Generic.Least Squares Method with List[Double]  : Parameters(size -> 600000) :  449.29038
-  Generic.Least Squares Method with List[Double]  : Parameters(size -> 700000) :  537.75408
-  Generic.Least Squares Method with List[Double]  : Parameters(size -> 800000) :  715.98054
-  Generic.Least Squares Method with List[Double]  : Parameters(size -> 900000) :  888.55467
-  Generic.Least Squares Method with List[Double]  : Parameters(size -> 1000000): 1356.75306
-[info] Passed: Total 0, Failed 0, Errors 0, Passed 0
-[success] Total time: 498 s, completed May 22, 2014 1:26:31 PM
+This document will only present a few of the bechmarks:
+
+ * macrobenchmarks - large and complex programs
+ * microbenchmarks - small and focused benchmarks
+ * bytecode size comparisons
+
+
+## Macrobenchmarks
+
+To evaluate the miniboxing plugin, we implemented a mock-up of the Scala collections library and benchmarked the performance. The result: **2x speedup just by adding the** `@miniboxed` **annotations**. And it's worth pointing out our mock-up included all the common patterns found in the library: `Builder`, `Numeric`, `Traversable`, `Seq`, closures, tuples etc.
+
+The benchmark we ran is fitting a linear curve to a given set of points using the [_Least Squares method_](http://en.wikipedia.org/wiki/Least_squares). Basically, we made a custom library and benchmarked this code:
+
+{% highlight scala %}
+  val xs: List[Double] = // list of x coordinates
+  val ys: List[Double] = // list of y coordinates
+
+  // list of (x,y) coordinates:
+  val xys = xs.zip(ys)
+
+  // intermediary sums:
+  val sumx  = xs.sum
+  val sumy  = ys.sum
+  val sumxy = xys.map(mult).sum
+  val sumsquare = xs.map(square).sum
+
+  // slope and intercept approximation:
+  val slope = (size * sumxy - sumx * sumy) / (size * sumsquare - sumx * sumx)
+  val intercept = (sumy * sumsquare - sumx * sumxy) / (size * sumsquare - sumx * sumx)
 {% endhighlight %}
--->
 
-Taking [`ArrayBuffer.reverse`](/benchmarks.html) as an example:
+We ran this code with three versions of the library: one with the plugin activated, one with generic classes and one with specialized classes. Unfortunately the specialization transformation in the Scala compieler had a bug that prevented it from transforming this code correctly (we got an `AbstractMethodError` at runtime).
+
+These are the numbers we obtained on an i7 server machine with 16GB of RAM:
+
+Collection size | Miniboxed (ms) |   Generic (ms)
+----------------|----------------|---------------
+         500000 |            293 |            349
+        1000000 |            610 |            804
+        1500000 |           1065 |           1283
+        2000000 |           1271 |           1824
+        2500000 |           1732 |           2597
+        3000000 |           2117 |           3518
+        3500000 |           3094 |           5090
+        4000000 |           3891 |           7258
+        4500000 |           5049 |          10054
+        5000000 |           6822 |          12516
+
+<br/>
+In a graphical format:
+<br/>
+<br/>
+
+<center><img width="90%" src="/graphs/linkedlist/linkedlist.png"/></center>
+
+
+## Microbenchmarks
+
+Another important benchmark is the `ArrayBuffer.reverse`. This is the most difficult benchmark to get right, since the
+miniboxing transformation interacts with the Java Virtual Machine optimization heuristics and, if the transformation is
+not done correctly, miniboxing can actually hurt performance (more details in the OOPSLA paper).
+
+These are our current results:
 
 <center><img width="90%" src="/graphs/speed-gen.png"/></center>
 
 Where:
+
  * `generic` is the generic code
  * `miniboxing` is the code generated by our plugin
  * `specialization` is the code generated by the `@specialized` annotation in Scala
@@ -53,11 +83,15 @@ After removing `generic`:
 
 <center><img width="90%" src="/graphs/speed-spec.png"/></center>
 
-And when comparing the total bytecode size for [spire](https://github.com/non/spire) we see a 4.5x bytecode reduction:
+## Bytecode Size
+
+When comparing the total bytecode size for [spire](https://github.com/non/spire) we see a 4.5x bytecode reduction:
 
 <center><img width="90%" src="/graphs/size.png"/></center>
 
-The OOPSLA papers presents several benchmarks:
+## More Benchmarks
+
+The <a href="https://github.com/miniboxing/miniboxing-plugin/blob/wip/docs/2013-07-oopsla-preprint.pdf?raw=true">OOPSLA'13 paper</a> presents several other benchmarks:
 
  * performance microbenchmarks
    * on the HotSpot JVM with the Server compiler
@@ -68,10 +102,14 @@ The OOPSLA papers presents several benchmarks:
    * performance impact
    * heap consumption
 
+The <a href="https://github.com/miniboxing/miniboxing-plugin/blob/wip/docs/2014-04-miniboxing-scala-collections.pdf?raw=true">SCALA'14 paper</a> presents:
+
+ * a high-level overview of patterns in Scala
+ * benchmarks for a mock-up of the Scala collection linked list
+
 In short, miniboxed code:
 
  * is up to *22x faster* than generic code
  * matches the performance of specialization
  * is marginally slower compared to monomorphic code
 
-{% include oopsla2.md %}

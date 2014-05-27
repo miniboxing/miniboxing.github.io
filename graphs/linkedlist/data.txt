@@ -1,0 +1,31 @@
+nohup: ignoring input
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=384m; support was removed in 8.0
+Picked up _JAVA_OPTIONS: -Xms16g -Xmx16g -Xss4m -XX:+CMSClassUnloadingEnabled -XX:ReservedCodeCacheSize=256m -XX:+TieredCompilation -XX:+UseNUMA
+[info] Loading project definition from /localhome/agenet/workspace/dev/miniboxing-plugin/project
+[info] Set current project to miniboxing (in build file:/localhome/agenet/workspace/dev/miniboxing-plugin/)
+Picked up _JAVA_OPTIONS: -Xms16g -Xmx16g -Xss4m -XX:+CMSClassUnloadingEnabled -XX:ReservedCodeCacheSize=256m -XX:+TieredCompilation -XX:+UseNUMA
+Starting miniboxed benchmarks. Lay back, it might take a few minutes to stabilize...
+  MiniboxedBenchmark$.Least Squares Method with List[Double]  : Parameters(size -> 500000)    :  293.24424
+  MiniboxedBenchmark$.Least Squares Method with List[Double]  : Parameters(size -> 1000000)   :  610.26120
+  MiniboxedBenchmark$.Least Squares Method with List[Double]  : Parameters(size -> 1500000)   :  1065.44924
+  MiniboxedBenchmark$.Least Squares Method with List[Double]  : Parameters(size -> 2000000)   :  1271.19865
+  MiniboxedBenchmark$.Least Squares Method with List[Double]  : Parameters(size -> 2500000)   :  1732.02768
+  MiniboxedBenchmark$.Least Squares Method with List[Double]  : Parameters(size -> 3000000)   :  2117.65932
+  MiniboxedBenchmark$.Least Squares Method with List[Double]  : Parameters(size -> 3500000)   :  3094.58219
+  MiniboxedBenchmark$.Least Squares Method with List[Double]  : Parameters(size -> 4000000)   :  3891.45250
+  MiniboxedBenchmark$.Least Squares Method with List[Double]  : Parameters(size -> 4500000)   :  5049.51995
+  MiniboxedBenchmark$.Least Squares Method with List[Double]  : Parameters(size -> 5000000)   :  6822.82481
+Starting generic benchmarks. Lay back, it might take a few minutes to stabilize...
+  GenericBenchmark$.Least Squares Method with List[Double]    : Parameters(size -> 500000)    :  349.92962
+  GenericBenchmark$.Least Squares Method with List[Double]    : Parameters(size -> 1000000)   :  804.52670
+  GenericBenchmark$.Least Squares Method with List[Double]    : Parameters(size -> 1500000)   :  1283.08404
+  GenericBenchmark$.Least Squares Method with List[Double]    : Parameters(size -> 2000000)   :  1824.00668
+  GenericBenchmark$.Least Squares Method with List[Double]    : Parameters(size -> 2500000)   :  2597.58613
+  GenericBenchmark$.Least Squares Method with List[Double]    : Parameters(size -> 3000000)   :  3518.42053
+  GenericBenchmark$.Least Squares Method with List[Double]    : Parameters(size -> 3500000)   :  5090.08434
+  GenericBenchmark$.Least Squares Method with List[Double]    : Parameters(size -> 4000000)   :  7258.33983
+  GenericBenchmark$.Least Squares Method with List[Double]    : Parameters(size -> 4500000)   :  10054.87688
+  GenericBenchmark$.Least Squares Method with List[Double]    : Parameters(size -> 5000000)   :  12516.51889
+[info] Passed: Total 0, Failed 0, Errors 0, Passed 0
+[success] Total time: 4738 s, completed May 26, 2014 8:42:30 PM
+
