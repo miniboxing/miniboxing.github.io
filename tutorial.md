@@ -203,7 +203,6 @@ Test1$.foo(<console>:8)
 Test1$.bar(<console>:9)
 Test1$.baz(<console>:10)
 {% endhighlight %}
-(see [this bug](https://github.com/miniboxing/miniboxing-plugin/issues/53) in [miniboxing-plugin](https://github.com/miniboxing/miniboxing-plugin/))
 
 ## Closing Remarks
 

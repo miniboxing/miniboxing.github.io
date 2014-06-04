@@ -16,7 +16,7 @@ Fortunately, both artifacts are [published nightly on maven](https://travis-ci.o
 
 ## Adding Miniboxing
 
-Depending on your project's size, you may be using the [basic project definition](http://www.scala-sbt.org/0.12.2/docs/Getting-Started/Basic-Def.html) (in a `.sbt` file) or the [full project definition](http://www.scala-sbt.org/0.12.2/docs/Getting-Started/Full-Def.html) (usually in `project/Build.scala`).
+Depending on your project's size, you may be using the [basic project definition](http://www.scala-sbt.org/0.13.5/docs/Getting-Started/Basic-Def.html) (in a `.sbt` file) or the [full project definition](http://www.scala-sbt.org/0.13.5/docs/Getting-Started/Full-Def.html) (usually in `project/Build.scala`).
 
 ### ... to a basic project definition
 
@@ -25,14 +25,14 @@ The miniboxing runtime support library is marked as a dependency to the project 
 {% highlight scala %}
 resolvers += Resolver.sonatypeRepo("snapshots")
 libraryDependencies += "org.scala-miniboxing.plugins" %% 
-                       "miniboxing-runtime" % "0.2-SNAPSHOT"
+                       "miniboxing-runtime" % "0.3-SNAPSHOT"
 {% endhighlight %}
 
 Just by adding the library, you can already annotate type parameters with `@miniboxed`. Still, in order to have the code transformed based on the annotations, you need to add the miniboxing compiler plugin:
 
 {% highlight scala %}
 addCompilerPlugin("org.scala-miniboxing.plugins" %% 
-                  "miniboxing-plugin" % "0.2-SNAPSHOT")
+                  "miniboxing-plugin" % "0.3-SNAPSHOT")
 {% endhighlight %}
 
 Finally, it is important to run the optimizer after compiling using the miniboxing plugin (this may be become redundant in future versions):
@@ -48,15 +48,15 @@ name := "hello-miniboxing-world"
 
 version := "1.0"
 
-scalaVersion := "2.10.2"
+scalaVersion := "2.11.1"
 
 resolvers += Resolver.sonatypeRepo("snapshots")
 
 libraryDependencies += "org.scala-miniboxing.plugins" %% 
-                       "miniboxing-runtime" % "0.2-SNAPSHOT"
+                       "miniboxing-runtime" % "0.3-SNAPSHOT"
 
 addCompilerPlugin("org.scala-miniboxing.plugins" %% 
-                  "miniboxing-plugin" % "0.2-SNAPSHOT")
+                  "miniboxing-plugin" % "0.3-SNAPSHOT")
 
 scalacOptions += "-optimize"
 {% endhighlight %}
@@ -64,7 +64,7 @@ scalacOptions += "-optimize"
 This project definition file only works with sbt 0.12 or newer, so you should create `project/build.properties` to enforce using your desired sbt version:
 
 {% highlight scala %}
-sbt.version=0.12.4
+sbt.version=0.13.5
 {% endhighlight %}
 
 ### ... to a full project definition
@@ -75,9 +75,9 @@ The exact same commands are needed in the full build, except that they are now w
 val miniboxingSettings: Seq[Setting[_]] = Seq(
   resolvers += Resolver.sonatypeRepo("snapshots"),
   libraryDependencies += "org.scala-miniboxing.plugins" %% 
-                         "miniboxing-runtime" % "0.2-SNAPSHOT",
+                         "miniboxing-runtime" % "0.3-SNAPSHOT",
   addCompilerPlugin("org.scala-miniboxing.plugins" %% 
-                    "miniboxing-plugin" % "0.2-SNAPSHOT"),
+                    "miniboxing-plugin" % "0.3-SNAPSHOT"),
   scalacOptions += "-optimize"
 )
 {% endhighlight %}

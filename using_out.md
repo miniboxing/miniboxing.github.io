@@ -4,9 +4,10 @@ title: Using Miniboxing in the Command Line
 short_title: Command Line
 ---
 
-This page will explain how to use the miniboxing plugin on the command line.
+This page will explain how to use the miniboxing plugin from the command line.
 
 Miniboxing is a Scala compiler plugin and thus performs its transformations as part of the compilation pipeline. In order to use miniboxing, you will need to add two artifacts:
+
  * the miniboxing runtime support library and
  * the miniboxing compiler plugin
 
@@ -16,14 +17,14 @@ Fortunately, both artifacts are [published nightly on maven](https://travis-ci.o
 
 ## Getting the Artifact Jars
 
-The two artifacts are hosted on the [Sonatype OSS snapshots repository](https://docs.sonatype.org/display/Repository/Sonatype+OSS+Maven+Repository+Usage+Guide). You can either [download them manually](https://oss.sonatype.org/content/repositories/snapshots/org/scala-miniboxing/plugins/miniboxing-runtime_2.10/0.2-SNAPSHOT/) ([runtime is here](https://oss.sonatype.org/content/repositories/snapshots/org/scala-miniboxing/plugins/miniboxing-runtime_2.10/0.1-SNAPSHOT/miniboxing-runtime_2.10-0.1-SNAPSHOT.jar) and [plugin is here](https://oss.sonatype.org/content/repositories/snapshots/org/scala-miniboxing/plugins/miniboxing-plugin_2.10/0.1-SNAPSHOT/miniboxing-plugin_2.10-0.1-SNAPSHOT.jar)) or ask your dependency manager to fetch them:
+The two artifacts are hosted on the [Sonatype OSS snapshots repository](https://docs.sonatype.org/display/Repository/Sonatype+OSS+Maven+Repository+Usage+Guide). You can either [download them manually](https://oss.sonatype.org/content/repositories/snapshots/org/scala-miniboxing/plugins/) or ask your dependency manager to fetch them:
 
 Runtime support library:
 {% highlight xml %}
 <dependency>
   <groupId>org.scala-miniboxing.plugins</groupId>
-  <artifactId>miniboxing-runtime_2.10</artifactId>
-  <version>0.2-SNAPSHOT</version>
+  <artifactId>miniboxing-runtime_2.11</artifactId>
+  <version>0.3-SNAPSHOT</version>
 </dependency>
 {% endhighlight %}
 
@@ -32,8 +33,8 @@ Scala compiler plugin:
 {% highlight xml %}
 <dependency>
   <groupId>org.scala-miniboxing.plugins</groupId>
-  <artifactId>miniboxing-plugin_2.10</artifactId>
-  <version>0.2-SNAPSHOT</version>
+  <artifactId>miniboxing-plugin_2.11</artifactId>
+  <version>0.3-SNAPSHOT</version>
 </dependency>
 {% endhighlight %}
 
@@ -47,7 +48,7 @@ $ scala \
   -Xplugin:miniboxing-plugin.jar \
   -optimize
 
-Welcome to Scala version 2.10.3 (...).
+Welcome to Scala version 2.11.1 (...).
 Type in expressions to have them evaluated.
 Type :help for more information.
 
@@ -82,6 +83,8 @@ Options for plugin 'minibox':
   -P:minibox:hijack       hijack the @specialized(...) notation for miniboxing
   -P:minibox:spec-no-opt  don't optimize method specialization
   -P:minibox:loader       generate classloader-friendly code (but more verbose)
+  -P:minibox:no-logo      skip the miniboxing logo display)
+  -P:minibox:two-way      generate variants for long and double instead of just double)
 {% endhighlight %}
 
 An example of using `-P:minibox:log` and `-P:minibox:hijack` (notice the `@specialized` annotation instead of `@miniboxed`):
