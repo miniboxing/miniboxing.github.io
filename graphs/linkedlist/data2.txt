@@ -1,0 +1,84 @@
+  MiniboxedBenchmark$.Least Squares Method with List[Double]  : Parameters(size -> 1000000)   :  160.44266
+  MiniboxedBenchmark$.Least Squares Method with List[Double]  : Parameters(size -> 1100000)   :  177.91645
+  MiniboxedBenchmark$.Least Squares Method with List[Double]  : Parameters(size -> 1200000)   :  193.65126
+  MiniboxedBenchmark$.Least Squares Method with List[Double]  : Parameters(size -> 1300000)   :  211.17442
+  MiniboxedBenchmark$.Least Squares Method with List[Double]  : Parameters(size -> 1400000)   :  226.96905
+  MiniboxedBenchmark$.Least Squares Method with List[Double]  : Parameters(size -> 1500000)   :  245.44021
+  MiniboxedBenchmark$.Least Squares Method with List[Double]  : Parameters(size -> 1600000)   :  260.54836
+  MiniboxedBenchmark$.Least Squares Method with List[Double]  : Parameters(size -> 1700000)   :  277.02162
+  MiniboxedBenchmark$.Least Squares Method with List[Double]  : Parameters(size -> 1800000)   :  297.11765
+  MiniboxedBenchmark$.Least Squares Method with List[Double]  : Parameters(size -> 1900000)   :  311.42712
+  MiniboxedBenchmark$.Least Squares Method with List[Double]  : Parameters(size -> 2000000)   :  328.50226
+  MiniboxedBenchmark$.Least Squares Method with List[Double]  : Parameters(size -> 2100000)   :  342.48620
+  MiniboxedBenchmark$.Least Squares Method with List[Double]  : Parameters(size -> 2200000)   :  360.47295
+  MiniboxedBenchmark$.Least Squares Method with List[Double]  : Parameters(size -> 2300000)   :  375.26208
+  MiniboxedBenchmark$.Least Squares Method with List[Double]  : Parameters(size -> 2400000)   :  391.00965
+  MiniboxedBenchmark$.Least Squares Method with List[Double]  : Parameters(size -> 2500000)   :  407.34557
+  MiniboxedBenchmark$.Least Squares Method with List[Double]  : Parameters(size -> 2600000)   :  419.89707
+  MiniboxedBenchmark$.Least Squares Method with List[Double]  : Parameters(size -> 2700000)   :  440.61850
+  MiniboxedBenchmark$.Least Squares Method with List[Double]  : Parameters(size -> 2800000)   :  457.40000
+  MiniboxedBenchmark$.Least Squares Method with List[Double]  : Parameters(size -> 2900000)   :  471.18476
+  MiniboxedBenchmark$.Least Squares Method with List[Double]  : Parameters(size -> 3000000)   :  487.91281
+  GenericBenchmark$.Least Squares Method with List[Double]    : Parameters(size -> 1000000)   :  279.91755
+  GenericBenchmark$.Least Squares Method with List[Double]    : Parameters(size -> 1100000)   :  308.54130
+  GenericBenchmark$.Least Squares Method with List[Double]    : Parameters(size -> 1200000)   :  336.69902
+  GenericBenchmark$.Least Squares Method with List[Double]    : Parameters(size -> 1300000)   :  362.39304
+  GenericBenchmark$.Least Squares Method with List[Double]    : Parameters(size -> 1400000)   :  393.72650
+  GenericBenchmark$.Least Squares Method with List[Double]    : Parameters(size -> 1500000)   :  420.47545
+  GenericBenchmark$.Least Squares Method with List[Double]    : Parameters(size -> 1600000)   :  447.74729
+  GenericBenchmark$.Least Squares Method with List[Double]    : Parameters(size -> 1700000)   :  473.51211
+  GenericBenchmark$.Least Squares Method with List[Double]    : Parameters(size -> 1800000)   :  502.27001
+  GenericBenchmark$.Least Squares Method with List[Double]    : Parameters(size -> 1900000)   :  530.87548
+  GenericBenchmark$.Least Squares Method with List[Double]    : Parameters(size -> 2000000)   :  557.23011
+  GenericBenchmark$.Least Squares Method with List[Double]    : Parameters(size -> 2100000)   :  583.45102
+  GenericBenchmark$.Least Squares Method with List[Double]    : Parameters(size -> 2200000)   :  615.54323
+  GenericBenchmark$.Least Squares Method with List[Double]    : Parameters(size -> 2300000)   :  642.89293
+  GenericBenchmark$.Least Squares Method with List[Double]    : Parameters(size -> 2400000)   :  669.40760
+  GenericBenchmark$.Least Squares Method with List[Double]    : Parameters(size -> 2500000)   :  693.78588
+  GenericBenchmark$.Least Squares Method with List[Double]    : Parameters(size -> 2600000)   :  721.80025
+  GenericBenchmark$.Least Squares Method with List[Double]    : Parameters(size -> 2700000)   :  754.20557
+  GenericBenchmark$.Least Squares Method with List[Double]    : Parameters(size -> 2800000)   :  783.06648
+  GenericBenchmark$.Least Squares Method with List[Double]    : Parameters(size -> 2900000)   :  804.07873
+  GenericBenchmark$.Least Squares Method with List[Double]    : Parameters(size -> 3000000)   :  831.11036
+  SpecializedBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1000000)   :  272.48597
+  SpecializedBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1100000)   :  300.02225
+  SpecializedBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1200000)   :  327.16098
+  SpecializedBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1300000)   :  2297.43919
+  SpecializedBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1400000)   :  2469.02696
+  SpecializedBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1500000)   :  2723.13213
+  SpecializedBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1600000)   :  2878.47802
+  SpecializedBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1700000)   :  3017.49920
+  SpecializedBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1800000)   :  2860.99371
+  SpecializedBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1900000)   :  2537.49517
+  SpecializedBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 2000000)   :  2720.00945
+  SpecializedBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 2100000)   :  3297.47924
+  SpecializedBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 2200000)   :  3973.51643
+  SpecializedBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 2300000)   :  4316.78302
+  SpecializedBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 2400000)   :  4499.65906
+  SpecializedBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 2500000)   :  4613.79757
+  SpecializedBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 2600000)   :  9032.93922
+  SpecializedBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 2700000)   :  9425.88795
+  SpecializedBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 2800000)   :  9632.14324
+  SpecializedBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 2900000)   :  9551.35026
+  SpecializedBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 3000000)   :  9263.75784
+  LibraryGenericBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1000000)   :  244.36867
+  LibraryGenericBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1100000)   :  271.96160
+  LibraryGenericBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1200000)   :  295.97734
+  LibraryGenericBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1300000)   :  319.42550
+  LibraryGenericBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1400000)   :  341.40091
+  LibraryGenericBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1500000)   :  369.13183
+  LibraryGenericBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1600000)   :  392.30268
+  LibraryGenericBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1700000)   :  413.74211
+  LibraryGenericBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1800000)   :  435.94459
+  LibraryGenericBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1900000)   :  463.71240
+  LibraryGenericBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 2000000)   :  493.01130
+  LibraryGenericBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 2100000)   :  516.97873
+  LibraryGenericBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 2200000)   :  539.23837
+  LibraryGenericBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 2300000)   :  561.42804
+  LibraryGenericBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 2400000)   :  583.66249
+  LibraryGenericBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 2500000)   :  608.65931
+  LibraryGenericBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 2600000)   :  634.63036
+  LibraryGenericBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 2700000)   :  656.87162
+  LibraryGenericBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 2800000)   :  687.41911
+  LibraryGenericBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 2900000)   :  713.83766
+  LibraryGenericBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 3000000)   :  735.73147

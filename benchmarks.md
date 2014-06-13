@@ -37,9 +37,45 @@ The benchmark we ran is fitting a linear curve to a given set of points using th
   val intercept = (sumy * sumsquare - sumx * sumxy) / (size * sumsquare - sumx * sumx)
 {% endhighlight %}
 
-We ran this code with three versions of the library: one with the plugin activated, one with generic classes and one with specialized classes. Unfortunately the specialization transformation in the Scala compieler had a bug that prevented it from transforming this code correctly (we got an `AbstractMethodError` at runtime).
+We ran this code with two versions of the library: one with the plugin activated and one with generic classes. The numbers were obtained on an i7 server machine with 16GB of RAM, and we made sure all runs with garbage collections were ignored:
 
-These are the numbers we obtained on an i7 server machine with 16GB of RAM:
+Collection size | Miniboxed (ms) |   Generic (ms)
+----------------|----------------|---------------
+        1000000 |            160 |            279
+        1100000 |            177 |            308
+        1200000 |            193 |            336
+        1300000 |            211 |            362
+        1400000 |            226 |            393
+        1500000 |            245 |            420
+        1600000 |            260 |            447
+        1700000 |            277 |            473
+        1800000 |            297 |            502
+        1900000 |            311 |            530
+        2000000 |            328 |            557
+        2100000 |            342 |            583
+        2200000 |            360 |            615
+        2300000 |            375 |            642
+        2400000 |            391 |            669
+        2500000 |            407 |            693
+        2600000 |            419 |            721
+        2700000 |            440 |            754
+        2800000 |            457 |            783
+        2900000 |            471 |            804
+        3000000 |            487 |            831
+
+<br/>
+In a graphical format:
+<br/>
+<br/>
+
+<center><img width="90%" src="/graphs/linkedlist/linkedlist2.png"/></center>
+
+This shows miniboxed linked lists are 1.5x to 2x faster than generic collections, despite the fact that linked lists are not contiguous, thus reducing the benefits of miniboxing. We have also tested specialization, but it ran out of memory and we were unable to get any garbage collection-free runs above 1500000 elements (we suspect this is due to bug [SI-3585 Specialized class should not have duplicate fields](https://issues.scala-lang.org/browse/SI-3585), but haven't examined in depth)
+
+<!--
+need to re-do these benchmarks on the server with the updated settings:
+
+We also wanted to test how miniboxing copes with garbage collection cycles. To do so, we increased the test size and allowed all runs to be considered, averaging between GC and GC-less runs:
 
 Collection size | Miniboxed (ms) |   Generic (ms)
 ----------------|----------------|---------------
@@ -60,7 +96,7 @@ In a graphical format:
 <br/>
 
 <center><img width="90%" src="/graphs/linkedlist/linkedlist.png"/></center>
-
+-->
 
 ## Microbenchmarks
 
