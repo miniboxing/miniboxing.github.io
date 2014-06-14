@@ -1,0 +1,13 @@
+agenet@lamppc35:~/workspace/dev/miniboxing-plugin$ cat lib-bench.txt | grep "Least Squares Method with List\[Double\]" | grep ":"
+  MiniboxedBenchmark$.Least Squares Method with List[Double]  : Parameters(size -> 1000000)   :  163.98425
+  MiniboxedBenchmark$.Least Squares Method with List[Double]  : Parameters(size -> 2000000)   :  327.63549
+  MiniboxedBenchmark$.Least Squares Method with List[Double]  : Parameters(size -> 3000000)   :  491.53087
+  MiniboxedBenchmark$.Least Squares Method with List[Double]  : Parameters(size -> 4000000)   :  2442.66818
+  MiniboxedBenchmark$.Least Squares Method with List[Double]  : Parameters(size -> 5000000)   :  3804.60596
+  MiniboxedBenchmark$.Least Squares Method with List[Double]  : Parameters(size -> 6000000)   :  7708.61500
+  GenericBenchmark$.Least Squares Method with List[Double]    : Parameters(size -> 1000000)   :  269.94016
+  GenericBenchmark$.Least Squares Method with List[Double]    : Parameters(size -> 2000000)   :  2173.79108
+  GenericBenchmark$.Least Squares Method with List[Double]    : Parameters(size -> 3000000)   :  5830.73042
+  GenericBenchmark$.Least Squares Method with List[Double]    : Parameters(size -> 4000000)   :  8980.44428
+  GenericBenchmark$.Least Squares Method with List[Double]    : Parameters(size -> 5000000)   :  14502.05855
+  GenericBenchmark$.Least Squares Method with List[Double]    : Parameters(size -> 6000000)   :  21267.21303

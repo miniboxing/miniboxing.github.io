@@ -15,7 +15,7 @@ This document will only present a few of the bechmarks:
 
 ## Macrobenchmarks
 
-To evaluate the miniboxing plugin, we implemented a mock-up of the Scala collections library and benchmarked the performance. The result: **2x speedup just by adding the** `@miniboxed` **annotations**. And it's worth pointing out our mock-up included all the common patterns found in the library: `Builder`, `Numeric`, `Traversable`, `Seq`, closures, tuples etc.
+To evaluate the miniboxing plugin, we implemented a mock-up of the Scala collections library and benchmarked the performance. The result: **1.5x-4x speedup just by adding the** `@miniboxed` **annotation**. And it's worth pointing out our mock-up included all the common patterns found in the library: `Builder`, `Numeric`, `Traversable`, `Seq`, closures, tuples etc.
 
 The benchmark we ran is fitting a linear curve to a given set of points using the [_Least Squares method_](http://en.wikipedia.org/wiki/Least_squares). Basically, we made a custom library and benchmarked this code:
 
@@ -37,7 +37,7 @@ The benchmark we ran is fitting a linear curve to a given set of points using th
   val intercept = (sumy * sumsquare - sumx * sumxy) / (size * sumsquare - sumx * sumx)
 {% endhighlight %}
 
-We ran this code with two versions of the library: one with the plugin activated and one with generic classes. The numbers were obtained on an i7 server machine with 16GB of RAM, and we made sure all runs with garbage collections were ignored:
+We ran this code with two versions of the library: one with the plugin activated and one with generic classes. The numbers were obtained on an i7 server machine with 32GB of RAM, and we made sure no garbage collections occured (`-Xmx16g`, `-Xms16g`):
 
 Collection size | Miniboxed (ms) |   Generic (ms)
 ----------------|----------------|---------------
@@ -72,31 +72,26 @@ In a graphical format:
 
 This shows miniboxed linked lists are 1.5x to 2x faster than generic collections, despite the fact that linked lists are not contiguous, thus reducing the benefits of miniboxing. We have also tested specialization, but it ran out of memory and we were unable to get any garbage collection-free runs above 1500000 elements (we suspect this is due to bug [SI-3585 Specialized class should not have duplicate fields](https://issues.scala-lang.org/browse/SI-3585), but haven't examined in depth)
 
-<!--
-need to re-do these benchmarks on the server with the updated settings:
-
-We also wanted to test how miniboxing copes with garbage collection cycles. To do so, we increased the test size and allowed all runs to be considered, averaging between GC and GC-less runs:
+We also wanted to test how miniboxing copes with garbage collection cycles compared to the generic library. To do so, we limited the heap size to 2G (`-Xmx2g`, `-Xms2g`, `-XX:+UseParallelGC`):
 
 Collection size | Miniboxed (ms) |   Generic (ms)
 ----------------|----------------|---------------
-         500000 |            293 |            349
-        1000000 |            610 |            804
-        1500000 |           1065 |           1283
-        2000000 |           1271 |           1824
-        2500000 |           1732 |           2597
-        3000000 |           2117 |           3518
-        3500000 |           3094 |           5090
-        4000000 |           3891 |           7258
-        4500000 |           5049 |          10054
-        5000000 |           6822 |          12516
+        1000000 |            163 |            269
+        2000000 |            327 |           2173
+        3000000 |            491 |           5830
+        4000000 |           2442 |           8980
+        5000000 |           3804 |          14502
+        6000000 |           7708 |          21267
 
 <br/>
 In a graphical format:
 <br/>
 <br/>
 
-<center><img width="90%" src="/graphs/linkedlist/linkedlist.png"/></center>
--->
+<center><img width="90%" src="/graphs/linkedlist/linkedlist3.png"/></center>
+
+To summarize, on linked lists, we can expect **speedups between 1.5x and 4x**, despite the non-contiguous nature of the
+linked list.
 
 ## Microbenchmarks
 
