@@ -4,11 +4,11 @@ title: License
 short_title: License
 ---
 
-The miniboxing project contains open source code from multiple sources. Therefore, aside from the miniboxing license, please check out the [licenses directory](https://github.com/miniboxing/miniboxing-plugin/tree/wip/licenses) of the project.
+The miniboxing project contains open source code from multiple sources. Therefore, aside from the miniboxing license, please check out the <a href="https://github.com/miniboxing/miniboxing-plugin/tree/wip/licenses" target="_blank">licenses directory</a> of the project.
 
 ## Miniboxing License
 
-Copyright (c) 2012-2014, [Programming Methods Laboratory, EPFL](http://lamp.epfl.ch). <br/>
+Copyright (c) 2012-2014, <a href="http://lamp.epfl.ch" target="_blank">Programming Methods Laboratory, EPFL</a>. <br/>
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:

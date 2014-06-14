@@ -78,13 +78,13 @@ After removing `generic`:
 
 ## Bytecode Size
 
-When comparing the total bytecode size for [spire](https://github.com/non/spire) we see a 4.5x bytecode reduction:
+When comparing the total bytecode size for <a href="https://github.com/non/spire" target="_blank">spire</a> we see a 4.5x bytecode reduction:
 
 <center><img width="90%" src="/graphs/size.png"/></center>
 
 ## More Benchmarks
 
-The <a href="https://github.com/miniboxing/miniboxing-plugin/blob/wip/docs/2013-07-oopsla-preprint.pdf?raw=true">OOPSLA'13 paper</a> presents several other benchmarks:
+The <a href="https://github.com/miniboxing/miniboxing-plugin/blob/wip/docs/2013-07-oopsla-preprint.pdf?raw=true" target="_blank">OOPSLA'13 paper</a> presents several other benchmarks:
 
  * performance microbenchmarks
    * on the HotSpot JVM with the Server compiler
@@ -95,7 +95,7 @@ The <a href="https://github.com/miniboxing/miniboxing-plugin/blob/wip/docs/2013-
    * performance impact
    * heap consumption
 
-The <a href="https://github.com/miniboxing/miniboxing-plugin/blob/wip/docs/2014-04-miniboxing-scala-collections.pdf?raw=true">SCALA'14 paper</a> presents:
+The <a href="https://github.com/miniboxing/miniboxing-plugin/blob/wip/docs/2014-04-miniboxing-scala-collections.pdf?raw=true" target="_blank">SCALA'14 paper</a> presents:
 
  * a high-level overview of patterns in Scala
  * benchmarks for a mock-up of the Scala collection linked list

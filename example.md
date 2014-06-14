@@ -6,7 +6,7 @@ short_title: Example Sbt Project
 
 This page will present an example project meant to quickly get you up and running with the miniboxing plugin.
 
-[`Miniboxing-example`](https://github.com/miniboxing/miniboxing-example) is an sbt project with [a single source file](https://github.com/miniboxing/miniboxing-example/blob/master/src/main/scala/miniboxing/example/Test.scala). It is hosted on github at <https://github.com/miniboxing/miniboxing-example> and can be cloned by running:
+<a href="https://github.com/miniboxing/miniboxing-example" target="_blank"><code>Miniboxing-example</code></a> is an sbt project with <a href="https://github.com/miniboxing/miniboxing-example/blob/master/src/main/scala/miniboxing/example/Test.scala" target="_blank">a single source file</a>. It is hosted on github at <a href="https://github.com/miniboxing/miniboxing-example" target="_blank">https://github.com/miniboxing/miniboxing-example</a> and can be cloned by running:
 
 {% highlight bash %}
 $ git clone https://github.com/miniboxing/miniboxing-example.git
@@ -18,6 +18,6 @@ Once you cloned the project, change directory to `miniboxing-example` and run `s
  * `run` will run the project: it will output the names of miniboxed classes for different cases, so you get a feeling of what miniboxing does under the hood
  * `console` is probably the most interesting task, as it allows you to try your own programs with miniboxing (the other examples rely on using the console)
 
-The [`README`](https://github.com/miniboxing/miniboxing-example/blob/master/README.md) file of the project shows the ouput you should expect for the different commands.
+The <a href="https://github.com/miniboxing/miniboxing-example/blob/master/README.md" target="_blank"><code>README</code></a> file of the project shows the output you should expect for the different commands.
 
-Like the miniboxing plugin, the example project is distributed under a [3-clause BSD license](https://github.com/miniboxing/miniboxing-example/blob/master/LICENSE) so you can build your project on top of it.
+Like the miniboxing plugin, the example project is distributed under a <a href="https://github.com/miniboxing/miniboxing-example/blob/master/LICENSE" target="_blank">3-clause BSD license</a> so you can build your project on top of it.

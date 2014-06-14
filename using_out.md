@@ -11,13 +11,13 @@ Miniboxing is a Scala compiler plugin and thus performs its transformations as p
  * the miniboxing runtime support library and
  * the miniboxing compiler plugin
 
-Fortunately, both artifacts are [published nightly on maven](https://travis-ci.org/miniboxing/miniboxing-plugin), so you can easily get them.
+Fortunately, both artifacts are <a href="https://travis-ci.org/miniboxing/miniboxing-plugin" target="_blank">published nightly on sonatype</a>, so you can easily get them.
 
 {% include status.md %}
 
 ## Getting the Artifact Jars
 
-The two artifacts are hosted on the [Sonatype OSS snapshots repository](https://docs.sonatype.org/display/Repository/Sonatype+OSS+Maven+Repository+Usage+Guide). You can either [download them manually](https://oss.sonatype.org/content/repositories/snapshots/org/scala-miniboxing/plugins/) or ask your dependency manager to fetch them:
+The two artifacts are hosted on the Sonatype OSS snapshots repository. You can either <a href="https://oss.sonatype.org/content/repositories/snapshots/org/scala-miniboxing/plugins/" target="_blank">download them manually</a> or ask your dependency manager to fetch them:
 
 Runtime support library:
 {% highlight xml %}
@@ -43,7 +43,7 @@ Scala compiler plugin:
 Once the two artifacts have been downloaded, you can use them to run the Scala console:
 
 {% highlight bash %}
-$ scala \ 
+$ scala \
   -bootclasspath miniboxing-runtime.jar:miniboxing-plugin.jar \
   -Xplugin:miniboxing-plugin.jar \
   -optimize
@@ -52,7 +52,7 @@ Welcome to Scala version 2.11.1 (...).
 Type in expressions to have them evaluated.
 Type :help for more information.
 
-scala> def foo[@miniboxed T](t: T) = 
+scala> def foo[@miniboxed T](t: T) =
      |   println((new Exception).getStackTrace()(0).getMethodName())
 foo: [T](t: T)Unit
 
@@ -79,7 +79,7 @@ A full list of flags can be obtained by calling either `scala` or `scalac` with 
 Options for plugin 'minibox':
   -P:minibox:log          log miniboxing signature transformations
   -P:minibox:stats        log miniboxing tree transformations (verbose logging)
-  -P:minibox:debug        debug logging for the miniboxing plugin (rarely used)  
+  -P:minibox:debug        debug logging for the miniboxing plugin (rarely used)
   -P:minibox:hijack       hijack the @specialized(...) notation for miniboxing
   -P:minibox:spec-no-opt  don't optimize method specialization
   -P:minibox:loader       generate classloader-friendly code (but more verbose)
@@ -90,7 +90,7 @@ Options for plugin 'minibox':
 An example of using `-P:minibox:log` and `-P:minibox:hijack` (notice the `@specialized` annotation instead of `@miniboxed`):
 
 {% highlight scala %}
-$ cat C.scala 
+$ cat C.scala
 class C[@specialized T]
 
 $ scalac \
@@ -109,7 +109,7 @@ Specializing class C...
 
   // specialized class:
   class C_J[Tsp] extends C[Tsp] {
-    def <init>(val C_J|T_TypeTag: Byte): C_J[Tsp] 
+    def <init>(val C_J|T_TypeTag: Byte): C_J[Tsp]
       // is a specialized implementation of constructor C
     private[this] val C_J|T_TypeTag: Byte
       // no info

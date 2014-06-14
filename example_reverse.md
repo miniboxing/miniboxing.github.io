@@ -4,7 +4,7 @@ title: Array Reverse Example
 short_title: Array Reverse Example
 ---
 
-This page will show the miniboxing plugin speeding up a method reversing arrays. The example relies on the [example sbt project](example.html) and assumes you will execute the commands in the scala interpreter.
+This page will show the miniboxing plugin speeding up a method reversing arrays. The example relies on the [example sbt project](/example.html) and assumes you will execute the commands in the scala interpreter.
 
 For the benchmark, we reverse a 10M integer array, and compare the performance of the generic version and the miniboxed version. You get **4-9x speedups** by adding a single `@miniboxed` annotation:
 
@@ -20,7 +20,7 @@ scala> benchmark(() => reverse_mb(array))
 Time: 8 ms
 {% endhighlight %}
 
-To run the benchmark, start by cloning the [miniboxing-example](https://github.com/miniboxing/miniboxing-example) project and running the Scala interpreter console:
+To run the benchmark, start by cloning the <a href="https://github.com/miniboxing/miniboxing-example" target="_blank">miniboxing-example</a> project and running the Scala interpreter console:
 
 {% highlight bash %}
 $ git clone https://github.com/miniboxing/miniboxing-example.git

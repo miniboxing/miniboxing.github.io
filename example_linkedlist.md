@@ -4,15 +4,15 @@ title: Scala Collections-like Linked List Example
 short_title: Linked List Example
 ---
 
-This page will describe how the miniboxing plugin speeds up a linked list, which is modeled after the Scala collections immutable linked list. This page is based on the work of [Aymeric Genet, submitted to SCALA'14](https://github.com/miniboxing/miniboxing-plugin/blob/wip/docs/2014-04-miniboxing-scala-collections.pdf).
+This page will describe how the miniboxing plugin speeds up a linked list, which is modeled after the Scala collections immutable linked list. This page is based on the work of <a href="https://github.com/miniboxing/miniboxing-plugin/blob/wip/docs/2014-04-miniboxing-scala-collections.pdf?raw=true" target="_blank">Aymeric Genet, submitted to SCALA'14</a>.
 
-The source code is included in the [miniboxing-plugin sources](https://github.com/miniboxing/miniboxing-plugin/blob/wip/tests/lib-bench/src/miniboxing/benchmarks/simple/miniboxed/LinkedList.scala), and benchmarking the example can be done either using the [miniboxing-example project](/example.html) or by installing the [miniboxing plugin sources locally](https://github.com/miniboxing/miniboxing-plugin/wiki/Try-`-Local-installation) and following the [instructions here](https://github.com/miniboxing/miniboxing-plugin/wiki/Running-`-Macrobenchmarks).
+The source code is included in the <a href="https://github.com/miniboxing/miniboxing-plugin/blob/wip/tests/lib-bench/src/miniboxing/benchmarks/simple/miniboxed/LinkedList.scala" target="_blank">miniboxing-plugin sources</a>, and benchmarking the example can be done either using the [miniboxing-example project](/example.html) or by installing the <a href="https://github.com/miniboxing/miniboxing-plugin/wiki/Try-`-Local-installation" target="_blank">miniboxing plugin sources locally</a> and following the <a href="https://github.com/miniboxing/miniboxing-plugin/wiki/Running-`-Macrobenchmarks" target="_blank">instructions here</a>.
 
 [The benchmarks](#benchmarks) show **speedups between 1.5x and 4x**, despite the non-contiguous nature of the linked list, so we expect even better speedups for vectors and hashmaps.
 
 ## Scala Collection Patterns
 
-In the following section presents the common patterns that enable the high-level interface in the [Scala collections](http://docs.scala-lang.org/overviews/core/architecture-of-scala-collections.html), and how miniboxing can be applied in order to improve performance.
+In the following section presents the common patterns that enable the high-level interface in the <a href="http://docs.scala-lang.org/overviews/core/architecture-of-scala-collections.html" target="_blank">Scala collections</a>, and how miniboxing can be applied in order to improve performance.
 
 ### Inheritance and Mixins
 
@@ -257,6 +257,6 @@ linked list. Therefore we expect even better speedups for vectors and hashmaps, 
 
 ## Try it yourself!
 
-The source code is included in the [miniboxing-plugin sources](https://github.com/miniboxing/miniboxing-plugin/blob/wip/tests/lib-bench/src/miniboxing/benchmarks/simple/miniboxed/LinkedList.scala), and benchmarking the example can be done either using the [miniboxing-example project](/example.html) or by installing the [miniboxing plugin sources locally](https://github.com/miniboxing/miniboxing-plugin/wiki/Try-`-Local-installation) and following the [instructions here](https://github.com/miniboxing/miniboxing-plugin/wiki/Running-`-Macrobenchmarks).
+The source code is included in the <a href="https://github.com/miniboxing/miniboxing-plugin/blob/wip/tests/lib-bench/src/miniboxing/benchmarks/simple/miniboxed/LinkedList.scala" target="_blank">miniboxing-plugin sources</a>, and benchmarking the example can be done either using the [miniboxing-example project](/example.html) or by installing the <a href="https://github.com/miniboxing/miniboxing-plugin/wiki/Try-`-Local-installation" target="_blank">miniboxing plugin sources locally</a> and following the <a href="https://github.com/miniboxing/miniboxing-plugin/wiki/Running-`-Macrobenchmarks" target="_blank">instructions here</a>.
 
 **Important:** Don't forget the `-P:minibox:two-way` flag when compiling the example!
