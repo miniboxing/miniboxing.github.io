@@ -8,6 +8,8 @@ This page will describe how the miniboxing plugin speeds up a linked list, which
 
 The source code is included in the [miniboxing-plugin sources](https://github.com/miniboxing/miniboxing-plugin/blob/wip/tests/lib-bench/src/miniboxing/benchmarks/simple/miniboxed/LinkedList.scala), and benchmarking the example can be done either using the [miniboxing-example project](/example.html) or by installing the [miniboxing plugin sources locally](https://github.com/miniboxing/miniboxing-plugin/wiki/Try-`-Local-installation) and following the [instructions here](https://github.com/miniboxing/miniboxing-plugin/wiki/Running-`-Macrobenchmarks).
 
+[The benchmarks](#benchmarks) show **speedups between 1.5x and 4x**, despite the non-contiguous nature of the linked list, so we expect even better speedups for vectors and hashmaps.
+
 ## Scala Collection Patterns
 
 In the following section presents the common patterns that enable the high-level interface in the [Scala collections](http://docs.scala-lang.org/overviews/core/architecture-of-scala-collections.html), and how miniboxing can be applied in order to improve performance.
@@ -171,7 +173,9 @@ Now, every time we want to use a type parameter as a numeric type, we enforce th
 
 Since the `Numeric` implementations are likely to use primitive type parameters, boxing and unboxing would frequently occur. This is where the miniboxing specialization steps in. With a simple `@miniboxed` annotation on the type parameter of the `Numeric` class, a concrete extension would override an optimized version for primitive types. The classes that use the `Numeric` objects should also have a `@miniboxed` annotation. This would avoid every occurrence of boxing and unboxing, and greatly enhance the performance.
 
-## Results
+<a id="benchmarks"/>
+
+## Benchmarks
 
 To evaluate the miniboxing plugin, we implemented a mock-up of the Scala collections library and benchmarked the performance. The result: **1.5x-4x speedup just by adding the** `@miniboxed` **annotation**. And it's worth pointing out our mock-up included all the common patterns found in the library: `Builder`, `Numeric`, `Traversable`, `Seq`, closures, tuples etc.
 
@@ -249,9 +253,9 @@ In a graphical format:
 <center><img width="90%" src="/graphs/linkedlist/linkedlist3.png"/></center>
 
 To summarize, on linked lists, we can expect **speedups between 1.5x and 4x**, despite the non-contiguous nature of the
-linked list.
+linked list. Therefore we expect even better speedups for vectors and hashmaps, which use underlying arrays for values.
 
-## Try this!
+## Try it yourself!
 
 The source code is included in the [miniboxing-plugin sources](https://github.com/miniboxing/miniboxing-plugin/blob/wip/tests/lib-bench/src/miniboxing/benchmarks/simple/miniboxed/LinkedList.scala), and benchmarking the example can be done either using the [miniboxing-example project](/example.html) or by installing the [miniboxing plugin sources locally](https://github.com/miniboxing/miniboxing-plugin/wiki/Try-`-Local-installation) and following the [instructions here](https://github.com/miniboxing/miniboxing-plugin/wiki/Running-`-Macrobenchmarks).
 
