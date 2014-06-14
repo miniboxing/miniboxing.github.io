@@ -179,7 +179,7 @@ Since the `Numeric` implementations are likely to use primitive type parameters,
 
 To evaluate the miniboxing plugin, we implemented a mock-up of the Scala collections library and benchmarked the performance. The result: **1.5x-4x speedup just by adding the** `@miniboxed` **annotation**. And it's worth pointing out our mock-up included all the common patterns found in the library: `Builder`, `Numeric`, `Traversable`, `Seq`, closures, tuples etc.
 
-The benchmark we ran is fitting a linear curve to a given set of points using the [_Least Squares method_](http://en.wikipedia.org/wiki/Least_squares). Basically, we made a custom library and benchmarked this code:
+The benchmark we ran is fitting a linear curve to a given set of points using the <a href="http://en.wikipedia.org/wiki/Least_squares" target="_blank"><em>Least Squares method</em></a>. Basically, we made a custom library and benchmarked this code:
 
 {% highlight scala %}
   val xs: List[Double] = // list of x coordinates
@@ -232,7 +232,7 @@ In a graphical format:
 
 <center><img width="90%" src="/graphs/linkedlist/linkedlist2.png"/></center>
 
-This shows miniboxed linked lists are 1.5x to 2x faster than generic collections, despite the fact that linked lists are not contiguous, thus reducing the benefits of miniboxing. We have also tested specialization, but it ran out of memory and we were unable to get any garbage collection-free runs above 1500000 elements (we suspect this is due to bug [SI-3585 Specialized class should not have duplicate fields](https://issues.scala-lang.org/browse/SI-3585), but haven't examined in depth)
+This shows miniboxed linked lists are 1.5x to 2x faster than generic collections, despite the fact that linked lists are not contiguous, thus reducing the benefits of miniboxing. We have also tested specialization, but it ran out of memory and we were unable to get any garbage collection-free runs above 1500000 elements (we suspect this is due to bug <a href="https://issues.scala-lang.org/browse/SI-3585" target="_blank">SI-3585 Specialized class should not have duplicate fields</a>, but haven't examined in depth)
 
 We also wanted to test how miniboxing copes with garbage collection cycles compared to the generic library. To do so, we limited the heap size to 2G (`-Xmx2g`, `-Xms2g`, `-XX:+UseParallelGC`):
 
