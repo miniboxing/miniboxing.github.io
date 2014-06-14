@@ -15,7 +15,7 @@ This document will only present a few of the bechmarks:
 
 ## Macrobenchmarks
 
-To evaluate the miniboxing plugin, we implemented a mock-up of the Scala collections library and benchmarked the performance. The result: **1.5x-4x speedup just by adding the** `@miniboxed` **annotation**. And it's worth pointing out our mock-up included all the common patterns found in the library: `Builder`, `Numeric`, `Traversable`, `Seq`, closures, tuples etc.
+To evaluate the miniboxing plugin, we [implemented a mock-up of the Scala collections linked list](/example_linkedlist.html) and benchmarked the performance. The result: **1.5x-4x speedup just by adding the** `@miniboxed` **annotation**. And it's worth pointing out our mock-up included all the common patterns found in the library: `Builder`, `Numeric`, `Traversable`, `Seq`, closures, tuples etc.
 
 The benchmark we ran is fitting a linear curve to a given set of points using the [_Least Squares method_](http://en.wikipedia.org/wiki/Least_squares). Basically, we made a custom library and benchmarked this code:
 
@@ -37,61 +37,23 @@ The benchmark we ran is fitting a linear curve to a given set of points using th
   val intercept = (sumy * sumsquare - sumx * sumxy) / (size * sumsquare - sumx * sumx)
 {% endhighlight %}
 
-We ran this code with two versions of the library: one with the plugin activated and one with generic classes. The numbers were obtained on an i7 server machine with 32GB of RAM, and we made sure no garbage collections occured (`-Xmx16g`, `-Xms16g`):
+### With infinite heap memory (no garbage collection overhead)
 
-Collection size | Miniboxed (ms) |   Generic (ms)
-----------------|----------------|---------------
-        1000000 |            160 |            279
-        1100000 |            177 |            308
-        1200000 |            193 |            336
-        1300000 |            211 |            362
-        1400000 |            226 |            393
-        1500000 |            245 |            420
-        1600000 |            260 |            447
-        1700000 |            277 |            473
-        1800000 |            297 |            502
-        1900000 |            311 |            530
-        2000000 |            328 |            557
-        2100000 |            342 |            583
-        2200000 |            360 |            615
-        2300000 |            375 |            642
-        2400000 |            391 |            669
-        2500000 |            407 |            693
-        2600000 |            419 |            721
-        2700000 |            440 |            754
-        2800000 |            457 |            783
-        2900000 |            471 |            804
-        3000000 |            487 |            831
-
-<br/>
-In a graphical format:
-<br/>
-<br/>
+We ran this code with two versions of the linked list: one with the plugin activated and one with generic classes. The numbers were obtained on an i7 server machine with 32GB of RAM, and we made sure no garbage collections occured (`-Xmx16g`, `-Xms16g`):
 
 <center><img width="90%" src="/graphs/linkedlist/linkedlist2.png"/></center>
 
 This shows miniboxed linked lists are 1.5x to 2x faster than generic collections, despite the fact that linked lists are not contiguous, thus reducing the benefits of miniboxing. We have also tested specialization, but it ran out of memory and we were unable to get any garbage collection-free runs above 1500000 elements (we suspect this is due to bug [SI-3585 Specialized class should not have duplicate fields](https://issues.scala-lang.org/browse/SI-3585), but haven't examined in depth)
 
+### With limited heap memory
+
 We also wanted to test how miniboxing copes with garbage collection cycles compared to the generic library. To do so, we limited the heap size to 2G (`-Xmx2g`, `-Xms2g`, `-XX:+UseParallelGC`):
-
-Collection size | Miniboxed (ms) |   Generic (ms)
-----------------|----------------|---------------
-        1000000 |            163 |            269
-        2000000 |            327 |           2173
-        3000000 |            491 |           5830
-        4000000 |           2442 |           8980
-        5000000 |           3804 |          14502
-        6000000 |           7708 |          21267
-
-<br/>
-In a graphical format:
-<br/>
-<br/>
 
 <center><img width="90%" src="/graphs/linkedlist/linkedlist3.png"/></center>
 
-To summarize, on linked lists, we can expect **speedups between 1.5x and 4x**, despite the non-contiguous nature of the
-linked list.
+To summarize, on linked lists, we can expect **speedups between 1.5x and 4x**, despite the non-contiguous nature of the linked list.
+
+The full description of this experiment is [available here](/example_linkedlist.html).
 
 ## Microbenchmarks
 
@@ -138,9 +100,10 @@ The <a href="https://github.com/miniboxing/miniboxing-plugin/blob/wip/docs/2014-
  * a high-level overview of patterns in Scala
  * benchmarks for a mock-up of the Scala collection linked list
 
+## Conclusion
+
 In short, miniboxed code:
 
  * is up to *22x faster* than generic code
- * matches the performance of specialization
- * is marginally slower compared to monomorphic code
-
+ * it surpasses the performance of specialization
+ * is marginally slower compared to monomorphic code, with an overhead of about 10%
