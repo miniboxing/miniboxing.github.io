@@ -10,6 +10,10 @@ The source code is included in the <a href="https://github.com/miniboxing/minibo
 
 [The benchmarks](#benchmarks) show **speedups between 1.5x and 4x**, despite the non-contiguous nature of the linked list, so we expect even better speedups for vectors and hashmaps.
 
+<br/>
+<center><a href="#benchmarks"><img width="40%" src="/graphs/linkedlist/linkedlist2.png"/> <img width="40%" src="/graphs/linkedlist/linkedlist3.png"/></a></center>
+
+
 ## Scala Collection Patterns
 
 In the following section presents the common patterns that enable the high-level interface in the <a href="http://docs.scala-lang.org/overviews/core/architecture-of-scala-collections.html" target="_blank">Scala collections</a>, and how miniboxing can be applied in order to improve performance.
