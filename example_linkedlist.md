@@ -6,9 +6,9 @@ short_title: Linked List Example
 
 This page will describe how the miniboxing plugin speeds up a linked list, which is modeled after the Scala collections immutable linked list. This page is based on the work of <a href="https://github.com/miniboxing/miniboxing-plugin/blob/wip/docs/2014-04-miniboxing-scala-collections.pdf?raw=true" target="_blank">Aymeric Genet, submitted to SCALA'14</a>.
 
-The source code is included in the <a href="https://github.com/miniboxing/miniboxing-plugin/blob/wip/tests/lib-bench/src/miniboxing/benchmarks/simple/miniboxed/LinkedList.scala" target="_blank">miniboxing-plugin sources</a>, and benchmarking the example can be done either using the [miniboxing-example project](/example.html) or by installing the <a href="https://github.com/miniboxing/miniboxing-plugin/wiki/Try-`-Local-installation" target="_blank">miniboxing plugin sources locally</a> and following the <a href="https://github.com/miniboxing/miniboxing-plugin/wiki/Running-`-Macrobenchmarks" target="_blank">instructions here</a>.
+The source code is included in the <a href="https://github.com/miniboxing/miniboxing-plugin/blob/wip/tests/lib-bench/src/miniboxing/benchmarks/simple/miniboxed/LinkedList.scala" target="_blank">miniboxing-plugin sources</a> (<a href="https://github.com/miniboxing/miniboxing-plugin/blob/wip/tests/lib-bench/test/miniboxing/benchmarks/launch/LinkedList.scala" target="_blank">benchmarking code</a>), and benchmarking the example can be done either using the [miniboxing-example project](/example.html) or by installing the <a href="https://github.com/miniboxing/miniboxing-plugin/wiki/Try-`-Local-installation" target="_blank">miniboxing plugin sources locally</a> and following the <a href="https://github.com/miniboxing/miniboxing-plugin/wiki/Running-`-Macrobenchmarks" target="_blank">instructions here</a>.
 
-[The benchmarks](#benchmarks) show **speedups between 1.5x and 4x**, despite the non-contiguous nature of the linked list, so we expect even better speedups for vectors and hashmaps.
+[The benchmarks](#benchmarks) show **speedups between 1.5x and 4x**, despite the non-contiguous nature of the linked list, so we expect even better speedups for vectors and hashmaps:
 
 <br/>
 <center><a href="#benchmarks"><img width="40%" src="/graphs/linkedlist/linkedlist2.png"/> <img width="40%" src="/graphs/linkedlist/linkedlist3.png"/></a></center>
@@ -26,12 +26,12 @@ This nesting and splitting of functionality makes is necessary to have deep mini
 
 {% highlight scala %}
  // trait/class definition needs to be marked:
- trait Traversable[`@miniboxed` +A] extends
+ trait Traversable[@miniboxed +A] extends
  // parents' definitions also have to be marked:
-       TraversableLike[`A`, Traversable[A]]
-       with GenTraversable[`A`]
-       with TraversableOnce[`A`]
-       with GenericTraversableTemplate[`A`, Traversable] { ... }
+       TraversableLike[A, Traversable[A]]
+       with GenTraversable[A]
+       with TraversableOnce[A]
+       with GenericTraversableTemplate[A, Traversable] { ... }
 {% endhighlight %}
 
 Since the goal of Scala collections is to avoid code duplication, collection comprehensions, such as `map` and `filter`, all rely on a common mechanism: visiting each element in the collection, performing an action for it and (optionally) adding the result to a new collection. For example, `filter` visits all elements and for each element applies a predicate which decides whether the element should be part of the resulting collection or not:
@@ -128,7 +128,7 @@ res2: immutable.Iterable[Int] = ...
 To achieve this, the `map` function will rely on a `Builder` generated from the `CanBuildFrom` parameter, where `Repr` is the current collection and `That` is the resulting collection:
 
 {% highlight scala %}
-  def map[B, That](f: A => B)(implicit bf: CanBuildFrom[`Repr`, B, That]): That = {
+  def map[B, That](f: A => B)(implicit bf: CanBuildFrom[Repr, B, That]): That = {
     val b = bf(repr) // the builder
     for (x <- this)
       b += f(x)
@@ -139,14 +139,49 @@ To achieve this, the `map` function will rely on a `Builder` generated from the 
 
 The Builder pattern also shows how type constructor polymorphism can play an essential role in factoring out boilerplate code [without losing type safety](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.175.9005).
 
-### Numeric Pattern
-
-Defining a generic type for a class can sometimes lead to inconvenient situations if one expects to have generic mathematical operations. Since the common ancestor for numeric types, `Any`, does not contain mathematical operations, the operations on generic types are quite limited.
-
-The Numeric pattern solves this issue by allowing  mathematical operations in a generic context. This is done by creating a generic `Numeric` trait that provides mathematical operations for a certain type. By example, one could define a way to add two numerical values, by providing such a definition to the trait:
+Here, we need to add the miniboxed annotation to the `Builder` objects, which interact with primitive values to form the collection. We can get away with only miniboxing the first type parameter, which can be replaced by a primitive:
 
 {% highlight scala %}
- trait Numeric[T] {
+// Builder
+trait Builder[@miniboxed -T, +To] {
+  def +=(e1: T): Unit
+  def finalise: To
+}
+
+class ListBuilder[@miniboxed T] extends Builder[T, List[T]] {
+  ...
+}
+
+{% endhighlight %}
+
+The `CanBuildFrom` object can remain generic, as it will not be involved in manipulating primitive values. Instead, its creation needs to be miniboxed:
+
+{% highlight scala %}
+// Can build from implicit
+trait CanBuildFrom[-From, -Elem, +To] {
+  def apply(): Builder[Elem, To]
+}
+
+object List {
+  implicit def canBuildFrom[@miniboxed A]: CanBuildFrom[List[_], A, List[A]] =
+    new CanBuildFrom[List[_], A, List[A]] {
+      def apply = new ListBuilder[A]  // <= since A is miniboxed, this will also be
+                                      //    creating the miniboxed version of ListBuilder
+    }
+}
+{% endhighlight %}
+
+All these explanations are derived from the optimized stack trace initiator, propagator and inhibitor rules [given in the tutorial](/tutorial.html).
+
+
+### Numeric Pattern
+
+Since generic type parameters can be instantiated by any type in the language, they are bounded by `Any`, the top type of the Scala hierarchy. Therefore, they do not define mathematical operations, such as `+` or `*`. This can be limiting when operating with numeric types.
+
+The `Numeric` pattern solves this issue by allowing  mathematical operations in a generic context. This is done by creating a generic `Numeric` trait that provides mathematical operations for a certain type. By example, one could define a way to add two numerical values, by providing such a definition to the trait:
+
+{% highlight scala %}
+ trait Numeric[@miniboxed T] {
    def plus(x: T, y: T): T
    ...
  }
@@ -175,7 +210,7 @@ Now, every time we want to use a type parameter as a numeric type, we enforce th
  }
 {% endhighlight %}
 
-Since the `Numeric` implementations are likely to use primitive type parameters, boxing and unboxing would frequently occur. This is where the miniboxing specialization steps in. With a simple `@miniboxed` annotation on the type parameter of the `Numeric` class, a concrete extension would override an optimized version for primitive types. The classes that use the `Numeric` objects should also have a `@miniboxed` annotation. This would avoid every occurrence of boxing and unboxing, and greatly enhance the performance.
+Since the `Numeric` implementations are likely to use primitive type parameters, boxing and unboxing would frequently occur. This is where the miniboxing steps in. With a simple `@miniboxed` annotation on the type parameter of the `Numeric` class, a concrete extension would override an optimized version for primitive types. The classes that use the `Numeric` objects should also have a `@miniboxed` annotation. This would avoid every occurrence of boxing and unboxing, and greatly enhance the performance.
 
 <a id="benchmarks"/>
 
@@ -261,6 +296,6 @@ linked list. Therefore we expect even better speedups for vectors and hashmaps, 
 
 ## Try it yourself!
 
-The source code is included in the <a href="https://github.com/miniboxing/miniboxing-plugin/blob/wip/tests/lib-bench/src/miniboxing/benchmarks/simple/miniboxed/LinkedList.scala" target="_blank">miniboxing-plugin sources</a>, and benchmarking the example can be done either using the [miniboxing-example project](/example.html) or by installing the <a href="https://github.com/miniboxing/miniboxing-plugin/wiki/Try-`-Local-installation" target="_blank">miniboxing plugin sources locally</a> and following the <a href="https://github.com/miniboxing/miniboxing-plugin/wiki/Running-`-Macrobenchmarks" target="_blank">instructions here</a>.
+The source code is included in the <a href="https://github.com/miniboxing/miniboxing-plugin/blob/wip/tests/lib-bench/src/miniboxing/benchmarks/simple/miniboxed/LinkedList.scala" target="_blank">miniboxing-plugin sources</a> (<a href="https://github.com/miniboxing/miniboxing-plugin/blob/wip/tests/lib-bench/test/miniboxing/benchmarks/launch/LinkedList.scala" target="_blank">benchmarking code</a>), and benchmarking the example can be done either using the [miniboxing-example project](/example.html) or by installing the <a href="https://github.com/miniboxing/miniboxing-plugin/wiki/Try-`-Local-installation" target="_blank">miniboxing plugin sources locally</a> and following the <a href="https://github.com/miniboxing/miniboxing-plugin/wiki/Running-`-Macrobenchmarks" target="_blank">instructions here</a>.
 
 **Important:** Don't forget the `-P:minibox:two-way` flag when compiling the example!
