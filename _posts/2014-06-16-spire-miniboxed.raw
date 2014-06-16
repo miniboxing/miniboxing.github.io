@@ -1,0 +1,587 @@
+sun@sun-cpu:~/workspace/dev/spire(miniboxed)$ sbt
+Picked up _JAVA_OPTIONS: -Xms2g -Xmx2g -Xss4m -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=512M -XX:ReservedCodeCacheSize=256m -XX:PermSize=256m -XX:+TieredCompilation -XX:+UseNUMA
+[info] Loading project definition from /mnt/data1/Work/Workspace/dev/spire/project
+[info] Set current project to spire-aggregate (in build file:/mnt/data1/Work/Workspace/dev/spire/)
+> benchmark/run
+[info] Generating spire/std/tuples.scala
+
+Multiple main classes detected, select one to run:
+
+ [1] spire.benchmark.MaybeAddBenchmarks
+ [2] spire.benchmark.FibBenchmarks
+ [3] spire.benchmark.SelectionBenchmarks
+ [4] spire.benchmark.FpFilterBenchmark
+ [5] spire.benchmark.PolynomialBenchmarks
+ [6] spire.benchmark.RatComparisonBenchmarks
+ [7] spire.benchmark.JuliaBenchmarks
+ [8] spire.benchmark.ScalaVsSpireBenchmarks
+ [9] spire.benchmark.SortingBenchmarks
+ [10] spire.benchmark.GcdBenchmarks
+ [11] spire.benchmark.AnyValSubtractBenchmarks
+ [12] spire.benchmark.CForBenchmarks
+ [13] spire.benchmark.ComplexAddBenchmarks
+ [14] spire.benchmark.AnyValAddBenchmarks
+ [15] spire.benchmark.PowBenchmarks
+ [16] spire.benchmark.MapSemigroupBenchmarks
+ [17] spire.benchmark.RexBenchmarks
+ [18] spire.benchmark.AddBenchmarks
+ [19] spire.benchmark.RationalBenchmarks
+ [20] spire.benchmark.NaturalBenchmarks
+ [21] spire.benchmark.RandomBenchmarks
+ [22] spire.benchmark.Mo5Benchmarks
+ [23] spire.benchmark.ArrayOrderBenchmarks
+
+Enter number: 1
+
+[info] Running spire.benchmark.MaybeAddBenchmarks
+[error] Picked up _JAVA_OPTIONS: -Xms2g -Xmx2g -Xss4m -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=512M -XX:ReservedCodeCacheSize=256m -XX:PermSize=256m -XX:+TieredCompilation -XX:+UseNUMA
+[info]  0% Scenario{vm=java, trial=0, benchmark=AddMaybeDoublesDirect, size=2000000} 51880871.26 ns; σ=3000751.49 ns @ 10 trials
+[info] 33% Scenario{vm=java, trial=0, benchmark=AddMaybeDoublesDirect, size=4000000} 105053624.14 ns; σ=645639.09 ns @ 3 trials
+[info] 67% Scenario{vm=java, trial=0, benchmark=AddMaybeDoublesDirect, size=8000000} 213153239.50 ns; σ=3911007.21 ns @ 10 trials
+[info]
+[info]    size    ms linear runtime
+[info] 2000000  51.9 =======
+[info] 4000000 105.1 ==============
+[info] 8000000 213.2 ==============================
+[info]
+[info] vm: java
+[info] trial: 0
+[info] benchmark: AddMaybeDoublesDirect
+[success] Total time: 241 s, completed Jun 16, 2014 6:15:52 PM
+> benchmark/run
+[info] Generating spire/std/tuples.scala
+
+Multiple main classes detected, select one to run:
+
+ [1] spire.benchmark.MaybeAddBenchmarks
+ [2] spire.benchmark.FibBenchmarks
+ [3] spire.benchmark.SelectionBenchmarks
+ [4] spire.benchmark.FpFilterBenchmark
+ [5] spire.benchmark.PolynomialBenchmarks
+ [6] spire.benchmark.RatComparisonBenchmarks
+ [7] spire.benchmark.JuliaBenchmarks
+ [8] spire.benchmark.ScalaVsSpireBenchmarks
+ [9] spire.benchmark.SortingBenchmarks
+ [10] spire.benchmark.GcdBenchmarks
+ [11] spire.benchmark.AnyValSubtractBenchmarks
+ [12] spire.benchmark.CForBenchmarks
+ [13] spire.benchmark.ComplexAddBenchmarks
+ [14] spire.benchmark.AnyValAddBenchmarks
+ [15] spire.benchmark.PowBenchmarks
+ [16] spire.benchmark.MapSemigroupBenchmarks
+ [17] spire.benchmark.RexBenchmarks
+ [18] spire.benchmark.AddBenchmarks
+ [19] spire.benchmark.RationalBenchmarks
+ [20] spire.benchmark.NaturalBenchmarks
+ [21] spire.benchmark.RandomBenchmarks
+ [22] spire.benchmark.Mo5Benchmarks
+ [23] spire.benchmark.ArrayOrderBenchmarks
+
+Enter number: 23
+
+[info] Running spire.benchmark.ArrayOrderBenchmarks
+[error] Picked up _JAVA_OPTIONS: -Xms2g -Xmx2g -Xss4m -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=512M -XX:ReservedCodeCacheSize=256m -XX:PermSize=256m -XX:+TieredCompilation -XX:+UseNUMA
+[info]  0% Scenario{vm=java, trial=0, benchmark=AddGeneric, pow=6} 45.82 ns; σ=0.25 ns @ 3 trials
+[info]  8% Scenario{vm=java, trial=0, benchmark=AddIndirect, pow=6} 40.81 ns; σ=0.20 ns @ 3 trials
+[info] 17% Scenario{vm=java, trial=0, benchmark=AddDirect, pow=6} 41.75 ns; σ=0.38 ns @ 3 trials
+[info] 25% Scenario{vm=java, trial=0, benchmark=AddGeneric, pow=10} 413.68 ns; σ=15.00 ns @ 10 trials
+[info] 33% Scenario{vm=java, trial=0, benchmark=AddIndirect, pow=10} 447.05 ns; σ=16.68 ns @ 10 trials
+[info] 42% Scenario{vm=java, trial=0, benchmark=AddDirect, pow=10} 425.45 ns; σ=10.51 ns @ 10 trials
+[info] 50% Scenario{vm=java, trial=0, benchmark=AddGeneric, pow=14} 8682.16 ns; σ=230.96 ns @ 10 trials
+[info] 58% Scenario{vm=java, trial=0, benchmark=AddIndirect, pow=14} 8772.58 ns; σ=68.72 ns @ 3 trials
+[info] 67% Scenario{vm=java, trial=0, benchmark=AddDirect, pow=14} 8516.34 ns; σ=112.22 ns @ 10 trials
+[info] 75% Scenario{vm=java, trial=0, benchmark=AddGeneric, pow=18} 214928.02 ns; σ=15210.87 ns @ 10 trials
+[info] 83% Scenario{vm=java, trial=0, benchmark=AddIndirect, pow=18} 213492.26 ns; σ=1227.92 ns @ 3 trials
+[info] 92% Scenario{vm=java, trial=0, benchmark=AddDirect, pow=18} 213408.66 ns; σ=501.78 ns @ 3 trials
+[info]
+[info] pow   benchmark       ns linear runtime
+[info]   6  AddGeneric     45.8 =
+[info]   6 AddIndirect     40.8 =
+[info]   6   AddDirect     41.7 =
+[info]  10  AddGeneric    413.7 =
+[info]  10 AddIndirect    447.0 =
+[info]  10   AddDirect    425.4 =
+[info]  14  AddGeneric   8682.2 =
+[info]  14 AddIndirect   8772.6 =
+[info]  14   AddDirect   8516.3 =
+[info]  18  AddGeneric 214928.0 ==============================
+[info]  18 AddIndirect 213492.3 =============================
+[info]  18   AddDirect 213408.7 =============================
+[info]
+[info] vm: java
+[info] trial: 0
+[success] Total time: 148 s, completed Jun 16, 2014 6:21:10 PM
+> benchmark/run
+[info] Generating spire/std/tuples.scala
+
+Multiple main classes detected, select one to run:
+
+ [1] spire.benchmark.MaybeAddBenchmarks
+ [2] spire.benchmark.FibBenchmarks
+ [3] spire.benchmark.SelectionBenchmarks
+ [4] spire.benchmark.FpFilterBenchmark
+ [5] spire.benchmark.PolynomialBenchmarks
+ [6] spire.benchmark.RatComparisonBenchmarks
+ [7] spire.benchmark.JuliaBenchmarks
+ [8] spire.benchmark.ScalaVsSpireBenchmarks
+ [9] spire.benchmark.SortingBenchmarks
+ [10] spire.benchmark.GcdBenchmarks
+ [11] spire.benchmark.AnyValSubtractBenchmarks
+ [12] spire.benchmark.CForBenchmarks
+ [13] spire.benchmark.ComplexAddBenchmarks
+ [14] spire.benchmark.AnyValAddBenchmarks
+ [15] spire.benchmark.PowBenchmarks
+ [16] spire.benchmark.MapSemigroupBenchmarks
+ [17] spire.benchmark.RexBenchmarks
+ [18] spire.benchmark.AddBenchmarks
+ [19] spire.benchmark.RationalBenchmarks
+ [20] spire.benchmark.NaturalBenchmarks
+ [21] spire.benchmark.RandomBenchmarks
+ [22] spire.benchmark.Mo5Benchmarks
+ [23] spire.benchmark.ArrayOrderBenchmarks
+
+Enter number: 13
+
+[info] Running spire.benchmark.ComplexAddBenchmarks
+[error] Picked up _JAVA_OPTIONS: -Xms2g -Xmx2g -Xss4m -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=512M -XX:ReservedCodeCacheSize=256m -XX:PermSize=256m -XX:+TieredCompilation -XX:+UseNUMA
+[info]  0% Scenario{vm=java, trial=0, benchmark=AddComplexesDirect, size=500000} 3818845.77 ns; σ=102549.62 ns @ 10 trials
+[info] 20% Scenario{vm=java, trial=0, benchmark=AddComplexesGeneric, size=500000} 5234704.22 ns; σ=235611.62 ns @ 10 trials
+[info] 40% Scenario{vm=java, trial=0, benchmark=AddFastComplexes, size=500000} 1609879.17 ns; σ=8919.20 ns @ 3 trials
+[info] 60% Scenario{vm=java, trial=0, benchmark=AddFloatComplexesBoxed, size=500000} 2497000.01 ns; σ=54452.57 ns @ 10 trials
+[info] 80% Scenario{vm=java, trial=0, benchmark=AddFloatComplexesUnboxed, size=500000} 1678119.82 ns; σ=44107.14 ns @ 10 trials
+[info]
+[info]                benchmark   ms linear runtime
+[info]       AddComplexesDirect 3.82 =====================
+[info]      AddComplexesGeneric 5.23 ==============================
+[info]         AddFastComplexes 1.61 =========
+[info]   AddFloatComplexesBoxed 2.50 ==============
+[info] AddFloatComplexesUnboxed 1.68 =========
+[info]
+[info] vm: java
+[info] trial: 0
+[info] size: 500000
+[success] Total time: 95 s, completed Jun 16, 2014 6:27:27 PM
+> benchmark/run
+[info] Generating spire/std/tuples.scala
+
+Multiple main classes detected, select one to run:
+
+ [1] spire.benchmark.MaybeAddBenchmarks
+ [2] spire.benchmark.FibBenchmarks
+ [3] spire.benchmark.SelectionBenchmarks
+ [4] spire.benchmark.FpFilterBenchmark
+ [5] spire.benchmark.PolynomialBenchmarks
+ [6] spire.benchmark.RatComparisonBenchmarks
+ [7] spire.benchmark.JuliaBenchmarks
+ [8] spire.benchmark.ScalaVsSpireBenchmarks
+ [9] spire.benchmark.SortingBenchmarks
+ [10] spire.benchmark.GcdBenchmarks
+ [11] spire.benchmark.AnyValSubtractBenchmarks
+ [12] spire.benchmark.CForBenchmarks
+ [13] spire.benchmark.ComplexAddBenchmarks
+ [14] spire.benchmark.AnyValAddBenchmarks
+ [15] spire.benchmark.PowBenchmarks
+ [16] spire.benchmark.MapSemigroupBenchmarks
+ [17] spire.benchmark.RexBenchmarks
+ [18] spire.benchmark.AddBenchmarks
+ [19] spire.benchmark.RationalBenchmarks
+ [20] spire.benchmark.NaturalBenchmarks
+ [21] spire.benchmark.RandomBenchmarks
+ [22] spire.benchmark.Mo5Benchmarks
+ [23] spire.benchmark.ArrayOrderBenchmarks
+
+Enter number: 17
+
+[info] Running spire.benchmark.RexBenchmarks
+[error] Picked up _JAVA_OPTIONS: -Xms2g -Xmx2g -Xss4m -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=512M -XX:ReservedCodeCacheSize=256m -XX:PermSize=256m -XX:+TieredCompilation -XX:+UseNUMA
+[info]  0% Scenario{vm=java, trial=0, benchmark=Direct, pow=10} 46259.36 ns; σ=2200.24 ns @ 10 trials
+[info] 10% Scenario{vm=java, trial=0, benchmark=Generic, pow=10} 56976.26 ns; σ=351.45 ns @ 3 trials
+[info] 20% Scenario{vm=java, trial=0, benchmark=Direct, pow=12} 114969.75 ns; σ=2110.09 ns @ 10 trials
+[info] 30% Scenario{vm=java, trial=0, benchmark=Generic, pow=12} 168026.14 ns; σ=22316.25 ns @ 10 trials
+[info] 40% Scenario{vm=java, trial=0, benchmark=Direct, pow=14} 356299.94 ns; σ=2998.73 ns @ 3 trials
+[info] 50% Scenario{vm=java, trial=0, benchmark=Generic, pow=14} 537887.09 ns; σ=1543.10 ns @ 3 trials
+[info] 60% Scenario{vm=java, trial=0, benchmark=Direct, pow=16} 1316811.61 ns; σ=6908.55 ns @ 3 trials
+[info] 70% Scenario{vm=java, trial=0, benchmark=Generic, pow=16} 2059263.66 ns; σ=11980.12 ns @ 3 trials
+[info] 80% Scenario{vm=java, trial=0, benchmark=Direct, pow=18} 5084568.38 ns; σ=77327.91 ns @ 10 trials
+[info] 90% Scenario{vm=java, trial=0, benchmark=Generic, pow=18} 7702270.05 ns; σ=17576.96 ns @ 3 trials
+[info]
+[info] pow benchmark     us linear runtime
+[info]  10    Direct   46.3 =
+[info]  10   Generic   57.0 =
+[info]  12    Direct  115.0 =
+[info]  12   Generic  168.0 =
+[info]  14    Direct  356.3 =
+[info]  14   Generic  537.9 ==
+[info]  16    Direct 1316.8 =====
+[info]  16   Generic 2059.3 ========
+[info]  18    Direct 5084.6 ===================
+[info]  18   Generic 7702.3 ==============================
+[info]
+[info] vm: java
+[info] trial: 0
+[success] Total time: 120 s, completed Jun 16, 2014 6:36:02 PM
+>
+
+
+
+
+
+sun@sun-cpu:/mnt/data1/Work/Workspace/dev/spire.spec(master)$ sbt
+Picked up _JAVA_OPTIONS: -Xms2g -Xmx2g -Xss4m -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=512M -XX:ReservedCodeCacheSize=256m -XX:PermSize=256m -XX:+TieredCompilation -XX:+UseNUMA
+[info] Loading project definition from /mnt/data1/Work/Workspace/dev/spire.spec/project
+[info] Compiling 2 Scala sources to /mnt/data1/Work/Workspace/dev/spire.spec/project/target/scala-2.10/sbt-0.13/classes...
+[info] Set current project to spire-aggregate (in build file:/mnt/data1/Work/Workspace/dev/spire.spec/)
+> benchmark/run
+[info] Generating spire/std/tuples.scala
+
+Multiple main classes detected, select one to run:
+
+ [1] spire.benchmark.ArrayOrderBenchmarks
+ [2] spire.benchmark.MaybeAddBenchmarks
+ [3] spire.benchmark.ScalaVsSpireBenchmarks
+ [4] spire.benchmark.RatComparisonBenchmarks
+ [5] spire.benchmark.FibBenchmarks
+ [6] spire.benchmark.NaturalBenchmarks
+ [7] spire.benchmark.PowBenchmarks
+ [8] spire.benchmark.RationalBenchmarks
+ [9] spire.benchmark.Mo5Benchmarks
+ [10] spire.benchmark.AddBenchmarks
+ [11] spire.benchmark.JuliaBenchmarks
+ [12] spire.benchmark.RandomBenchmarks
+ [13] spire.benchmark.ComplexAddBenchmarks
+ [14] spire.benchmark.RexBenchmarks
+ [15] spire.benchmark.GcdBenchmarks
+ [16] spire.benchmark.PolynomialBenchmarks
+ [17] spire.benchmark.AnyValSubtractBenchmarks
+ [18] spire.benchmark.SortingBenchmarks
+ [19] spire.benchmark.AnyValAddBenchmarks
+ [20] spire.benchmark.SelectionBenchmarks
+ [21] spire.benchmark.CForBenchmarks
+ [22] spire.benchmark.FpFilterBenchmark
+ [23] spire.benchmark.MapSemigroupBenchmarks
+
+Enter number: 1
+
+[info] Running spire.benchmark.ArrayOrderBenchmarks
+[error] Picked up _JAVA_OPTIONS: -Xms2g -Xmx2g -Xss4m -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=512M -XX:ReservedCodeCacheSize=256m -XX:PermSize=256m -XX:+TieredCompilation -XX:+UseNUMA
+[info]  0% Scenario{vm=java, trial=0, benchmark=AddGeneric, pow=6} 45.88 ns; σ=0.94 ns @ 10 trials
+[info]  8% Scenario{vm=java, trial=0, benchmark=AddIndirect, pow=6} 40.78 ns; σ=0.68 ns @ 10 trials
+[info] 17% Scenario{vm=java, trial=0, benchmark=AddDirect, pow=6} 41.86 ns; σ=0.46 ns @ 10 trials
+[info] 25% Scenario{vm=java, trial=0, benchmark=AddGeneric, pow=10} 419.98 ns; σ=1.26 ns @ 3 trials
+[info] 33% Scenario{vm=java, trial=0, benchmark=AddIndirect, pow=10} 446.25 ns; σ=7.76 ns @ 10 trials
+[info] 42% Scenario{vm=java, trial=0, benchmark=AddDirect, pow=10} 426.86 ns; σ=11.72 ns @ 10 trials
+[info] 50% Scenario{vm=java, trial=0, benchmark=AddGeneric, pow=14} 8527.50 ns; σ=956.02 ns @ 10 trials
+[info] 58% Scenario{vm=java, trial=0, benchmark=AddIndirect, pow=14} 8630.07 ns; σ=85.20 ns @ 5 trials
+[info] 67% Scenario{vm=java, trial=0, benchmark=AddDirect, pow=14} 8444.03 ns; σ=32.94 ns @ 3 trials
+[info] 75% Scenario{vm=java, trial=0, benchmark=AddGeneric, pow=18} 213000.00 ns; σ=1974.00 ns @ 4 trials
+[info] 83% Scenario{vm=java, trial=0, benchmark=AddIndirect, pow=18} 212635.16 ns; σ=1108.70 ns @ 3 trials
+[info] 92% Scenario{vm=java, trial=0, benchmark=AddDirect, pow=18} 212611.65 ns; σ=492.94 ns @ 3 trials
+[info]
+[info] pow   benchmark       ns linear runtime
+[info]   6  AddGeneric     45.9 =
+[info]   6 AddIndirect     40.8 =
+[info]   6   AddDirect     41.9 =
+[info]  10  AddGeneric    420.0 =
+[info]  10 AddIndirect    446.3 =
+[info]  10   AddDirect    426.9 =
+[info]  14  AddGeneric   8527.5 =
+[info]  14 AddIndirect   8630.1 =
+[info]  14   AddDirect   8444.0 =
+[info]  18  AddGeneric 213000.0 ==============================
+[info]  18 AddIndirect 212635.2 =============================
+[info]  18   AddDirect 212611.7 =============================
+[info]
+[info] vm: java
+[info] trial: 0
+[success] Total time: 312 s, completed Jun 16, 2014 6:18:29 PM
+> benchmark/run
+[info] Generating spire/std/tuples.scala
+
+Multiple main classes detected, select one to run:
+
+ [1] spire.benchmark.ArrayOrderBenchmarks
+ [2] spire.benchmark.MaybeAddBenchmarks
+ [3] spire.benchmark.ScalaVsSpireBenchmarks
+ [4] spire.benchmark.RatComparisonBenchmarks
+ [5] spire.benchmark.FibBenchmarks
+ [6] spire.benchmark.NaturalBenchmarks
+ [7] spire.benchmark.PowBenchmarks
+ [8] spire.benchmark.RationalBenchmarks
+ [9] spire.benchmark.Mo5Benchmarks
+ [10] spire.benchmark.AddBenchmarks
+ [11] spire.benchmark.JuliaBenchmarks
+ [12] spire.benchmark.RandomBenchmarks
+ [13] spire.benchmark.ComplexAddBenchmarks
+ [14] spire.benchmark.RexBenchmarks
+ [15] spire.benchmark.GcdBenchmarks
+ [16] spire.benchmark.PolynomialBenchmarks
+ [17] spire.benchmark.AnyValSubtractBenchmarks
+ [18] spire.benchmark.SortingBenchmarks
+ [19] spire.benchmark.AnyValAddBenchmarks
+ [20] spire.benchmark.SelectionBenchmarks
+ [21] spire.benchmark.CForBenchmarks
+ [22] spire.benchmark.FpFilterBenchmark
+ [23] spire.benchmark.MapSemigroupBenchmarks
+
+Enter number: 13
+
+[info] Running spire.benchmark.ComplexAddBenchmarks
+[error] Picked up _JAVA_OPTIONS: -Xms2g -Xmx2g -Xss4m -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=512M -XX:ReservedCodeCacheSize=256m -XX:PermSize=256m -XX:+TieredCompilation -XX:+UseNUMA
+[info]  0% Scenario{vm=java, trial=0, benchmark=AddComplexesDirect, size=500000} 3669430.89 ns; σ=20211.17 ns @ 3 trials
+[info] 20% Scenario{vm=java, trial=0, benchmark=AddComplexesGeneric, size=500000} 5186592.43 ns; σ=130754.76 ns @ 10 trials
+[info] 40% Scenario{vm=java, trial=0, benchmark=AddFastComplexes, size=500000} 1584723.59 ns; σ=6543.70 ns @ 3 trials
+[info] 60% Scenario{vm=java, trial=0, benchmark=AddFloatComplexesBoxed, size=500000} 2465699.36 ns; σ=136781.71 ns @ 10 trials
+[info] 80% Scenario{vm=java, trial=0, benchmark=AddFloatComplexesUnboxed, size=500000} 1597147.00 ns; σ=16167.72 ns @ 10 trials
+[info]
+[info]                benchmark   ms linear runtime
+[info]       AddComplexesDirect 3.67 =====================
+[info]      AddComplexesGeneric 5.19 ==============================
+[info]         AddFastComplexes 1.58 =========
+[info]   AddFloatComplexesBoxed 2.47 ==============
+[info] AddFloatComplexesUnboxed 1.60 =========
+[info]
+[info] vm: java
+[info] trial: 0
+[info] size: 500000
+[success] Total time: 88 s, completed Jun 16, 2014 6:29:26 PM
+> benchmark/run
+[info] Generating spire/std/tuples.scala
+
+Multiple main classes detected, select one to run:
+
+ [1] spire.benchmark.ArrayOrderBenchmarks
+ [2] spire.benchmark.MaybeAddBenchmarks
+ [3] spire.benchmark.ScalaVsSpireBenchmarks
+ [4] spire.benchmark.RatComparisonBenchmarks
+ [5] spire.benchmark.FibBenchmarks
+ [6] spire.benchmark.NaturalBenchmarks
+ [7] spire.benchmark.PowBenchmarks
+ [8] spire.benchmark.RationalBenchmarks
+ [9] spire.benchmark.Mo5Benchmarks
+ [10] spire.benchmark.AddBenchmarks
+ [11] spire.benchmark.JuliaBenchmarks
+ [12] spire.benchmark.RandomBenchmarks
+ [13] spire.benchmark.ComplexAddBenchmarks
+ [14] spire.benchmark.RexBenchmarks
+ [15] spire.benchmark.GcdBenchmarks
+ [16] spire.benchmark.PolynomialBenchmarks
+ [17] spire.benchmark.AnyValSubtractBenchmarks
+ [18] spire.benchmark.SortingBenchmarks
+ [19] spire.benchmark.AnyValAddBenchmarks
+ [20] spire.benchmark.SelectionBenchmarks
+ [21] spire.benchmark.CForBenchmarks
+ [22] spire.benchmark.FpFilterBenchmark
+ [23] spire.benchmark.MapSemigroupBenchmarks
+
+Enter number: 14
+
+[info] Running spire.benchmark.RexBenchmarks
+[error] Picked up _JAVA_OPTIONS: -Xms2g -Xmx2g -Xss4m -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=512M -XX:ReservedCodeCacheSize=256m -XX:PermSize=256m -XX:+TieredCompilation -XX:+UseNUMA
+[info]  0% Scenario{vm=java, trial=0, benchmark=Direct, pow=10} 42837.03 ns; σ=400.86 ns @ 3 trials
+[info] 10% Scenario{vm=java, trial=0, benchmark=Generic, pow=10} 57781.39 ns; σ=1852.72 ns @ 10 trials
+[info] 20% Scenario{vm=java, trial=0, benchmark=Direct, pow=12} 115977.68 ns; σ=2559.08 ns @ 10 trials
+[info] 30% Scenario{vm=java, trial=0, benchmark=Generic, pow=12} 155969.23 ns; σ=2688.36 ns @ 10 trials
+[info] 40% Scenario{vm=java, trial=0, benchmark=Direct, pow=14} 358847.96 ns; σ=2141.70 ns @ 3 trials
+[info] 50% Scenario{vm=java, trial=0, benchmark=Generic, pow=14} 530845.19 ns; σ=2662.98 ns @ 3 trials
+[info] 60% Scenario{vm=java, trial=0, benchmark=Direct, pow=16} 1325492.74 ns; σ=4598.53 ns @ 3 trials
+[info] 70% Scenario{vm=java, trial=0, benchmark=Generic, pow=16} 2061816.95 ns; σ=16045.48 ns @ 3 trials
+[info] 80% Scenario{vm=java, trial=0, benchmark=Direct, pow=18} 5113949.03 ns; σ=31585.70 ns @ 3 trials
+[info] 90% Scenario{vm=java, trial=0, benchmark=Generic, pow=18} 7738006.67 ns; σ=39194.77 ns @ 3 trials
+[info]
+[info] pow benchmark     us linear runtime
+[info]  10    Direct   42.8 =
+[info]  10   Generic   57.8 =
+[info]  12    Direct  116.0 =
+[info]  12   Generic  156.0 =
+[info]  14    Direct  358.8 =
+[info]  14   Generic  530.8 ==
+[info]  16    Direct 1325.5 =====
+[info]  16   Generic 2061.8 =======
+[info]  18    Direct 5113.9 ===================
+[info]  18   Generic 7738.0 ==============================
+[info]
+[info] vm: java
+[info] trial: 0
+[success] Total time: 130 s, completed Jun 16, 2014 6:38:27 PM
+>
+
+
+
+sun@sun-cpu:/mnt/data1/Work/Workspace/dev/spire.gen(master)$ sbt
+Picked up _JAVA_OPTIONS: -Xms2g -Xmx2g -Xss4m -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=512M -XX:ReservedCodeCacheSize=256m -XX:PermSize=256m -XX:+TieredCompilation -XX:+UseNUMA
+[info] Loading project definition from /mnt/data1/Work/Workspace/dev/spire.gen/project
+[info] Set current project to spire-aggregate (in build file:/mnt/data1/Work/Workspace/dev/spire.gen/)
+> benchmark/run
+[info] Generating spire/std/tuples.scala
+
+Multiple main classes detected, select one to run:
+
+ [1] spire.benchmark.RationalBenchmarks
+ [2] spire.benchmark.SortingBenchmarks
+ [3] spire.benchmark.MaybeAddBenchmarks
+ [4] spire.benchmark.AnyValAddBenchmarks
+ [5] spire.benchmark.SelectionBenchmarks
+ [6] spire.benchmark.ArrayOrderBenchmarks
+ [7] spire.benchmark.RexBenchmarks
+ [8] spire.benchmark.RandomBenchmarks
+ [9] spire.benchmark.FpFilterBenchmark
+ [10] spire.benchmark.PolynomialBenchmarks
+ [11] spire.benchmark.Mo5Benchmarks
+ [12] spire.benchmark.ScalaVsSpireBenchmarks
+ [13] spire.benchmark.AnyValSubtractBenchmarks
+ [14] spire.benchmark.FibBenchmarks
+ [15] spire.benchmark.CForBenchmarks
+ [16] spire.benchmark.NaturalBenchmarks
+ [17] spire.benchmark.JuliaBenchmarks
+ [18] spire.benchmark.RatComparisonBenchmarks
+ [19] spire.benchmark.AddBenchmarks
+ [20] spire.benchmark.PowBenchmarks
+ [21] spire.benchmark.GcdBenchmarks
+ [22] spire.benchmark.ComplexAddBenchmarks
+ [23] spire.benchmark.MapSemigroupBenchmarks
+
+Enter number: 6
+
+[info] Running spire.benchmark.ArrayOrderBenchmarks
+[error] Picked up _JAVA_OPTIONS: -Xms2g -Xmx2g -Xss4m -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=512M -XX:ReservedCodeCacheSize=256m -XX:PermSize=256m -XX:+TieredCompilation -XX:+UseNUMA
+[info]  0% Scenario{vm=java, trial=0, benchmark=AddGeneric, pow=6} 624.99 ns; σ=5.15 ns @ 3 trials
+[info]  8% Scenario{vm=java, trial=0, benchmark=AddIndirect, pow=6} 699.18 ns; σ=67.83 ns @ 10 trials
+[info] 17% Scenario{vm=java, trial=0, benchmark=AddDirect, pow=6} 42.55 ns; σ=1.79 ns @ 10 trials
+[info] 25% Scenario{vm=java, trial=0, benchmark=AddGeneric, pow=10} 8349.15 ns; σ=62.89 ns @ 3 trials
+[info] 33% Scenario{vm=java, trial=0, benchmark=AddIndirect, pow=10} 8836.50 ns; σ=83.70 ns @ 6 trials
+[info] 42% Scenario{vm=java, trial=0, benchmark=AddDirect, pow=10} 425.04 ns; σ=12.54 ns @ 10 trials
+[info] 50% Scenario{vm=java, trial=0, benchmark=AddGeneric, pow=14} 280648.04 ns; σ=2256.85 ns @ 3 trials
+[info] 58% Scenario{vm=java, trial=0, benchmark=AddIndirect, pow=14} 285115.89 ns; σ=597.64 ns @ 3 trials
+[info] 67% Scenario{vm=java, trial=0, benchmark=AddDirect, pow=14} 8485.16 ns; σ=71.45 ns @ 3 trials
+[info] 75% Scenario{vm=java, trial=0, benchmark=AddGeneric, pow=18} 4549277.03 ns; σ=196719.45 ns @ 10 trials
+[info] 83% Scenario{vm=java, trial=0, benchmark=AddIndirect, pow=18} 6210298.34 ns; σ=13328.10 ns @ 3 trials
+[info] 92% Scenario{vm=java, trial=0, benchmark=AddDirect, pow=18} 211514.29 ns; σ=563.69 ns @ 3 trials
+[info]
+[info] pow   benchmark        ns linear runtime
+[info]   6  AddGeneric     625.0 =
+[info]   6 AddIndirect     699.2 =
+[info]   6   AddDirect      42.6 =
+[info]  10  AddGeneric    8349.2 =
+[info]  10 AddIndirect    8836.5 =
+[info]  10   AddDirect     425.0 =
+[info]  14  AddGeneric  280648.0 =
+[info]  14 AddIndirect  285115.9 =
+[info]  14   AddDirect    8485.2 =
+[info]  18  AddGeneric 4549277.0 =====================
+[info]  18 AddIndirect 6210298.3 ==============================
+[info]  18   AddDirect  211514.3 =
+[info]
+[info] vm: java
+[info] trial: 0
+[success] Total time: 644 s, completed Jun 16, 2014 6:24:09 PM
+> benchmark/run
+[info] Generating spire/std/tuples.scala
+
+Multiple main classes detected, select one to run:
+
+ [1] spire.benchmark.RationalBenchmarks
+ [2] spire.benchmark.SortingBenchmarks
+ [3] spire.benchmark.MaybeAddBenchmarks
+ [4] spire.benchmark.AnyValAddBenchmarks
+ [5] spire.benchmark.SelectionBenchmarks
+ [6] spire.benchmark.ArrayOrderBenchmarks
+ [7] spire.benchmark.RexBenchmarks
+ [8] spire.benchmark.RandomBenchmarks
+ [9] spire.benchmark.FpFilterBenchmark
+ [10] spire.benchmark.PolynomialBenchmarks
+ [11] spire.benchmark.Mo5Benchmarks
+ [12] spire.benchmark.ScalaVsSpireBenchmarks
+ [13] spire.benchmark.AnyValSubtractBenchmarks
+ [14] spire.benchmark.FibBenchmarks
+ [15] spire.benchmark.CForBenchmarks
+ [16] spire.benchmark.NaturalBenchmarks
+ [17] spire.benchmark.JuliaBenchmarks
+ [18] spire.benchmark.RatComparisonBenchmarks
+ [19] spire.benchmark.AddBenchmarks
+ [20] spire.benchmark.PowBenchmarks
+ [21] spire.benchmark.GcdBenchmarks
+ [22] spire.benchmark.ComplexAddBenchmarks
+ [23] spire.benchmark.MapSemigroupBenchmarks
+
+Enter number: 22
+
+[info] Running spire.benchmark.ComplexAddBenchmarks
+[error] Picked up _JAVA_OPTIONS: -Xms2g -Xmx2g -Xss4m -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=512M -XX:ReservedCodeCacheSize=256m -XX:PermSize=256m -XX:+TieredCompilation -XX:+UseNUMA
+[info]  0% Scenario{vm=java, trial=0, benchmark=AddComplexesDirect, size=500000} 7544769.66 ns; σ=187257.82 ns @ 10 trials
+[info] 20% Scenario{vm=java, trial=0, benchmark=AddComplexesGeneric, size=500000} 7738187.63 ns; σ=67658.18 ns @ 3 trials
+[info] 40% Scenario{vm=java, trial=0, benchmark=AddFastComplexes, size=500000} 1580053.92 ns; σ=5223.54 ns @ 3 trials
+[info] 60% Scenario{vm=java, trial=0, benchmark=AddFloatComplexesBoxed, size=500000} 2289923.00 ns; σ=73865.58 ns @ 10 trials
+[info] 80% Scenario{vm=java, trial=0, benchmark=AddFloatComplexesUnboxed, size=500000} 1580714.59 ns; σ=14034.06 ns @ 4 trials
+[info]
+[info]                benchmark   ms linear runtime
+[info]       AddComplexesDirect 7.54 =============================
+[info]      AddComplexesGeneric 7.74 ==============================
+[info]         AddFastComplexes 1.58 ======
+[info]   AddFloatComplexesBoxed 2.29 ========
+[info] AddFloatComplexesUnboxed 1.58 ======
+[info]
+[info] vm: java
+[info] trial: 0
+[info] size: 500000
+[success] Total time: 103 s, completed Jun 16, 2014 6:40:23 PM
+> benchmark/run
+[info] Generating spire/std/tuples.scala
+
+Multiple main classes detected, select one to run:
+
+ [1] spire.benchmark.RationalBenchmarks
+ [2] spire.benchmark.SortingBenchmarks
+ [3] spire.benchmark.MaybeAddBenchmarks
+ [4] spire.benchmark.AnyValAddBenchmarks
+ [5] spire.benchmark.SelectionBenchmarks
+ [6] spire.benchmark.ArrayOrderBenchmarks
+ [7] spire.benchmark.RexBenchmarks
+ [8] spire.benchmark.RandomBenchmarks
+ [9] spire.benchmark.FpFilterBenchmark
+ [10] spire.benchmark.PolynomialBenchmarks
+ [11] spire.benchmark.Mo5Benchmarks
+ [12] spire.benchmark.ScalaVsSpireBenchmarks
+ [13] spire.benchmark.AnyValSubtractBenchmarks
+ [14] spire.benchmark.FibBenchmarks
+ [15] spire.benchmark.CForBenchmarks
+ [16] spire.benchmark.NaturalBenchmarks
+ [17] spire.benchmark.JuliaBenchmarks
+ [18] spire.benchmark.RatComparisonBenchmarks
+ [19] spire.benchmark.AddBenchmarks
+ [20] spire.benchmark.PowBenchmarks
+ [21] spire.benchmark.GcdBenchmarks
+ [22] spire.benchmark.ComplexAddBenchmarks
+ [23] spire.benchmark.MapSemigroupBenchmarks
+
+Enter number: 7
+
+[info] Running spire.benchmark.RexBenchmarks
+[error] Picked up _JAVA_OPTIONS: -Xms2g -Xmx2g -Xss4m -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=512M -XX:ReservedCodeCacheSize=256m -XX:PermSize=256m -XX:+TieredCompilation -XX:+UseNUMA
+[info]  0% Scenario{vm=java, trial=0, benchmark=Direct, pow=10} 43420.46 ns; σ=4068.25 ns @ 10 trials
+[info] 10% Scenario{vm=java, trial=0, benchmark=Generic, pow=10} 385967.88 ns; σ=14896.45 ns @ 10 trials
+[info] 20% Scenario{vm=java, trial=0, benchmark=Direct, pow=12} 113816.59 ns; σ=2222.88 ns @ 10 trials
+[info] 30% Scenario{vm=java, trial=0, benchmark=Generic, pow=12} 983968.47 ns; σ=6617.56 ns @ 3 trials
+[info] 40% Scenario{vm=java, trial=0, benchmark=Direct, pow=14} 353187.55 ns; σ=1337.74 ns @ 3 trials
+[info] 50% Scenario{vm=java, trial=0, benchmark=Generic, pow=14} 3290975.93 ns; σ=17097.99 ns @ 3 trials
+[info] 60% Scenario{vm=java, trial=0, benchmark=Direct, pow=16} 1319895.16 ns; σ=19512.27 ns @ 10 trials
+[info] 70% Scenario{vm=java, trial=0, benchmark=Generic, pow=16} 12370115.07 ns; σ=1679257.99 ns @ 10 trials
+[info] 80% Scenario{vm=java, trial=0, benchmark=Direct, pow=18} 5090842.66 ns; σ=37717.48 ns @ 3 trials
+[info] 90% Scenario{vm=java, trial=0, benchmark=Generic, pow=18} 46307847.00 ns; σ=402804.57 ns @ 3 trials
+[info]
+[info] benchmark pow      us linear runtime
+[info]    Direct  10    43.4 =
+[info]    Direct  12   113.8 =
+[info]    Direct  14   353.2 =
+[info]    Direct  16  1319.9 =
+[info]    Direct  18  5090.8 ===
+[info]   Generic  10   386.0 =
+[info]   Generic  12   984.0 =
+[info]   Generic  14  3291.0 ==
+[info]   Generic  16 12370.1 ========
+[info]   Generic  18 46307.8 ==============================
+[info]
+[info] vm: java
+[info] trial: 0
+[success] Total time: 124 s, completed Jun 16, 2014 6:42:56 PM
+>
+sun@sun-cpu:/mnt/data1/Work/Workspace/dev/spire.gen(master)$
