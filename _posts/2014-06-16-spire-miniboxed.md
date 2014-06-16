@@ -55,4 +55,4 @@ pow  | benchmark | miniboxed (ms) | specialized (ms) |    generic (ms)
  18  |  Direct   |           5084 |             5113 |            5090
  18  | Generic   |           7702 |             7738 |           46307
 
-In case you're interested, [the raw execution logs are here](2014-06-16-spire-miniboxed.raw).
+In case you're interested, [the raw execution logs are here](graphs/spire/2014-06-16-spire-miniboxed.raw).
