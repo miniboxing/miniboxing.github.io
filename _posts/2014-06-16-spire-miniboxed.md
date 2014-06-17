@@ -181,4 +181,4 @@ pow |         benchmark | miniboxed(ns) | specialized (ns) | generic (ns)
  18 |       AddIndirect |     1386325.8 |         208735.3 |    4452107.9
  18 |         AddDirect |      207802.0 |         207519.9 |     206465.8
 
-In case you're interested, [the **updated** raw execution logs are here](graphs/spire/2014-06-16-spire-miniboxed.raw).
+In case you're interested, [the **updated** raw execution logs are here](/graphs/spire/2014-06-16-spire-miniboxed.raw).
