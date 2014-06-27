@@ -3,6 +3,7 @@ layout: default
 title: "Miniboxing @ Scala Days 2014 in Berlin!"
 newstitle: "Miniboxing @ Scala Days 2014 in Berlin!"
 url: http://www.scaladays.org/#schedule/Miniboxing--Specialization-on-a-Diet
+news: true
 ---
 
 <!-- jekyll don't be stupid -->

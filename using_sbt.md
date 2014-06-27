@@ -116,3 +116,6 @@ For the list of all command line arguments, see the [command line page](/using_o
 
 If you want to see these changes in place, or want to just try out the miniboxing plugin without creating a project, have a look at the [example project](/example.html) we posted that uses miniboxing. The examples all build on top of this project.
 
+## All set!
+
+You're all set to add your first `@miniboxed` annotation! If you haven't read the [introduction](/intro.html) and [tutorial](/tutorial.html), it's a good time to do so!

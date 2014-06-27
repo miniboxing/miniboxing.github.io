@@ -25,9 +25,9 @@
   </head>
   <body>
     <div id='outer'>
-      <!--<p class="paper" align="center">
-        <a href="/2014/04/22/miniboxing-scala-days.html">Miniboxing @ Scala Days 2014, 16th-18th of June 2014 in Berlin</a>
-      </p>-->
+      <p class="paper" align="center">
+        <a href="/2014/06/27/miniboxing-roadmap.html">Will miniboxing be merged into the Scala compiler?</a>
+      </p>
       <br/>
       <div id='menu'>
         <ol>
@@ -74,6 +74,11 @@
       </div>
       <div id='content'>
        <h1 id='title_{{ page.title | downcase | replace: ' ', '_' }}'>{% if page.short_title %}{{ page.short_title }}{% else %}{{ page.title }}{% endif %}</h1>
+        {% if page.news == true %}
+          <p align="right">
+            (<a href='/news.html'>back to <b>news articles</b></a> <a href="/feed.xml" target="_blank"><img src="/images/rss16.png" width="16px"/></a>)
+          </p>
+        {% endif %}
         {{ content }}
         {% if page.comments == "off" %}
           <!-- comments are disabled on this page -->

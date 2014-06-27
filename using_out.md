@@ -67,6 +67,12 @@ If you followed [the tutorial](tutorial.html), you will know this means miniboxi
 
 To run the scalac compiler, you only need to swap `scalac` for `scala` and indicate the files you want to compile.
 
+## All set!
+
+You know everything you need to add your first `@miniboxed` annotation! If you haven't read the [introduction](/intro.html) and the [tutorial](/tutorial.html), it's a good time to do so!
+
+The next section describes the miniboxing plugin command line arguments in detail and shows an example.
+
 ## Miniboxing Command Line Arguments
 
 The miniboxing plugin can be controlled using command-line arguments. The most useful command-line argument is `-P:minibox:hijack`, which allows a program using specialization (`@specialized`) to automatically be converted to miniboxing, without any annotation change.

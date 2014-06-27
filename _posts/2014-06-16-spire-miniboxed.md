@@ -3,6 +3,7 @@ layout: default
 title: "Spire. The miniboxed one."
 newstitle: "Spire. The miniboxed one."
 url: http://www.scaladays.org/#schedule/Miniboxing--Specialization-on-a-Diet
+news: true
 ---
 
 <!-- jekyll don't be stupid -->

@@ -3,6 +3,7 @@ layout: default
 title: "First steps to Miniboxed Collections! :)"
 newstitle: "First steps to Miniboxed Collections! :)"
 url: http://www.scaladays.org/#schedule/Miniboxing--Specialization-on-a-Diet
+news: true
 ---
 
 <!-- jekyll don't be stupid -->

@@ -2,15 +2,16 @@
 layout: default
 title: "Miniboxing - Latest Developments"
 newstitle: "Miniboxing - latest developments"
+news: true
 ---
 
-In the last three months the miniboxing plugin has seen a serious development spree, with a completely redesigned transformation, which fixes many of the limitations and bugs of the current approach. The development has been largely hidden in the [topic/erasure-rebase branch](https://github.com/miniboxing/miniboxing-plugin/tree/topic/erasure-rebase), which, at the moment of writing, is 150 commits in front of the [wip branch](https://github.com/miniboxing/miniboxing-plugin/tree/wip) and 250 commits in front of [master](https://github.com/miniboxing/miniboxing-plugin/tree/master). 
+In the last three months the miniboxing plugin has seen a serious development spree, with a completely redesigned transformation, which fixes many of the limitations and bugs of the current approach. The development has been largely hidden in the [topic/erasure-rebase branch](https://github.com/miniboxing/miniboxing-plugin/tree/topic/erasure-rebase), which, at the moment of writing, is 150 commits in front of the [wip branch](https://github.com/miniboxing/miniboxing-plugin/tree/wip) and 250 commits in front of [master](https://github.com/miniboxing/miniboxing-plugin/tree/master).
 
 **And we need your help to review the changes!**
 
 In the coming two weeks a pull request from branch [topic/erasure-rebase](https://github.com/miniboxing/miniboxing-plugin/tree/topic/erasure-rebase) will be made to [wip](https://github.com/miniboxing/miniboxing-plugin/tree/wip). A technical document explaining the changes will be ready in time for the pull request.
 
-**Anyone interested in miniboxing** is kindly invited to review at the changes, especially the test cases and their reference output (test file `X.scala` has reference output `X.check`: [see all tests here](https://github.com/miniboxing/miniboxing-plugin/tree/topic/erasure-rebase/tests/correctness/src/miniboxing/tests/compile)). Once the pull request is made, everyone can try out the new plugin, comment on the source code and point out any suboptimality in the transformation. If all goes well, a week after the pull request has been made, it will **be merged**. This will also bump the plugin version from `0.1-SNAPSHOT` to `0.2-SNAPSHOT`. 
+**Anyone interested in miniboxing** is kindly invited to review at the changes, especially the test cases and their reference output (test file `X.scala` has reference output `X.check`: [see all tests here](https://github.com/miniboxing/miniboxing-plugin/tree/topic/erasure-rebase/tests/correctness/src/miniboxing/tests/compile)). Once the pull request is made, everyone can try out the new plugin, comment on the source code and point out any suboptimality in the transformation. If all goes well, a week after the pull request has been made, it will **be merged**. This will also bump the plugin version from `0.1-SNAPSHOT` to `0.2-SNAPSHOT`.
 
 So keep an eye out for the pull request and **please help review it**!
 
