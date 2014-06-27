@@ -7,9 +7,9 @@ news: true
 
 <!-- jekyll don't be stupid -->
 
-Lately the question of merging the miniboxing plugin into the Scala compiler has arisen in <a href="https://twitter.com/alexey_r/status/481766677399756800" target="_blank">different</a> <a href="https://groups.google.com/d/msg/scala-debate/YTmYhVAwt7M/vVmkJIwmc6wJ" target="_blank">contexts</a>. We have seen <a href="https://groups.google.com/d/msg/scala-internals/Fw37NmUUiqs/nlqyupYaGNIJ" target="_blank">Scala collections miniboxed by hand</a>, and we have even <a href="https://twitter.com/stuhood/status/429124902214316032" target="_blank">received a suggestion</a> that miniboxing should be an opt-out instead of opt-in, meaning that unless a type parameter is annotated otherwise, it automatically undergoes the miniboxing transformation.
+Lately the question of merging the miniboxing plugin into the Scala compiler has arisen in <a href="https://twitter.com/alexey_r/status/481766677399756800" target="_blank">different</a> <a href="https://groups.google.com/d/msg/scala-debate/YTmYhVAwt7M/vVmkJIwmc6wJ" target="_blank">contexts</a>. We have seen <a href="https://groups.google.com/d/msg/scala-internals/Fw37NmUUiqs/nlqyupYaGNIJ" target="_blank">Scala collections miniboxed by hand</a>, and we have even <a href="https://twitter.com/stuhood/status/429124902214316032" target="_blank">received a suggestion</a> that miniboxing should be an opt-out instead of opt-in, meaning that all type parameters automatically undergo the miniboxing transformation, as if they were annotated with `@miniboxed`.
 
-We are very glad such questions are asked, as it gives us the chance to clarify the roadmap.
+We are very glad such questions are asked, as it gives us the opportunity to clarify the roadmap.
 
 ## So, will the miniboxing plugin be merged into Scala?
 
@@ -34,6 +34,10 @@ The first step for any plugin that changes the compilation pipeline is to become
 If the miniboxing plugin becomes a common sight in Scala project builds, it may be worth merging it into `scalac`. Then again, having it as a `scalac` plugin means easier development and quicker fixes, so keeping it a plugin might not a bad solution at all.
 
 **To wrap up, miniboxing will stay as a separate compiler plugin at least for the next Scala release. Whether or not it will become part of `scalac` in the future depends on you!**
+
+## Will Scala collections be transformed with miniboxing?
+
+We aim to have an alternative set of collections transformed using miniboxing, which map 1:1 with Scala collections. But this is a medium-term goal.
 
 ## Will miniboxing become opt-out?
 
