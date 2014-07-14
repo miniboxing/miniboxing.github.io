@@ -24,7 +24,7 @@ Runtime support library:
 <dependency>
   <groupId>org.scala-miniboxing.plugins</groupId>
   <artifactId>miniboxing-runtime_2.11</artifactId>
-  <version>0.3-SNAPSHOT</version>
+  <version>0.4-SNAPSHOT</version>
 </dependency>
 {% endhighlight %}
 
@@ -34,7 +34,7 @@ Scala compiler plugin:
 <dependency>
   <groupId>org.scala-miniboxing.plugins</groupId>
   <artifactId>miniboxing-plugin_2.11</artifactId>
-  <version>0.3-SNAPSHOT</version>
+  <version>0.4-SNAPSHOT</version>
 </dependency>
 {% endhighlight %}
 
