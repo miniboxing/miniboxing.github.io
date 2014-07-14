@@ -243,6 +243,8 @@ The benchmark we ran is fitting a linear curve to a given set of points using th
 
 We ran this code with two versions of the library: one with the plugin activated and one with generic classes. The numbers were obtained on an i7 server machine with 32GB of RAM, and we made sure no garbage collections occured (`-Xmx16g`, `-Xms16g`):
 
+<center><img width="90%" src="/graphs/linkedlist/linkedlist2.png"/></center>
+
 Collection size | Miniboxed (ms) |   Generic (ms)
 ----------------|----------------|---------------
         1000000 |            160 |            279
@@ -267,16 +269,13 @@ Collection size | Miniboxed (ms) |   Generic (ms)
         2900000 |            471 |            804
         3000000 |            487 |            831
 
-<br/>
-In a graphical format:
-<br/>
-<br/>
-
-<center><img width="90%" src="/graphs/linkedlist/linkedlist2.png"/></center>
 
 This shows miniboxed linked lists are 1.5x to 2x faster than generic collections, despite the fact that linked lists are not contiguous, thus reducing the benefits of miniboxing. We have also tested specialization, but it ran out of memory and we were unable to get any garbage collection-free runs above 1500000 elements (we suspect this is due to bug <a href="https://issues.scala-lang.org/browse/SI-3585" target="_blank">SI-3585 Specialized class should not have duplicate fields</a>, but haven't examined in depth)
 
 We also wanted to test how miniboxing copes with garbage collection cycles compared to the generic library. To do so, we limited the heap size to 2G (`-Xmx2g`, `-Xms2g`, `-XX:+UseParallelGC`):
+
+<center><img width="90%" src="/graphs/linkedlist/linkedlist3.png"/></center>
+
 
 Collection size | Miniboxed (ms) |   Generic (ms)
 ----------------|----------------|---------------
@@ -286,13 +285,6 @@ Collection size | Miniboxed (ms) |   Generic (ms)
         4000000 |           2442 |           8980
         5000000 |           3804 |          14502
         6000000 |           7708 |          21267
-
-<br/>
-In a graphical format:
-<br/>
-<br/>
-
-<center><img width="90%" src="/graphs/linkedlist/linkedlist3.png"/></center>
 
 To summarize, on linked lists, we can expect **speedups between 1.5x and 4x**, despite the non-contiguous nature of the
 linked list. Therefore we expect even better speedups for vectors and hashmaps, which use underlying arrays for values.

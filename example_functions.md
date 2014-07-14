@@ -21,19 +21,19 @@ This page describes how the miniboxing plugin transforms higher-order functions 
    * seamless integration with the standard Scala library
 
  * Disadvantages:
-   * a small but pervasive overhead of 5%-25% when invoking functions:
+   * a small but pervasive overhead of 10%-20% when invoking functions:
 
 <center><a href="#benchmarks"><img width="40%" src="/graphs/linkedlist.mbfunction/linkedlist.mbfunction.png"/></a></center>
 
 ## Motivation
 
-The miniboxing plugin aims at maintaining the high-level nature of the Scala programming language while eliminating the performance price of abstraction when it comes to generics. Since Scala marries the functional programming style and object-orientation, in Scala functions are objects and objects can be functions. Furthermore, expressing the types of arguments and the return type is done using generics.
+The miniboxing plugin aims at maintaining the high-level nature of the Scala programming language while eliminating the cost of abstraction in terms of running time for generics. Since Scala marries the functional programming style and object-orientation, in the Scala world, functions are objects and objects can be functions. Expressing the types of a function's arguments and its return type is done using generics, so this leads to a natural question:
 
-This leads to a natural question: **Can higher-order functions be optimized by miniboxing too?**
+**Can higher-order functions be optimized by miniboxing too?**
 
 The answer so far has been NO, since functions have a fixed representation implemented in the Scala standard library, and, for reasons  <a href="" target="_blank">described here</a> it is not possible for miniboxing to directly optimize functions.
 
-Now, version 0.4 of the miniboxing plugin brings the possibility to optimize functions, and the results are promissing!
+Now, version `0.4` of the miniboxing plugin automatically optimizes functions, and the results are really cool!
 
 
 ## Mechanism
@@ -46,7 +46,17 @@ Previous miniboxing plugin versions required [defining your own function represe
  }
 {% endhighlight %}
 
-Now, this is done automatically for you by the miniboxing plugin. Indeed, the miniboxing plugin introduces three tweaked versions of the function representation for 0, 1 and 2 arguments:
+With a custom function representation, the miniboxing plugin was able to transform both the function representation and the caller code to completely avoid boxing value types. Yet, this forced programmers to perform desugaring by hand. For example, instead of writing `(x: Int) => x + 1`, they would have to write:
+
+{% highlight scala %}
+ new MyFunc1[Int, Int] {
+   def apply(t: Int): Int = x + 1
+ }
+{% endhighlight %}
+
+What a waste! So why exactly was miniboxing unable to improve standard Scala functions? Because standard functions are compiled without the miniboxing compiler plugin -- even worse, they're compiled with the incompatible specialization transformation (<a href="https://github.com/miniboxing/miniboxing-plugin/issues/108" target="_blank">see this bug for reference</a>).
+
+Now, since version `0.4`, the miniboxing plugin, standard Scala functions can be efficiently used by miniboxed code. To get there, the miniboxing plugin now introduces three tweaked versions of the function representation for 0, 1 and 2 arguments:
 
 {% highlight scala %}
 package miniboxing.runtime
@@ -115,8 +125,8 @@ when the miniboxing plugin is active, this is:
       ...
       final def apply(x: Int): Int = x
     }
-    MiniboxedFunctionBridge.this.function1_opt_bridge_long_long[Int, Int](
-        5, 5, (new <$anon: Int => Int>(): Int => Int))
+    MiniboxedFunctionBridge.this.function1_opt_bridge_long_long[Int, Int]( // <== added wrapper
+        5, 5, (new <$anon: Int => Int>(): Int => Int))                     // around the function
   }
 {% endhighlight %}
 
@@ -162,10 +172,10 @@ slowing down execution.
 
 Of course, this also comes with a couple of drawbacks:
 
- * an additional call from miniboxing into specialized code: instead of the caller calling `apply$mcII$sp` directly, it has to go through `apply_JJ`
+ * an additional call from miniboxing into specialized code: instead of the caller calling `apply$mcII$sp` directly, it has to go through `apply_JJ`;
  * since `FunctionX` classes are not specialized for all primitives and are not partially specialized
-(argument is primitive while return is generic), not all `MiniboxedFunctionX`-es have corresponding optimized
-`apply$mcXY$sp` methods to call
+(either both the argument and return are primitives or both are generic, all or nothing),
+not all `MiniboxedFunctionX`-es have corresponding optimized `apply$mcXY$sp` methods to call;
  * this creates an additional heap object for each function -- while this is not a huge issue, it does become
 important when dealing with many closures, as their memory footprint increases.
 
@@ -202,20 +212,21 @@ We performed the benchmarks on the *least squares method* implemented using a [m
 
 In the graph, the following scenarios are shown:
 
- * `Miniboxed / custom functions`
+ * `Miniboxed / custom representation`
     * custom function representation instead of Scala's `FunctionX`
     * requires manual desugaring for all higher-order functions
     * described in [the linked list example](/example_linkedlist.html#functions)
     * is typically **45% faster** compared to `generic` for the linked list example
- * `Miniboxed / library functions`
-    * programmer uses the standard `FunctionX` representation
-    * thanks to the improved translation, invoking functions does not require boxing
+ * `Miniboxed / standard Scala functions`
+    * programmer uses the standard `FunctionX` representation or the `X => Y` synthetic sugar
+    * no need for manual desugaring, `(x: Int) => x + 1` is automatically desugared by the compiler
+    * thanks to the improved translation, invoking functions does not require boxing (*in most cases)
     * introduces a **15% overhead** compared to the `custom functions` (for the linked list example)
     * is typically **30% faster** compared to `generic` (for the linked list example)
  * `Generic`
     * the generic version of the benchmark which we all know and hate
 
-Raw data:
+The numbers (<a href="/graphs/linkedlist.mbfunction/data.mbfunction.1.raw" target="_blank">raw data avaialable here</a>):
 
 Collection size | Miniboxed / custom functions (ms) |  Miniboxed / library functions (ms) |  Generic (ms)
 ----------------|-----------------------------------|-------------------------------------|---------------
