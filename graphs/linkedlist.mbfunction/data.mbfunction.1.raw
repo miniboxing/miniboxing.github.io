@@ -1,0 +1,97 @@
+agenet@lamppc35:~/workspace/dev/miniboxing-plugin$ bg 1
+[1]+ nohup sbt clean miniboxing-lib-bench/test &>>lib-bench.9.txt &
+agenet@lamppc35:~/workspace/dev/miniboxing-plugin$
+agenet@lamppc35:~/workspace/dev/miniboxing-plugin$
+agenet@lamppc35:~/workspace/dev/miniboxing-plugin$
+agenet@lamppc35:~/workspace/dev/miniboxing-plugin$
+agenet@lamppc35:~/workspace/dev/miniboxing-plugin$
+agenet@lamppc35:~/workspace/dev/miniboxing-plugin$
+agenet@lamppc35:~/workspace/dev/miniboxing-plugin$
+agenet@lamppc35:~/workspace/dev/miniboxing-plugin$
+agenet@lamppc35:~/workspace/dev/miniboxing-plugin$
+agenet@lamppc35:~/workspace/dev/miniboxing-plugin$
+agenet@lamppc35:~/workspace/dev/miniboxing-plugin$
+agenet@lamppc35:~/workspace/dev/miniboxing-plugin$ jobs
+[1]+  Running                 nohup sbt clean miniboxing-lib-bench/test &>>lib-bench.9.txt &
+agenet@lamppc35:~/workspace/dev/miniboxing-plugin$ cat li
+lib-bench.0.txt  lib-bench.1.txt  lib-bench.2.txt  lib-bench.3.txt  lib-bench.4.txt  lib-bench.5.txt  lib-bench.6.txt  lib-bench.7.txt  lib-bench.9.txt  lib-bench.txt    licenses/
+[info] Resolving jline#jline;2.11 ...
+[info] Done updating.
+[info] Compiling 4 Scala sources and 10 Java sources to /localhome/agenet/workspace/dev/miniboxing-plugin/components/runtime/target/scala-2.11/classes...
+[warn] Picked up _JAVA_OPTIONS: -Xms8g -Xmx8g -Xss4m -XX:+CMSClassUnloadingEnabled -XX:ReservedCodeCacheSize=256m -XX:+TieredCompilation -XX:+UseNUMA
+[info] Compiling 25 Scala sources to /localhome/agenet/workspace/dev/miniboxing-plugin/components/plugin/target/scala-2.11/classes...
+[info] Packaging /localhome/agenet/workspace/dev/miniboxing-plugin/components/plugin/target/scala-2.11/miniboxing-plugin_2.11-0.4-SNAPSHOT.jar ...
+[info] Done packaging.
+[info] Compiling 4 Scala sources to /localhome/agenet/workspace/dev/miniboxing-plugin/tests/lib-bench/target/scala-2.11/classes...
+[warn] /localhome/agenet/workspace/dev/miniboxing-plugin/tests/lib-bench/src/miniboxing/benchmarks/simple/specialized/LinkedList.scala:191: type A is unused or used in non-specializable positions.
+[warn]   implicit def canBuildFrom[@specialized A]: CanBuildFrom[List[_], A, List[A]] =
+[warn]                ^
+[warn] one warning found
+[info] Compiling 2 Scala sources to /localhome/agenet/workspace/dev/miniboxing-plugin/tests/lib-bench/target/scala-2.11/test-classes...
+Picked up _JAVA_OPTIONS: -Xms8g -Xmx8g -Xss4m -XX:+CMSClassUnloadingEnabled -XX:ReservedCodeCacheSize=256m -XX:+TieredCompilation -XX:+UseNUMA
+Starting miniboxed benchmark. Lay back, it might take a few minutes to stabilize...
+Picked up _JAVA_OPTIONS: -Xms8g -Xmx8g -Xss4m -XX:+CMSClassUnloadingEnabled -XX:ReservedCodeCacheSize=256m -XX:+TieredCompilation -XX:+UseNUMA
+  MiniboxedLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 100000)    :   15.58904
+  MiniboxedLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 200000)    :   31.75402
+  MiniboxedLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 300000)    :   48.04953
+  MiniboxedLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 400000)    :   63.92384
+  MiniboxedLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 500000)    :   79.12744
+  MiniboxedLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 600000)    :   96.16669
+  MiniboxedLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 700000)    :  110.72308
+  MiniboxedLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 800000)    :  128.60037
+  MiniboxedLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 900000)    :  145.95304
+  MiniboxedLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1000000)   :  165.64357
+  MiniboxedLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1100000)   :  179.08040
+  MiniboxedLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1200000)   :  192.41317
+  MiniboxedLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1300000)   :  213.94656
+  MiniboxedLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1400000)   :  226.55319
+  MiniboxedLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1500000)   :  244.79484
+  MiniboxedLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1600000)   :  262.10001
+  MiniboxedLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1700000)   :  275.20859
+  MiniboxedLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1800000)   :  290.00261
+  MiniboxedLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1900000)   :  303.72387
+  MiniboxedLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 2000000)   :  317.36126
+Starting miniboxed with bridges benchmark. Lay back, it might take a few minutes to stabilize...
+Picked up _JAVA_OPTIONS: -Xms8g -Xmx8g -Xss4m -XX:+CMSClassUnloadingEnabled -XX:ReservedCodeCacheSize=256m -XX:+TieredCompilation -XX:+UseNUMA
+  MiniboxedLinkedListWithLibraryFunctionsBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 100000)    :   19.05746
+  MiniboxedLinkedListWithLibraryFunctionsBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 200000)    :   38.45192
+  MiniboxedLinkedListWithLibraryFunctionsBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 300000)    :   57.81736
+  MiniboxedLinkedListWithLibraryFunctionsBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 400000)    :   76.61191
+  MiniboxedLinkedListWithLibraryFunctionsBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 500000)    :   91.89051
+  MiniboxedLinkedListWithLibraryFunctionsBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 600000)    :  110.38143
+  MiniboxedLinkedListWithLibraryFunctionsBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 700000)    :  132.14721
+  MiniboxedLinkedListWithLibraryFunctionsBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 800000)    :  155.61008
+  MiniboxedLinkedListWithLibraryFunctionsBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 900000)    :  170.69960
+  MiniboxedLinkedListWithLibraryFunctionsBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1000000)   :  191.62220
+  MiniboxedLinkedListWithLibraryFunctionsBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1100000)   :  214.29445
+  MiniboxedLinkedListWithLibraryFunctionsBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1200000)   :  232.80464
+  MiniboxedLinkedListWithLibraryFunctionsBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1300000)   :  250.00800
+  MiniboxedLinkedListWithLibraryFunctionsBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1400000)   :  273.36101
+  MiniboxedLinkedListWithLibraryFunctionsBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1500000)   :  286.10730
+  MiniboxedLinkedListWithLibraryFunctionsBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1600000)   :  309.26892
+  MiniboxedLinkedListWithLibraryFunctionsBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1700000)   :  328.61147
+  MiniboxedLinkedListWithLibraryFunctionsBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1800000)   :  342.06566
+  MiniboxedLinkedListWithLibraryFunctionsBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1900000)   :  364.33736
+  MiniboxedLinkedListWithLibraryFunctionsBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 2000000)   :  391.85986
+Starting generic benchmark. Lay back, it might take a few minutes to stabilize...
+Picked up _JAVA_OPTIONS: -Xms8g -Xmx8g -Xss4m -XX:+CMSClassUnloadingEnabled -XX:ReservedCodeCacheSize=256m -XX:+TieredCompilation -XX:+UseNUMA
+  GenericLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 100000)    :   27.90469
+  GenericLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 200000)    :   55.97756
+  GenericLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 300000)    :   82.48328
+  GenericLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 400000)    :  112.23238
+  GenericLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 500000)    :  140.95575
+  GenericLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 600000)    :  169.46849
+  GenericLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 700000)    :  193.92893
+  GenericLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 800000)    :  219.52212
+  GenericLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 900000)    :  253.80133
+  GenericLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1000000)   :  277.62610
+  GenericLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1100000)   :  305.39182
+  GenericLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1200000)   :  335.36856
+  GenericLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1300000)   :  362.51847
+  GenericLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1400000)   :  393.87427
+  GenericLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1500000)   :  419.82795
+  GenericLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1600000)   :  456.12826
+  GenericLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1700000)   :  485.18540
+  GenericLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1800000)   :  503.84868
+  GenericLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 1900000)   :  534.53326
+  GenericLinkedListBenchmark$.Least Squares Method with List[Double]: Parameters(size -> 2000000)   :  542.21623

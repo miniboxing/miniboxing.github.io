@@ -51,6 +51,8 @@ The two key elements necessary for implementing collection comprehensions are:
  * the mechanism to visit each element using a custom function, which is implemented in `Traversable`
  * a mechanism to build a collection element by element, which is the builder pattern (the `b` in the previous example. We will also present the `Numeric` pattern, which is used in methods like `sum` or `prod`.
 
+<a id="functions"/>
+
 ### Function Encoding
 
 In Scala, it is common to use functions to manipulate collections. For example, in order to extract the positive numbers in a `List` of integers, we can use the `filter` method along with the following function:
@@ -108,6 +110,7 @@ And the miniboxing transformation will translate this to:
 
 Now, any invocation of this function will actually invoke `apply_JJ`, thus completely avoiding boxing primitive types, such as `int` and `boolean`.
 
+**Note that this has been addressed in the [`0.4` version of the miniboxing plugin](/example_functions.html)**.
 
 ### Builder Pattern
 
