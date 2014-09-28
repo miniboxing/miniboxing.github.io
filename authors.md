@@ -8,8 +8,6 @@ The miniboxing project is developed by [**Vlad Ureche**](http://vladureche.ro) a
 
 Commiters:
 
-## Miniboxing plugin
-
 * [Vlad Ureche](http://vladureche.ro) - main developer for the miniboxing plugin
 * [Cristian Talau](https://github.com/ctalau) - developed the initial miniboxing prototype, as a semester project
 * [Aymeric Genet](https://github.com/MelodyLucid) - developed [collection-like benchmarks](https://github.com/MelodyLucid/freezing-ironman) for the miniboxing plugin
