@@ -95,7 +95,7 @@ T of C)
 defined class D
 {% endhighlight %}
 
-* when a technical limitations prevents the plugin from compiling the code:
+* when a technical limitation prevents the plugin from compiling the code:
 {% highlight text %}
 scala> class W[@miniboxed Z](z: Z) { println(z) }
 
@@ -123,8 +123,8 @@ that can be worked around: (please see
 https://github.com/miniboxing/miniboxing-plugin/issues/64)
        class W[@miniboxed Z](val z: Z) { println(z) }
                                                 ^
-<console>:7: warning: The following code could benefit from miniboxing
-specialization due to technical limitations:
+<console>:7: warning: The following code could not benefit from m
+iniboxing specialization due to technical limitations:
        class W[@miniboxed Z](val z: Z) { println(z) }
                                                  ^
 defined class W
