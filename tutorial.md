@@ -63,6 +63,7 @@ scala.NotImplementedError: an implementation is missing
 In the stack trace above, all our algrithm is miniboxing-optimized, since `kmeans_J`, `iter_J` and `sum_J` all have the miniboxing prefix `_J`, so our algorithm should run efficiently. It is not necessary to have all the program optimized, just the critical parts that execute for a long time. So your task, as a programmer, is to make sure the critical traces in your program only contain miniboxing-marked methods.
 
 That being said, here are the three types of calls that make up the trace:
+
  * optimized trace **initiators**, which start an optimized trace: method calls where the type argument is a value type and the type parameter is annotated with `@miniboxed`
  * optimized trace **inhibitors**, which end an optimized trace: calls to methods whose type parameter is not marked as `@miniboxed`
  * optimized trace **propagators**, which continue an optimized trace, but only if called from an optimized trace
@@ -156,6 +157,7 @@ class D_J[T](t: Long) extends D[T] { ... } // optimized
 The reason classes are duplicated is because they store data: since references and value types are incompatible on the Java Virtual Machine, we have to duplicate the class, such that the object layout is adapted for the type it is carrying.
 
 The optimized version of the class is created by the instantiation: `new D[U](...)`. The generic version, `D_L` is used, except for two specific cases, when the instantation is rewritten to create the optimized version `D_J`:
+
  * if the type argument `U` is known and is a value type: `new D[Int](3)`, which is rewritten to `new D_J[Int](3)`
  * if in the class or method containing type parameter `U` is marked with `@miniboxed`, then the optimized version of that class or method will use the optimized version of the class:
 
@@ -168,6 +170,7 @@ class E[@miniboxed U] {
 {% endhighlight %}
 
 This corresponds to some extent to the previous 3 cases:
+
  * optimized trace initiators always create the optimized instance of the class
  * optimized trace propagators create the optimized instance only in their optimized version (`E_L` creates `D_L`, `E_J` creates `D_J` instances)
  * optimized trace inhibitors always create the generic instance of the class

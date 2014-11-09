@@ -15,6 +15,8 @@ This document will only present a few of the bechmarks:
 
 ## Macrobenchmarks
 
+### Scala Collections
+
 To evaluate the miniboxing plugin, we [implemented a mock-up of the Scala collections linked list](/example_linkedlist.html) and benchmarked the performance. The result: **1.5x-4x speedup just by adding the** `@miniboxed` **annotation**. And it's worth pointing out our mock-up included all the common patterns found in the library: `Builder`, `Numeric`, `Traversable`, `Seq`, closures, tuples etc.
 
 The benchmark we ran is fitting a linear curve to a given set of points using the <a href="http://en.wikipedia.org/wiki/Least_squares" target="_blank"><em>Least Squares method</em></a>. Basically, we made a custom library and benchmarked this code:
@@ -37,7 +39,7 @@ The benchmark we ran is fitting a linear curve to a given set of points using th
   val intercept = (sumy * sumsquare - sumx * sumxy) / (size * sumsquare - sumx * sumx)
 {% endhighlight %}
 
-### With infinite heap memory (no garbage collection overhead)
+#### With infinite heap memory (no garbage collection overhead)
 
 We ran this code with two versions of the linked list: one with the plugin activated and one with generic classes. The numbers were obtained on an i7 server machine with 32GB of RAM, and we made sure no garbage collections occured (`-Xmx16g`, `-Xms16g`):
 
@@ -45,7 +47,7 @@ We ran this code with two versions of the linked list: one with the plugin activ
 
 This shows miniboxed linked lists are 1.5x to 2x faster than generic collections, despite the fact that linked lists are not contiguous, thus reducing the benefits of miniboxing. We have also tested specialization, but it ran out of memory and we were unable to get any garbage collection-free runs above 1500000 elements (we suspect this is due to bug <a href="https://issues.scala-lang.org/browse/SI-3585" target="_blank">SI-3585 Specialized class should not have duplicate fields</a>, but haven't examined in depth).
 
-### With limited heap memory
+#### With limited heap memory
 
 We also wanted to test how miniboxing copes with garbage collection cycles compared to the generic library. To do so, we limited the heap size to 2G (`-Xmx2g`, `-Xms2g`, `-XX:+UseParallelGC`):
 
@@ -54,6 +56,10 @@ We also wanted to test how miniboxing copes with garbage collection cycles compa
 To summarize, on linked lists, we can expect **speedups between 1.5x and 4x**, despite the non-contiguous nature of the linked list.
 
 The full description of this experiment is [available here](/example_linkedlist.html).
+
+### Spire
+
+A [separate article](/2014/06/16/spire-miniboxed.html) describes the performance of the spire numeric abstraction library when using miniboxing.
 
 ## Microbenchmarks
 
