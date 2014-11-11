@@ -111,6 +111,24 @@ transformation. Please allow Scala to generate accessors by using val/var
 or removing the "private[this]" qualifier: val z: Z".
        class W[@miniboxed Z](z: Z) { println(z) }
                                              ^
+defined class W
+{% endhighlight %}
+
+* when a class you might expect to be specialized won't be:
+
+{% highlight text %}
+scala> class C[@miniboxed T] {
+     |   class D {
+     |     def foo(t: T): T = t
+     |   }
+     | }
+<console>:8: warning: The class D will not be miniboxed based on type 
+parameter(s) T of miniboxed class C. To have it transformed, declare
+new type parameters marked with @miniboxed and instantiate it using
+the parameters from class C.
+         class D {
+               ^
+defined class C
 {% endhighlight %}
 
 * or when a the code is just suboptimal:
