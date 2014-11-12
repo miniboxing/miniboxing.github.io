@@ -11,9 +11,14 @@ Commiters:
 * [Vlad Ureche](http://vladureche.ro) - main developer for the miniboxing plugin
 * [Cristian Talau](https://github.com/ctalau) - developed the initial miniboxing prototype, as a semester project
 * [Aymeric Genet](https://github.com/MelodyLucid) - developed [collection-like benchmarks](https://github.com/MelodyLucid/freezing-ironman) for the miniboxing plugin
+* [Dmitry Petrashko](https://github.com/DarkDimius) - fixes
+* [Ilya Klyuchnikov](https://github.com/ilya-klyuchnikov) - fixes
+* [&lt;your name here&gt;](http://lamp.epfl.ch/teaching/projects/master#faq-527294) - yes, **we need your help**!
+
+Value Class plugin:
+
 * [Eugene Burmako](https://github.com/xeno-by) - the [value class](https://github.com/miniboxing/valium) plugin based on the [LDL transformation](https://github.com/miniboxing/miniboxing-plugin/blob/wip/docs/2014-03-ldl-draft.pdf?raw=true)
 * [Pablo Guerrero](https://github.com/siriux) - the [value class benchmarks](https://github.com/miniboxing/value-benchmarks), which explore the performance of different encodings for multi-parameter value classes
-* [&lt;your name here&gt;](http://lamp.epfl.ch/teaching/projects/master#faq-527294) - yes, **we need your help**!
 
 Acknowledgements:
 
