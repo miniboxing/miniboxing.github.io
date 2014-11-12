@@ -70,6 +70,8 @@ res3: Any = 2
 
 
 * when adding an annotation could benefit the transformation:
+  * at the **definition site**:
+
 {% highlight text %}
 scala> class C[@miniboxed T]
 defined class C
@@ -93,6 +95,28 @@ T of C)
        class D[Z] extends C[Z]
              ^
 defined class D
+{% endhighlight %}
+
+  * at the **use site**:
+
+{% highlight text %}
+scala> def foo[X] = "x"
+foo: [X]=> String
+
+scala> foo[Int]
+<console>:9: warning: The method foo would benefit from miniboxing type
+parameter X, since it is instantiated by a primitive type.
+              foo[Int]
+                 ^
+res0: String = x
+
+scala> def bar[@miniboxed X] = foo[X]
+<console>:8: warning: The method foo would benefit from miniboxing type
+parameter X, since it is instantiated by miniboxed type parameter X of method bar.
+       def bar[@miniboxed X] = foo[X]
+                               ^
+bar: [X]=> String
+
 {% endhighlight %}
 
 * when a technical limitation prevents the plugin from compiling the code:
@@ -146,6 +170,32 @@ iniboxing specialization due to technical limitations:
        class W[@miniboxed Z](val z: Z) { println(z) }
                                                  ^
 defined class W
+{% endhighlight %}
+
+Finally, in some cases specialization is lost because some class or method in the library wasn't miniboxed. Normally, the compiler won't complain about this, since you can't do anything about it, but you can override this behavior using `-P:minibox:warn-all`:
+
+{% highlight text %}
+$ mb-scala -P:minibox:warn
+...
+
+scala> 3 :: Nil
+res0: List[Int] = List(3)
+
+scala> :quit
+
+$ mb-scala -P:minibox:warn-all
+...
+
+scala> 3 :: Nil
+<console>:8: warning: The method scala.collection.immutable.List.::
+would benefit from miniboxing type parameter B, since it is 
+instantiated by a primitive type.
+              3 :: Nil
+                ^
+res0: List[Int] = List(3)
+
+scala> :quit
+
 {% endhighlight %}
 
 Until the feature is enabled by default, to get the miniboxing plugin to talk (generate the warnings), use the `-P:minibox:warn` flag!
