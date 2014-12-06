@@ -1,6 +1,6 @@
 <p>
 <div class="paper">
-  <img src="mbox2-thumbnail.png" alt="paper" height="40px" align="right"/>
+  <img src="/mbox2-thumbnail.png" alt="paper" height="40px" align="right"/>
   Three papers best describe the miniboxing transformation and benchmarks:
   <ul>
     <li><a href="https://github.com/miniboxing/miniboxing-plugin/blob/wip/docs/2013-07-oopsla-preprint.pdf?raw=true" target="_blank">Miniboxing (OOPSLA 2013)</a> - the first miniboxing paper, describing the representation, </li>

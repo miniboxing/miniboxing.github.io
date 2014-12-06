@@ -4,23 +4,36 @@ title: Authors
 short_title: Authors
 ---
 
+<img src="/images/mbox.png" width="30%" align="right">
+<br/>
+<br/>
+<br/>
 The miniboxing project is developed by [**Vlad Ureche**](http://vladureche.ro) as a PhD topic under the supervision of [**Martin Odersky**](http://lampwww.epfl.ch/~odersky/), in the [**Programming Methods Laboratory (LAMP)**](http://lamp.epfl.ch) at [**École polytechnique fédérale de Lausanne (EPFL)**](http://epfl.ch).
+<br/>
+<br/>
+<br/>
 
-Commiters:
+## Commiters
+
+The miniboxing plugin <a href="https://github.com/miniboxing/miniboxing-plugin/" target="_blank">is hosted on github</a>, so you can see the <a href="https://github.com/miniboxing/miniboxing-plugin/graphs/contributors">commit stats here</a>.
 
 * [Vlad Ureche](http://vladureche.ro) - main developer for the miniboxing plugin
 * [Cristian Talau](https://github.com/ctalau) - developed the initial miniboxing prototype, as a semester project
 * [Aymeric Genet](https://github.com/MelodyLucid) - developed [collection-like benchmarks](https://github.com/MelodyLucid/freezing-ironman) for the miniboxing plugin
 * [Dmitry Petrashko](https://github.com/DarkDimius) - fixes
 * [Ilya Klyuchnikov](https://github.com/ilya-klyuchnikov) - fixes
-* [&lt;your name here&gt;](http://lamp.epfl.ch/teaching/projects/master#faq-527294) - yes, **we need your help**!
+* &lt;your name here&gt; - yes, **we need your help**, ask on the <a href="https://groups.google.com/forum/#!forum/scala-miniboxing" target="_blank">mailing list</a>.
 
-Value Class plugin:
+## Value Class plugin
+
+The <a href="https://github.com/miniboxing/value-plugin" target="_blank">value class plugin</a> is an prototype that enables multi-parameter <a href="http://docs.scala-lang.org/sips/completed/value-classes.html" target="_blank">value classes for Scala</a>. It relies on the same basic transformation as the miniboxing plugin, [late data layout](/ldl/index.html).
 
 * [Eugene Burmako](https://github.com/xeno-by) - the [value class](https://github.com/miniboxing/valium) plugin based on the [LDL transformation](https://github.com/miniboxing/miniboxing-plugin/blob/wip/docs/2014-03-ldl-draft.pdf?raw=true)
 * [Pablo Guerrero](https://github.com/siriux) - the [value class benchmarks](https://github.com/miniboxing/value-benchmarks), which explore the performance of different encodings for multi-parameter value classes
 
-Acknowledgements:
+## Acknowledgements
+
+A lot of people helped realize the dream of miniboxing, in many ways. Here's an incomplete list:
 
 * Martin Odersky, for his patient guidance
 * Eugene Burmako, for trusting the idea enough to develop the [value-plugin](https://github.com/miniboxing/value-plugin) based on the [LDL transformation](https://github.com/miniboxing/miniboxing-plugin/blob/wip/docs/2014-03-ldl-draft.pdf?raw=true)
