@@ -22,4 +22,5 @@ The Late Data Layout mechanism is the underlying transformation used by miniboxi
 <br/>
 
 <script async class="speakerdeck-embed" data-id="4362d420fca50131fb2522d9fe90f8a5" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
-<right><a href="https://drive.google.com/file/d/0B0syipgylO9fTmQ5em0tVm1PN0E/view?usp=sharing" target="_blank">(full recording also available)</a></right>
+
+<iframe width="640" height="360" src="//www.youtube.com/embed/HPqNmaAUAJc?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
