@@ -21,3 +21,5 @@ Once you cloned the project, change directory to `miniboxing-example` and run `s
 The <a href="https://github.com/miniboxing/miniboxing-example/blob/master/README.md" target="_blank"><code>README</code></a> file of the project shows the output you should expect for the different commands.
 
 Like the miniboxing plugin, the example project is distributed under a <a href="https://github.com/miniboxing/miniboxing-example/blob/master/LICENSE" target="_blank">3-clause BSD license</a> so you can build your project on top of it.
+
+{% include status.md %}

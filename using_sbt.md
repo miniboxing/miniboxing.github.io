@@ -7,12 +7,26 @@ short_title: Using in Sbt
 This page will explain how to enable miniboxing with your <a href="http://www.scala-sbt.org" target="_blank">sbt</a> project.
 
 Miniboxing is a Scala compiler plugin and thus performs its transformations as part of the compilation pipeline. In order to use miniboxing, you will need to add two components:
+
  * the miniboxing runtime support library and
  * the miniboxing compiler plugin
 
 Fortunately, both artifacts are <a href="https://travis-ci.org/miniboxing/miniboxing-plugin" target="_blank">published nightly on sonatype</a>, so you can easily get them.
 
 {% include status.md %}
+
+## tl;dr
+
+Here it is:
+
+{% highlight scala %}
+  resolvers += Resolver.sonatypeRepo("snapshots"),
+  libraryDependencies += "org.scala-miniboxing.plugins" %%
+                         "miniboxing-runtime" % "0.4-SNAPSHOT",
+  addCompilerPlugin("org.scala-miniboxing.plugins" %%
+                    "miniboxing-plugin" % "0.4-SNAPSHOT"),
+{% endhighlight %}
+
 
 ## Adding Miniboxing
 
@@ -35,12 +49,6 @@ addCompilerPlugin("org.scala-miniboxing.plugins" %%
                   "miniboxing-plugin" % "0.4-SNAPSHOT")
 {% endhighlight %}
 
-Finally, it is important to run the optimizer after compiling using the miniboxing plugin (this may be become redundant in future versions):
-
-{% highlight scala %}
-scalacOptions += "-optimize"
-{% endhighlight %}
-
 An example `build.sbt` file, with the required empty lines between commands, is:
 
 {% highlight scala %}
@@ -48,7 +56,7 @@ name := "hello-miniboxing-world"
 
 version := "1.0"
 
-scalaVersion := "2.11.1"
+scalaVersion := "2.11.4"
 
 resolvers += Resolver.sonatypeRepo("snapshots")
 
@@ -58,7 +66,6 @@ libraryDependencies += "org.scala-miniboxing.plugins" %%
 addCompilerPlugin("org.scala-miniboxing.plugins" %%
                   "miniboxing-plugin" % "0.4-SNAPSHOT")
 
-scalacOptions += "-optimize"
 {% endhighlight %}
 
 This project definition file only works with sbt 0.12 or newer, so you should create `project/build.properties` to enforce using your desired sbt version:
@@ -78,7 +85,6 @@ val miniboxingSettings: Seq[Setting[_]] = Seq(
                          "miniboxing-runtime" % "0.4-SNAPSHOT",
   addCompilerPlugin("org.scala-miniboxing.plugins" %%
                     "miniboxing-plugin" % "0.4-SNAPSHOT"),
-  scalacOptions += "-optimize"
 )
 {% endhighlight %}
 

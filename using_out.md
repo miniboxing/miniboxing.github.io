@@ -12,7 +12,6 @@ Miniboxing is a Scala compiler plugin and thus performs its transformations as p
  * the miniboxing compiler plugin
 
 Fortunately, both artifacts are <a href="https://travis-ci.org/miniboxing/miniboxing-plugin" target="_blank">published nightly on sonatype</a>, so you can easily get them.
-
 {% include status.md %}
 
 ## Getting the Artifact Jars
@@ -46,7 +45,6 @@ Once the two artifacts have been downloaded, you can use them to run the Scala c
 $ scala \
   -bootclasspath miniboxing-runtime.jar:miniboxing-plugin.jar \
   -Xplugin:miniboxing-plugin.jar \
-  -optimize
 
 Welcome to Scala version 2.11.1 (...).
 Type in expressions to have them evaluated.
@@ -83,14 +81,11 @@ A full list of flags can be obtained by calling either `scala` or `scalac` with 
 
 {% highlight text %}
 Options for plugin 'minibox':
-  -P:minibox:log          log miniboxing signature transformations
-  -P:minibox:stats        log miniboxing tree transformations (verbose logging)
-  -P:minibox:debug        debug logging for the miniboxing plugin (rarely used)
-  -P:minibox:hijack       hijack the @specialized(...) notation for miniboxing
-  -P:minibox:spec-no-opt  don't optimize method specialization
-  -P:minibox:loader       generate classloader-friendly code (but more verbose)
-  -P:minibox:no-logo      skip the miniboxing logo display)
-  -P:minibox:two-way      generate variants for long and double instead of just double)
+  -P:minibox:warn                warn when missing out specialization opportunities (will become default in the future)
+  -P:minibox:warn-all            same as above, but warn even for outside code, such as libraries that could be optimized
+  -P:minibox:hijack              hijack the @specialized(...) notation for miniboxing
+  -P:minibox:mark-all            implicitly add @miniboxed annotations to all type parameters
+  -P:minibox:log                 log miniboxing signature transformations
 {% endhighlight %}
 
 An example of using `-P:minibox:log` and `-P:minibox:hijack` (notice the `@specialized` annotation instead of `@miniboxed`):
@@ -102,7 +97,6 @@ class C[@specialized T]
 $ scalac \
   -bootclasspath miniboxing-runtime.jar:miniboxing-plugin.jar \
   -Xplugin:miniboxing-plugin.jar \
-  -optimize \
   -P:minibox:hijack \
   -P:minibox:log \
   C.scala
