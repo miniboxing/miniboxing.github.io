@@ -44,7 +44,7 @@ Once the two artifacts have been downloaded, you can use them to run the Scala c
 {% highlight bash %}
 $ scala \
   -bootclasspath miniboxing-runtime.jar:miniboxing-plugin.jar \
-  -Xplugin:miniboxing-plugin.jar \
+  -Xplugin:miniboxing-plugin.jar 
 
 Welcome to Scala version 2.11.1 (...).
 Type in expressions to have them evaluated.
