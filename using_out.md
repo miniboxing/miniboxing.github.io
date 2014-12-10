@@ -81,11 +81,11 @@ A full list of flags can be obtained by calling either `scala` or `scalac` with 
 
 {% highlight text %}
 Options for plugin 'minibox':
-  -P:minibox:warn                warn when missing out specialization opportunities (will become default in the future)
-  -P:minibox:warn-all            same as above, but warn even for outside code, such as libraries that could be optimized
-  -P:minibox:hijack              hijack the @specialized(...) notation for miniboxing
-  -P:minibox:mark-all            implicitly add @miniboxed annotations to all type parameters
-  -P:minibox:log                 log miniboxing signature transformations
+ -P:minibox:warn-off  do not show performance and specialization warnings for your code
+ -P:minibox:warn-all  show cross-project warnings, aka warn for the libraries as well
+ -P:minibox:hijack    hijack the @specialized(...) notation for miniboxing
+ -P:minibox:mark-all  implicitly add @miniboxed annotations to all type parameters
+ -P:minibox:log       log miniboxing signature transformations
 {% endhighlight %}
 
 An example of using `-P:minibox:log` and `-P:minibox:hijack` (notice the `@specialized` annotation instead of `@miniboxed`):

@@ -27,7 +27,7 @@ Well, miniboxing does talk :)
 
 ### Miniboxing Warnings
 
-If you add the `-P:minibox:warn` argument to the scala compiler, the miniboxing plugin will start talking. And it will
+A new feature of the miniboxing plugin is that it talks to you about performance. And how you can improve it. And this will
 expose all the code where it was not able to correctly specialize generics.
 
 For example, here are a few cases:
@@ -35,7 +35,7 @@ For example, here are a few cases:
 * When the type arguments do not allow an unambiguous choice between primitives and references:
 
 {% highlight text %}
-$ mb-scala -P:minibox:warn -language:_
+$ mb-scala -language:_
 ...
 
 scala> def foo[@miniboxed T](t: T) = t
@@ -172,10 +172,10 @@ iniboxing specialization due to technical limitations:
 defined class W
 {% endhighlight %}
 
-Finally, in some cases specialization is lost because some class or method in the library wasn't miniboxed. Normally, the compiler won't complain about this, since you can't do anything about it, but you can override this behavior using `-P:minibox:warn-all`:
+Finally, in some cases specialization is lost because some class or method in the library wasn't miniboxed:
 
 {% highlight text %}
-$ mb-scala -P:minibox:warn
+$ mb-scala
 ...
 
 scala> 3 :: Nil
@@ -198,7 +198,7 @@ scala> :quit
 
 {% endhighlight %}
 
-Until the feature is enabled by default, to get the miniboxing plugin to talk (generate the warnings), use the `-P:minibox:warn` flag!
+Hope it will be useful!
 
 ### Thanks guys!
 
