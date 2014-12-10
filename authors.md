@@ -22,7 +22,8 @@ The miniboxing plugin <a href="https://github.com/miniboxing/miniboxing-plugin/"
 * [Aymeric Genet](https://github.com/MelodyLucid) - developed [collection-like benchmarks](https://github.com/MelodyLucid/freezing-ironman) for the miniboxing plugin
 * [Dmitry Petrashko](https://github.com/DarkDimius) - fixes
 * [Ilya Klyuchnikov](https://github.com/ilya-klyuchnikov) - fixes
-* &lt;your name here&gt; - yes, **we need your help**, ask on the <a href="https://groups.google.com/forum/#!forum/scala-miniboxing" target="_blank">mailing list</a>.
+* [Nicolas Stucki](https://github.com/nicolasstucki) - `MbArray` fixes
+* **&lt;your name here&gt;** - yes, we need your help, ask on the <a href="https://groups.google.com/forum/#!forum/scala-miniboxing" target="_blank">mailing list</a>.
 
 ## Value Class plugin
 
