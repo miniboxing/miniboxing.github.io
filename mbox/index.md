@@ -34,6 +34,10 @@ The miniboxing plugin encodes all primitive values into long integers. To find o
 <script async class="speakerdeck-embed" data-id="aeecca804e97013264a712c8f4a94aec" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
 <br/>
 
+<center>
+<iframe width="800px" height="400px" src="//www.youtube.com/embed/RnIupOJv_oM" frameborder="0" allowfullscreen></iframe>
+</center>
+
 <!--
 | Topic             | Miniboxing                 | Specialization              |
 |-------------------|----------------------------|-----------------------------|
