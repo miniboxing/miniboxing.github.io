@@ -6,11 +6,15 @@
       @import '/css/default.css';
       @import '/css/table.css';
       @import '/css/syntax.css';
+      @import '/css/colorbox.css';
     </style>
     <style media='print' type='text/css'>
       @import '/css/print.css';
     </style>
-    <meta name='subject' content='Miniboxing documentation'>
+    <link media="screen" rel="stylesheet" href="colorbox/colorbox.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script src="/css/jquery.colorbox.js"></script>
+    <meta name='subject' content='Miniboxing website'>
     <link href="{{ site.url }}/feed.xml" rel="alternate" type="application/rss+xml" title="{{ site.name }}">
     <link href="{{ site.url }}/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <script>
@@ -21,6 +25,12 @@
 
       ga('create', 'UA-44999312-1', 'scala-miniboxing.org');
       ga('send', 'pageview');
+    </script>
+    <script>
+      $(document).ready(function(){
+      //Examples of how to assign the ColorBox event to elements
+      $(".colorbox").colorbox();
+      });
     </script>
   </head>
   <body>
@@ -53,6 +63,7 @@
             <ol>
               <li><a href='/example.html'>Sbt project</a></li>
               <li><a href='/example_linkedlist.html'>Linked List</a></li>
+              <li><a href='/example_pureimage.html'>PureImage</a></li>
               <li><a href='/example_functions.html'>Functions</a></li>
               <li><a href='/example_reverse.html'>Reverse</a></li>
             </ol>
