@@ -13,12 +13,14 @@ For more information, see the **[introduction to miniboxing](/intro.html)** and 
 
 ## Presentation
 
-If you prefer video presentations, you may like the ScalaDays talk on miniboxing: <br/><br/>
+If you prefer video presentations, you may like the PNWScala talk on miniboxing: <br/><br/>
 
 <center>
 <iframe width="800px" height="400px" src="//www.youtube.com/embed/RnIupOJv_oM" frameborder="0" allowfullscreen></iframe>
 <!--<iframe type="text/html" width="800px" height="400px" mozallowfullscreen="true" allowfullscreen="true" webkitallowfullscreen="true" src="//www.parleys.com/share.html#play/53a7d2d0e4b0543940d9e567" frameborder="0">&lt;br /&gt;</iframe>-->
 </center>
+
+**If you want to follow the live demo in the presentation on your own, [you can use this tutorial](/example_pureimage.html).**
 
 ## Disclaimer
 

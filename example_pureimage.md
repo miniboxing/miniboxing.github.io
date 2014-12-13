@@ -5,6 +5,8 @@ short_title: "Image Processing Example - PNWScala"
 ---
 <!-- jekyll don't be stupid -->
 
+<img align="left" src="/images/pnwscala.png" width="40px" />
+
 The following example is based on the miniboxing presentation at <b><a href="http://pnwscala.org" target="_blank">PNWScala</a></b>. A huge thanks to the <a href="https://twitter.com/tlockney" target="_blank">Thomas Lockney</a> and the PNWScala organizers for the wonderful conference and the <a href="http://confreaks.com/events/PNWS2014" target="_blank">confreaks guys</a> who recorded the presentation!
 
 <center>
