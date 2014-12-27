@@ -2,7 +2,7 @@
 <!-- start here -->
 <p>
 <div class="paper">
-  <p>Please keep in mind that the miniboxing plugin is a beta release, and not a feature-complete, perfect drop-in for your project.</p>
+  <p>Please keep in mind that the miniboxing plugin is a beta release, and you may encounter occasional hickups as we are working towards a feature-complete and super-stable implementation.</p>
   <p>We are doing our best to make miniboxing a stable transformation, with <a href="https://travis-ci.org/miniboxing/miniboxing-plugin" target="_blank">nightly</a> <a href="https://travis-ci.org/miniboxing/miniboxing-example" target="_blank">builds</a> and <a href="https://github.com/miniboxing/miniboxing-plugin/tree/wip/tests/correctness/resources/miniboxing/tests/compile" target="_blank">hundreds of test cases</a> running every night. Yet, there are <a href="https://github.com/miniboxing/miniboxing-plugin/issues?state=open" target="_blank">bugs we haven&#39;t fixed yet</a>, so don&#39;t be surprised if the plugin fails on some programs. But please do <a href="/issues.html" target="_blank">file bugs</a> for such failures, so we can fix them asap! (on average, we fixed a bug every 3 days for the last two months!)</p>
   <p>The miniboxing release currently supports two specific versions of the Scala compiler:
   <img src="/images/mbox.png" alt="paper" height="100px" align="right"/>
