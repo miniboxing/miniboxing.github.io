@@ -73,6 +73,6 @@ While there's certainly an overlap between specialization and miniboxing, both i
 ## Next Steps
 
  * If you want to start using miniboxing in your project, have a look at the [sbt configuration necessary](/using_sbt.html).
- * If you're interested in how miniboxing works, have a look at the [transformation description](/transformation.html).
+ * If you're interested in how miniboxing works, have a look at the [miniboxed encoding](/mbox) and the [underlying program transformation](/ldl).
 
 

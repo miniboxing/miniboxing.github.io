@@ -209,7 +209,7 @@ Test1$.baz(<console>:10)
 
 ## Closing Remarks
 
-For an alert reader, this section probably raised many more questions than it answered. The [transformation page](transformation.html) explains the internals of miniboxing, and can answer all your questions, both on the theory and the implementation. Still, as a programmer using miniboxing, what you already know is enough to make sure your performance-critical code is optimized, and you can jump to the [example project page](example.html).
+For an alert reader, this section probably raised many more questions than it answered. The [miniboxing encoding page](/mbox) explains the internals of miniboxing, and will answer all your questions, both on the theory and the implementation. Still, as a programmer using miniboxing, what you already know is enough to make sure your performance-critical code is optimized, and you can jump to the [example project page](example.html).
 
 Skipping one step ahead, the `-P:minibox:log` flag passed to the Scala compiler will output all details on how classes are transformed and how their members are affected:
 
