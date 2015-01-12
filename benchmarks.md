@@ -82,6 +82,8 @@ After removing `generic`:
 
 <center><img width="90%" src="/graphs/speed-spec.png"/></center>
 
+These benchmarks are further described in [a Miniboxing OOPSLA'13 paper](/mbox).
+
 ## Bytecode Size
 
 When comparing the total bytecode size for <a href="https://github.com/non/spire" target="_blank">spire</a> we see a 4.5x bytecode reduction:

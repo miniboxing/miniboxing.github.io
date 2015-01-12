@@ -17,3 +17,8 @@ comments: "off"
 {% endfor %}
 </ul>
 
+<br/><br/>
+
+If you would like to use your RSS reader for news, use this feed: 
+
+<a href="/feed.xml"><img src="/images/rss.png" /></a>
