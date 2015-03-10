@@ -1,14 +1,15 @@
 ---
 layout: default
 title: MbArray Tutorial
-short_title: MbArrayTutorial
+short_title: MbArray Tutorial
 ---
 
-**What is MbArray ? **
+## What is MbArray ?
 
 `MbArray` is an array wrapper providing basic random access operations which are optimized for primitive types, while still being completely generic. When instantiated in a generic context, the default scala `Array` would require the generic type to have information about itself available at runtime using a `Manifest` or a `TypeTag` view bound, whereas an `MbArray` can be instantiated without any constraint on its generic type, while still offering performances that are similar to those of an `Array`. 
 
 Consider the following declarations :
+
 ```
 class A[T](len: Int) {
     val array = new Array[T](len)
@@ -30,6 +31,7 @@ class C[@miniboxed T](len: Int) {
     val array = MbArray.empty[T](len)
 }
 ```
+
 MbArray is therefore a great choice of the underlying container for any custom collection, as it does not impose additional conditions on the type parameter(s) of the collection without any noticeable performance cost.
 
 {% include status.md %}
