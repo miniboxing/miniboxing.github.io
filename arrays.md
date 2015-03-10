@@ -32,6 +32,6 @@ class C[@miniboxed T](len: Int) {
 }
 {% endhighlight %}
 
-MbArray is therefore a great choice of the underlying container for any custom collection, as it does not impose additional conditions on the type parameter(s) of the collection without any noticeable performance cost.
+MbArray is therefore a great choice of the underlying container for any custom collection, as it does not impose additional conditions on the type parameter(s) of the collection, without compromising the performances.
 
 {% include status.md %}
