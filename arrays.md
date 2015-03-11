@@ -8,12 +8,17 @@ short_title: MbArray Tutorial
 
 ## Motivation
 
-Raw arrays offer the best access performance for primitive types, but they can only be instantiated in generic contexts if a ClassTag is present -- which is not always possible. Consider the following code :
+Raw arrays offer the best access performance for primitive types, but they can only be instantiated in generic contexts if a ClassTag is present -- which is not always possible. Consider typing the following code in the REPL :
 
 {% highlight scala %}
 scala> class A[T](len: Int) {
      | val array = new Array[T](len)
      | }
+{% endhighlight %}
+
+Pressing enter will result in the following error :
+
+{% highlight scala %}
 <console>:8: error: cannot find class tag for element type T
        val array = new Array[T](len)
 {% endhighlight %}
