@@ -35,7 +35,7 @@ scala> class B[T : ClassTag](len: Int) {
 defined class B
 {% endhighlight %}
 
-Now it would great if it was possible to have the performances of an array without having to carry around a `ClassTag`. 
+Now it would be great if it was possible to have the performances of an array without having to carry around a `ClassTag`. 
 Well, this is the main purpose of the `MbArray`, when used in combination with the miniboxing transformation.
 The following code is equivalent performance-wise to the one above, except that it works without requiring any condition on `T`.
 
