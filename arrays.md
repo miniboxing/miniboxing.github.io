@@ -41,6 +41,6 @@ MbArrays are included in the runtime support package for the miniboxing transfor
 
 ## Conclusion
 
-MbArray is therefore a great choice of the underlying container for any custom collection, as it does not impose additional conditions on the type parameter(s) of the collection, without compromising the performances.
+`MbArray` is therefore a great choice of the underlying container for any custom collection, as it does not impose additional conditions on the type parameter(s) of the collection, without compromising the performances.
 
 {% include status.md %}
