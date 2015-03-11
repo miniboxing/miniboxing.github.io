@@ -4,33 +4,38 @@ title: MbArray Tutorial
 short_title: MbArray Tutorial
 ---
 
-## What is MbArray ?
+`MbArray` is an indexed sequence container that matches the performance of raw arrays when used in miniboxed contexts. Also, unlike arrays, MbArray creation does not require the presence of a ClassTag, which makes it more versatile. This page will describe the motivation behind MbArray and will show how to use it through examples. 
 
-`MbArray` is an array wrapper providing basic random access operations which are optimized for primitive types, while still being completely generic. When instantiated in a generic context, the default scala `Array` would require the type parameter to have information about itself available at runtime using a `Manifest` or a `TypeTag` view bound, whereas an `MbArray` can be instantiated without any constraint on its type parameter, while still offering performances that are similar to those of an `Array`. 
+## Motivation
 
-Consider the following declarations :
-
-{% highlight scala %}
-class A[T](len: Int) {
-    val array = new Array[T](len)
-}
-{% endhighlight %}
-
-The code above is invalid scala and would not compile.
+Raw arrays offer the best access performance for primitive types, but they can only be instantiated in generic contexts if a ClassTag is present -- which is not always possible. Consider the following code :
 
 {% highlight scala %}
-class B[T](len: Int) {
-    val array = MbArray.empty[T](len)
-}
+scala> class A[T](len: Int) {
+     | val array = new Array[T](len)
+     | }
+<console>:8: error: cannot find class tag for element type T
+       val array = new Array[T](len)
 {% endhighlight %}
 
-The code above is valid scala but is suboptimal, as it could be automatically optimized when B is instantiated with a primitive type parameter by adding the `@miniboxed` annotation to the type parameter as below.
+Now would it be possible to have the performances of an array without its drawbacks? 
+Well, this is the main purpose of the `MbArray`, when used with the miniboxing transformation.
+The following code equivalent performance-wise to the one above, except that it works without requiring any condition on `T`.
 
 {% highlight scala %}
-class C[@miniboxed T](len: Int) {
-    val array = MbArray.empty[T](len)
-}
+scala> class B[@miniboxed T](len :Int) {
+     | val array = MbArray.empty[T](len)
+     | }
+Specializing class B...
+
+defined class B
 {% endhighlight %}
+
+MbArrays are included in the runtime support package for the miniboxing transformation. To see how to add miniboxing to your project, please see [this page](tutorial.md).
+
+## Usage
+
+## Conclusion
 
 MbArray is therefore a great choice of the underlying container for any custom collection, as it does not impose additional conditions on the type parameter(s) of the collection, without compromising the performances.
 
