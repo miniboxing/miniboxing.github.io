@@ -23,7 +23,7 @@ Pressing enter will result in the following error :
        val array = new Array[T](len)
 {% endhighlight %}
 
-This can be fixed by letting the scala runtime have access to type informations about `T` using a `ClassTag` : 
+This could be addressed by letting the scala runtime have access to type informations about `T` using a `ClassTag` from scala.reflect : 
 
 {% highlight scala %}
 scala> import scala.reflect._
@@ -35,7 +35,7 @@ scala> class B[T : ClassTag](len: Int) {
 defined class B
 {% endhighlight %}
 
-Now would it be possible to have the performances of an array without having to carry around a ClassTag ? 
+Now it would great if it was possible to have the performances of an array without having to carry around a `ClassTag`. 
 Well, this is the main purpose of the `MbArray`, when used in combination with the miniboxing transformation.
 The following code is equivalent performance-wise to the one above, except that it works without requiring any condition on `T`.
 
@@ -46,7 +46,7 @@ scala> class B[@miniboxed T](len :Int) {
 Specializing class B...
 
 defined class B
-{% endhighlight %}
+{% endhighlight }%
 
 MbArrays are included in the runtime support package for the miniboxing transformation. To see how to add miniboxing to your project, please see [this page](tutorial.md).
 
