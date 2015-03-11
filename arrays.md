@@ -23,7 +23,7 @@ Pressing enter will result in the following error :
        val array = new Array[T](len)
 {% endhighlight %}
 
-This could be addressed by letting the scala runtime have access to type informations about `T` using a `ClassTag` from scala.reflect : 
+This could be addressed, at the expense of performance, by letting the scala runtime have access to type informations about `T` using a `ClassTag` from `scala.reflect` : 
 
 {% highlight scala %}
 scala> import scala.reflect._
