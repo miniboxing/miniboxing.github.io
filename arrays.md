@@ -48,7 +48,7 @@ Specializing class B...
 defined class B
 {% endhighlight %}
 
-MbArrays are included in the runtime support package for the miniboxing transformation. To see how to add miniboxing to your project, please see [this page](tutorial.html).
+MbArrays are included in the runtime support package for the miniboxing transformation. To see how to add miniboxing to your project, please see [this page](example.html).
 
 ## Usage
 
