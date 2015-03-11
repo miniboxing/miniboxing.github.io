@@ -46,7 +46,7 @@ scala> class B[@miniboxed T](len :Int) {
 Specializing class B...
 
 defined class B
-{% endhighlight }%
+{% endhighlight %}
 
 MbArrays are included in the runtime support package for the miniboxing transformation. To see how to add miniboxing to your project, please see [this page](tutorial.html).
 
