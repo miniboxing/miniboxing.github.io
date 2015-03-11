@@ -12,7 +12,7 @@ Raw arrays offer the best access performance for primitive types, but they can o
 
 {% highlight scala %}
 scala> class A[T](len: Int) {
-     | val array = new Array[T](len)
+     |   val array = new Array[T](len)
      | }
 {% endhighlight %}
 
@@ -30,7 +30,7 @@ scala> import scala.reflect._
 import scala.reflect._
 
 scala> class B[T : ClassTag](len: Int) {
-     | val array = new Array[T](len)
+     |   val array = new Array[T](len)
      | }
 defined class B
 {% endhighlight %}
@@ -40,12 +40,14 @@ Well, this is the main purpose of the `MbArray`, when used in combination with t
 The following code is equivalent performance-wise to the one above, except that it works without requiring any condition on `T`.
 
 {% highlight scala %}
-scala> class B[@miniboxed T](len :Int) {
-     | val array = MbArray.empty[T](len)
+scala> class C[@miniboxed T](len :Int) {
+     |   val array = MbArray.empty[T](len)
      | }
-Specializing class B...
+Specializing class C...
 
-defined class B
+  ...
+
+defined class C
 {% endhighlight %}
 
 MbArrays are included in the runtime support package for the miniboxing transformation. To see how to add miniboxing to your project, please see [this page](example.html).
