@@ -10,7 +10,7 @@ short_title: MbArray Tutorial
 
 Raw arrays offer the best access performance for primitive types, but they can only be instantiated in generic contexts if a ClassTag is present -- which is not always possible. Consider the following code :
 
-{% highlight %}
+{% highlight scala %}
 scala> class A[T](len: Int) {
      | val array = new Array[T](len)
      | }
@@ -22,7 +22,7 @@ Now would it be possible to have the performances of an array without its drawba
 Well, this is the main purpose of the `MbArray`, when used with the miniboxing transformation.
 The following code equivalent performance-wise to the one above, except that it works without requiring any condition on `T`.
 
-{% highlight %}
+{% highlight scala %}
 scala> class B[@miniboxed T](len :Int) {
      | val array = MbArray.empty[T](len)
      | }
