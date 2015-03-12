@@ -35,9 +35,7 @@ scala> class B[T : ClassTag](len: Int) {
 defined class B
 {% endhighlight %}
 
-Now it would be great if it was possible to have the performances of an array without having to carry around a `ClassTag`. 
-Well, this is the main purpose of the `MbArray`, when used in combination with the miniboxing transformation.
-The following code is equivalent performance-wise to the one above, except that it works without requiring any condition on `T`.
+While this works, it may not be sufficiently fast for algorithms where high performance is expected. Instead, `MbArray` combined with the miniboxing transformation offers performances that are similar to those of raw arrays without having to carry around a `ClassTag`. The following code will work without requiring any condition on `T`. On top of that, any read or write to the array will perform better.
 
 {% highlight scala %}
 scala> class C[@miniboxed T](len :Int) {
@@ -54,7 +52,7 @@ MbArrays are included in the runtime support package for the miniboxing transfor
 
 ## Usage
 
-Let's take a closer look at how exactly a program can be transformed to take full advantage of the Miniboxing with MbArrays. Consider a classic implementation of the merge sort algorithm using the `Array` in combination with `ClassTag` :
+Let's take a closer look at how exactly a program can be transformed to take full advantage of the miniboxing transformation and MbArrays. Consider a classic implementation of the merge sort algorithm using a raw `Array` with an implicit `ClassTag` :
 
 {% highlight scala %}
 import scala.reflect._
