@@ -111,7 +111,7 @@ object MergeSort {
   
 {% endhighlight %}
 
-Now let's transform the code above such that it uses miniboxing an MbArrays. 
+Now let's transform the code above such that it uses miniboxing and MbArrays. 
 
 * Let's first add the line `import MbArray._`.
 * Then, replace all occurences of the type `Array[T]` by `MbArray[T]`, and all the array instantiations `new Array[T](...)` by `MbArray.empty[T](...)`. 
