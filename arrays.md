@@ -55,6 +55,7 @@ MbArrays are included in the runtime support package for the miniboxing transfor
 Let's take a closer look at how exactly a program can be transformed to take full advantage of the miniboxing transformation and MbArrays. Consider a classic implementation of the merge sort algorithm using a raw `Array` with an implicit `ClassTag` :
 
 {% highlight scala %}
+
 import scala.reflect._
 import scala.util._
 
@@ -138,6 +139,16 @@ Compiling at this point will yield the following output :
 The miniboxing plugin informs us that code is suboptimal and could get faster if we were to use the `@miniboxed` annotation on the type parameter `T`. After proceeding and compiling again, we observe that there are no more warnings and our code has been successfully optimized by the miniboxing transformation.
 
 ### Benchmarks
+
+We got the following numbers :
+
+| Array Size    | Array with ClassTag  | MbArray  | Improvement |
+| ------------- |----------------------| ---------|-------------|
+| 500'000       | 1119.1	       | 929.39   | 20.41	|
+| 1'000'000     | 2328.43              | 1958.31  | 18.89	|
+| 3'000'000     | 7625.75              | 6391.48  | 19.31%	|
+
+We get an average of approximately 20%.
 
 ## Conclusion
 
