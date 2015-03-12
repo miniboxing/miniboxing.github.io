@@ -134,7 +134,7 @@ Compiling at this point will yield the following output :
 [warn]                    ^
 [warn] 5 warnings found
 ```
-
+ 
 The miniboxing plugin informs us that code is suboptimal and could get faster if we were to use the `@miniboxed` annotation on the type parameter `T`. After proceeding and compiling again, we observe that there are no more warnings and our code has been fully optimized by the miniboxing transformation.
 
 ## Conclusion
