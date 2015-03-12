@@ -111,11 +111,13 @@ object MergeSort {
   
 {% endhighlight %}
 
+### The transformation
+
 Now let's transform the code above such that it uses miniboxing and MbArrays. 
 
-* Let's first add the line `import MbArray._`.
-* Then, replace all occurences of the type `Array[T]` by `MbArray[T]`, and all the array instantiations `new Array[T](...)` by `MbArray.empty[T](...)`. 
-* Finally, remove the ClassTag bound on the type parameter `T`.
+1. Let's first add the line `import MbArray._`.
+2. Then, replace all occurences of the type `Array[T]` by `MbArray[T]`, and all the array instantiations `new Array[T](...)` by `MbArray.empty[T](...)`. 
+3. Finally, remove the `ClassTag` bound on the type parameter `T`.
 
 Compiling at this point will yield the following output :
 
@@ -135,7 +137,9 @@ Compiling at this point will yield the following output :
 [warn] 5 warnings found
 ```
  
-The miniboxing plugin informs us that code is suboptimal and could get faster if we were to use the `@miniboxed` annotation on the type parameter `T`. After proceeding and compiling again, we observe that there are no more warnings and our code has been fully optimized by the miniboxing transformation.
+The miniboxing plugin informs us that code is suboptimal and could get faster if we were to use the `@miniboxed` annotation on the type parameter `T`. After proceeding and compiling again, we observe that there are no more warnings and our code has been successfully optimized by the miniboxing transformation.
+
+### Benchmarks
 
 ## Conclusion
 
