@@ -45,7 +45,7 @@ scala> class C[@miniboxed T](len :Int) {
      | }
 Specializing class C...
 
-  ...
+  ... (The miniboxing transformation operates)
 
 defined class C
 {% endhighlight %}
@@ -53,6 +53,88 @@ defined class C
 MbArrays are included in the runtime support package for the miniboxing transformation. To see how to add miniboxing to your project, please see [this page](example.html).
 
 ## Usage
+
+Let's take a closer look at how exactly a program can be transformed to take full advantage of the Miniboxing with MbArrays. Consider a classic implementation of the merge sort algorithm using the `Array` in combination with `ClassTag` :
+
+{% highlight scala %}
+import scala.reflect._
+import scala.util._
+
+object MergeSort {
+  def mergeSort[T : ClassTag](ary: Array[T], comp: (T, T)=>Boolean): Array[T] = {
+    def merge(a: Array[T], b: Array[T]): Array[T] = {
+	  val res = new Array[T](a.length + b.length)
+	  var ai = 0
+	  var bi = 0
+	  while (ai < a.length && bi < b.length) {
+	    if (comp(a(ai), b(bi))) {
+		  res(ai + bi) = a(ai)
+		  ai += 1
+	    } else {
+		  res(ai + bi) = b(bi)
+		  bi += 1
+	    }
+	  }
+	  while (ai < a.length) {
+		  res(ai + bi) = a(ai)
+		  ai += 1
+	  }
+	  while (bi < b.length) {
+		  res(ai + bi) = b(bi)
+		  bi += 1
+	  }
+	  res
+	}
+	val len = ary.length
+     if (len <= 1) ary
+	else {
+       val mid = len / 2
+	  val a = new Array[T](mid)
+	  val b = new Array[T](len - mid)
+	  
+	  for (i <- 0 until mid) a(i) = ary(i)
+	  for (i <- mid until len) b(i - mid) = ary(i)
+	  
+	  merge(mergeSort(a, comp), mergeSort(b, comp))
+	}
+  }
+  
+  def main(args: Array[String]) = {
+    val ary = new Array[Int](50)
+    val rnd = new Random
+    for (i <- 0 until len) {
+      ary(i) = rnd.nextInt(len)
+    }
+    val sorted = mergeSort(ary, (a: Int, b: Int) => a < b)
+  }
+}
+  
+{% endhighlight %}
+
+Now let's transform the code above such that it uses miniboxing an MbArrays. 
+* Let's first add the line `import MbArray._`.
+* Then, replace all occurences of the type `Array[T]` by `MbArray[T]`, and all the array instantiations `new Array[T](...)` by `MbArray.empty[T](...)`. 
+* Finally, remove the ClassTag bound on the type parameter `T`.
+
+Compiling at this point will yield the following output :
+
+```
+[warn] (...) The method MergeSort.mergeSort would benefit from miniboxing type parameter T, since it is instantiated by a primitive type.
+[warn]     val sorted = mergeSort(ary, (a: Int, b: Int) => a < b)
+[warn]                  ^
+[warn] (...) The following code instantiating an `MbArray` object cannot be optimized since the type argument is not a primitive type (like Int), a miniboxed type paramter or a subtype of AnyRef. This means that primitive types could end up boxed:
+[warn]    val res = MbArray.empty[T](a.length + b.length)
+[warn]                      ^
+[warn] (...) The following code instantiating an `MbArray` object cannot be optimized since the type argument is not a primitive type (like Int), a miniboxed type paramter or a subtype of AnyRef. This means that primitive types could end up boxed:
+[warn]    val a = MbArray.empty[T](mid)
+[warn]                    ^
+[warn] (...) The following code instantiating an `MbArray` object cannot be optimized since the type argument is not a primitive type (like Int), a miniboxed type paramter or a subtype of AnyRef. This means that primitive types could end up boxed:
+[warn]    val b = MbArray.empty[T](len - mid)
+[warn]                    ^
+[warn] 5 warnings found
+```
+
+The miniboxing plugin informs us that code is suboptimal and could get faster if we were to use the `@miniboxed` annotation on the type parameter `T`. After proceeding and compiling again, we observe that there are no more warnings and our code has been fully optimized by the miniboxing transformation.
 
 ## Conclusion
 
