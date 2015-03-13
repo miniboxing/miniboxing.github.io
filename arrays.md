@@ -123,16 +123,23 @@ Now let's transform the code above such that it uses miniboxing and MbArrays.
 Compiling at this point will yield the following output :
 
 {% highlight scala %}
-[warn] (...) The method MergeSort.mergeSort would benefit from miniboxing type parameter T, since it is instantiated by a primitive type.
+[warn] (...) The method MergeSort.mergeSort would benefit from miniboxing type parameter T, 
+since it is instantiated by a primitive type.
 [warn]     val sorted = mergeSort(ary, (a: Int, b: Int) => a < b)
 [warn]                  ^
-[warn] (...) The following code instantiating an `MbArray` object cannot be optimized since the type argument is not a primitive type (like Int), a miniboxed type paramter or a subtype of AnyRef. This means that primitive types could end up boxed:
+[warn] (...) The following code instantiating an `MbArray` object cannot be optimized since the 
+type argument is not a primitive type (like Int), a miniboxed type parameter or a subtype of AnyRef. 
+This means that primitive types could end up boxed:
 [warn]    val res = MbArray.empty[T](a.length + b.length)
 [warn]                      ^
-[warn] (...) The following code instantiating an `MbArray` object cannot be optimized since the type argument is not a primitive type (like Int), a miniboxed type paramter or a subtype of AnyRef. This means that primitive types could end up boxed:
+[warn] (...) The following code instantiating an `MbArray` object cannot be optimized since the 
+type argument is not a primitive type (like Int), a miniboxed type parameter or a subtype of AnyRef. 
+This means that primitive types could end up boxed:
 [warn]    val a = MbArray.empty[T](mid)
 [warn]                    ^
-[warn] (...) The following code instantiating an `MbArray` object cannot be optimized since the type argument is not a primitive type (like Int), a miniboxed type paramter or a subtype of AnyRef. This means that primitive types could end up boxed:
+[warn] (...) The following code instantiating an `MbArray` object cannot be optimized since the 
+type argument is not a primitive type (like Int), a miniboxed type parameter or a subtype of AnyRef. 
+This means that primitive types could end up boxed:
 [warn]    val b = MbArray.empty[T](len - mid)
 [warn]                    ^
 [warn] 5 warnings found
@@ -142,7 +149,7 @@ The miniboxing plugin informs us that code is suboptimal and could get faster if
 
 ### Benchmarks
 
-We got the following numbers :
+We benchmarked the MergeSort algorithm above with different sizes of array and got the following numbers :
 
 | Array Size    | Array with ClassTag  | MbArray  | Improvement |
 | ------------- |----------------------| ---------|-------------|
@@ -150,7 +157,8 @@ We got the following numbers :
 | 1'000'000     | 2328.43              | 1958.31  | 18.89%	|
 | 3'000'000     | 7625.75              | 6391.48  | 19.31%	|
 
-We get an average speedup of approximately 20%.
+We can observe an average speedup of approximately 20%.
+You can try it yourself by downloading the source file [here](exampleSources/arraysBenchmark.html).
 
 ## Conclusion
 
