@@ -98,8 +98,10 @@ object MergeSort {
     }
   }
   
+  final val len = 50
+  
   def main(args: Array[String]) = {
-    val ary = new Array[Int](50)
+    val ary = new Array[Int](len)
     val rnd = new Random
     for (i <- 0 until len) {
       ary(i) = rnd.nextInt(len)
@@ -120,7 +122,7 @@ Now let's transform the code above such that it uses miniboxing and MbArrays.
 
 Compiling at this point will yield the following output :
 
-```
+{% highlight scala %}
 [warn] (...) The method MergeSort.mergeSort would benefit from miniboxing type parameter T, since it is instantiated by a primitive type.
 [warn]     val sorted = mergeSort(ary, (a: Int, b: Int) => a < b)
 [warn]                  ^
@@ -134,7 +136,7 @@ Compiling at this point will yield the following output :
 [warn]    val b = MbArray.empty[T](len - mid)
 [warn]                    ^
 [warn] 5 warnings found
-```
+{% endhighlight %}
  
 The miniboxing plugin informs us that code is suboptimal and could get faster if we were to use the `@miniboxed` annotation on the type parameter `T`. After proceeding and compiling again, we observe that there are no more warnings and our code has been successfully optimized by the miniboxing transformation.
 
