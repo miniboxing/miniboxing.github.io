@@ -122,7 +122,7 @@ Now let's transform the code above such that it uses miniboxing and MbArrays.
 
 Compiling at this point will yield the following output :
 
-{% highlight scala %}
+{% highlight bash %}
 [warn] (...) The method MergeSort.mergeSort would benefit from miniboxing type parameter T, 
 since it is instantiated by a primitive type.
 [warn]     val sorted = mergeSort(ary, (a: Int, b: Int) => a < b)
