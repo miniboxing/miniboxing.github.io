@@ -149,7 +149,7 @@ The miniboxing plugin informs us that code is suboptimal and could get faster if
 
 ### Benchmarks
 
-We benchmarked the MergeSort algorithm above with different sizes of array and got the following numbers :
+We benchmarked the merge sort algorithm implementation above with different sizes of array and ended up with the following numbers :
 
 | Array Size    | Array with ClassTag  | MbArray  | Improvement |
 | ------------- |----------------------| ---------|-------------|
