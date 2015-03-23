@@ -158,7 +158,7 @@ We benchmarked the merge sort algorithm implementation above with different size
 | 3'000'000     | 7625.75              | 6391.48  | 19.31%	|
 
 We can observe an average speedup of approximately 20%.
-You can try it yourself by downloading the source file [here](exampleSources/arraysBenchmark.html).
+You can try it yourself by downloading the benchmarks [here](https://github.com/Roldak/mb-benchmarks).
 
 ## Conclusion
 
