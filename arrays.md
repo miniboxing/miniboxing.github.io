@@ -219,6 +219,10 @@ You can try it yourself by downloading the benchmarks [here](https://github.com/
 
 ## Conclusion
 
+* Raw Arrays : Perform well, but cannot be instantiated in generic contexts.
+* Raw Arrays with `ClassTag` : Can be instantiated in generic contexts, but introduces performance overhead.
+* MbArrays with the Miniboxing transformation : Can be instantiated in generic contexts, and will perform well if the generic context is miniboxed.
+
 MbArray is therefore a great choice of the underlying container for any custom collection, as it does not impose additional conditions on the type parameter(s) of the collection, without compromising the performances.
 
 {% include status.md %}
