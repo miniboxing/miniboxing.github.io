@@ -198,7 +198,7 @@ object MergeSort {
       while (i < len) {
         b(i - mid) = ary(i)
         i += 1
-      
+      }
       
       merge(mergeSort(a, comp), mergeSort(b, comp))
     }
