@@ -60,7 +60,7 @@ import scala.reflect._
 import scala.util._
 
 object MergeSort {
-  def mergeSort[T : ClassTag](ary: Array[T], comp: (T, T)=>Boolean): Array[T] = {
+  def mergeSort[T : ClassTag](ary: Array[T], comp: (T, T) => Boolean): Array[T] = {
     def merge(a: Array[T], b: Array[T]): Array[T] = {
       val res = new Array[T](a.length + b.length)
       var ai = 0
