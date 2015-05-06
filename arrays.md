@@ -205,13 +205,13 @@ object MergeSort {
 {% endhighlight %}
 ### Benchmarks
 
-We benchmarked the merge sort algorithm implementation above with different sizes of array and ended up with the following numbers :
+We benchmarked the merge sort algorithm implementation above with different sizes of array and ended up with the following numbers (in milliseconds) :
 
 | Array Size    | Array with ClassTag  | MbArray  | Improvement |
 | ------------- |----------------------| ---------|-------------|
 | 500'000       | 1080.65	       | 818.04   | 32.1%	|
-| 1'000'000     | 2254.01              | 1762.5   | 27.89%	|
-| 3'000'000     | 7307.22              | 5485.70  | 33.2%	|
+| 1'000'000     | 2254.01              | 1762.5   | 27.9%	|
+| 3'000'000     | 7307.22              | 5485.7   | 33.2%	|
 
 We can observe an average speedup of approximately 30%.
 You can try it yourself by downloading the benchmarks [here](https://github.com/Roldak/mb-benchmarks).
