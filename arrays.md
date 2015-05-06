@@ -145,19 +145,75 @@ AnyRef. This means that primitive types could end up boxed:
 [warn] 5 warnings found
 {% endhighlight %}
  
-The miniboxing plugin informs us that code is suboptimal and could get faster if we were to use the `@miniboxed` annotation on the type parameter `T`. After proceeding and compiling again, we observe that there are no more warnings and our code has been successfully optimized by the miniboxing transformation.
+The miniboxing plugin informs us that code is suboptimal and could get faster if we were to use the `@miniboxed` annotation on the type parameter `T`. After proceeding and compiling again, we observe that there are no more warnings and our code has been successfully optimized by the miniboxing transformation. The final transformation looks like this : 
+{% highlight scala %}
 
+import scala.reflect._
+import scala.util._
+
+object MergeSort {
+  def mergeSort[@miniboxed T](ary: MbArray[T], comp: (T, T) => Boolean): MbArray[T] = {
+    def merge(a: MbArray[T], b: MbArray[T]): MbArray[T] = {
+      val res = MbArray.empty[T](a.length + b.length)
+      var ai = 0
+      var bi = 0
+      while (ai < a.length && bi < b.length) {
+        if (comp(a(ai), b(bi))) {
+          res(ai + bi) = a(ai)
+          ai += 1
+        } else {
+          res(ai + bi) = b(bi)
+          bi += 1
+        }
+      }
+      while (ai < a.length) {
+          res(ai + bi) = a(ai)
+          ai += 1
+      }
+      while (bi < b.length) {
+          res(ai + bi) = b(bi)
+          bi += 1
+      }
+      res
+    }
+    val len = ary.length
+    if (len <= 1) ary
+    else {
+      val mid = len / 2
+      val a = MbArray.empty[T](mid)
+      val b = MbArray.empty[T](len - mid)
+      
+      for (i <- 0 until mid) a(i) = ary(i)
+      for (i <- mid until len) b(i - mid) = ary(i)
+      
+      merge(mergeSort(a, comp), mergeSort(b, comp))
+    }
+  }
+  
+  final val len = 50
+  
+  def main(args: Array[String]) = {
+    val ary = MbArray.empty[Int](len)
+    val rnd = new Random
+    for (i <- 0 until len) {
+      ary(i) = rnd.nextInt(len)
+    }
+    val sorted = mergeSort(ary, (a: Int, b: Int) => a < b)
+  }
+}
+  
+{% endhighlight %}
 ### Benchmarks
 
 We benchmarked the merge sort algorithm implementation above with different sizes of array and ended up with the following numbers :
 
 | Array Size    | Array with ClassTag  | MbArray  | Improvement |
 | ------------- |----------------------| ---------|-------------|
-| 500'000       | 1119.1	       | 929.39   | 20.41%	|
-| 1'000'000     | 2328.43              | 1958.31  | 18.89%	|
-| 3'000'000     | 7625.75              | 6391.48  | 19.31%	|
+| 500'000       | 1080.65	       | 818.04   | 32.1%	|
+| 1'000'000     | 2254.01              | 1762.5   | 27.89%	|
+| 3'000'000     | 7307.22              | 5485.70  | 33.2%	|
 
-We can observe an average speedup of approximately 20%.
+We can observe an average speedup of approximately 30%.
 You can try it yourself by downloading the benchmarks [here](https://github.com/Roldak/mb-benchmarks).
 
 ## Conclusion
