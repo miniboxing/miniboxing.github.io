@@ -209,11 +209,12 @@ We benchmarked the merge sort algorithm implementation above with different size
 
 | Array Size    | Array with ClassTag  | MbArray  | Improvement |
 | ------------- |----------------------| ---------|-------------|
-| 500'000       | 1080.65	       | 818.04   | 32.1%	|
-| 1'000'000     | 2254.01              | 1762.5   | 27.9%	|
-| 3'000'000     | 7307.22              | 5485.7   | 33.2%	|
+| 500'000       | 713    	       | 528      | 35%   	|
+| 1'000'000     | 1536                 | 1163     | 32%		|
+| 3'000'000     | 5311                 | 3545     | 50%    	|
 
-We can observe an average speedup of approximately 30%.
+We can observe an average speedup of approximately 40%.
+Note that the Array with ClassTag version is compiled without the miniboxing plugin.
 You can try it yourself by downloading the benchmarks [here](https://github.com/Roldak/mb-benchmarks).
 
 ## Conclusion
