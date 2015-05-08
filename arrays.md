@@ -219,16 +219,17 @@ object MergeSort {
 {% endhighlight %}
 ### Benchmarks
 
-We benchmarked the merge sort algorithm implementation above with different sizes of array and ended up with the following numbers (in milliseconds) :
+We benchmarked the merge sort algorithm implementation above with different sizes of array and ended up with the numbers of the table below (in milliseconds). Here, even though our main goal is to compare `MbArray` against `Array` with `ClassTag`, we also included the `Array[Any]` version, which is one of the current way to bypass the limitations of generic array instantiation as it has been briefly mentionned above, as well as the `Array[Int]` version, which is the ideal, hand-specialized version of the benchmark (not generic).
 
-| Array Size    | Array with ClassTag  | MbArray  | Improvement |
-| ------------- |----------------------| ---------|-------------|
-| 500'000       | 713    	       | 528      | 35%   	|
-| 1'000'000     | 1536                 | 1163     | 32%		|
-| 3'000'000     | 5311                 | 3545     | 50%    	|
+| Array Size    | `MbArray` | `Array` with `ClassTag` |  `Array[Any]` | `Array[Int]`  |
+| ------------- |-----------|-------------------------|---------------|---------------|
+| 500'000       | 521.46  <font color="green"> Some green text </font>  | 856.55                  | 487.64        | 132.85        |
+| 1'000'000     | 1089.25   | 1639.08                 | 1134.16       | 309.39        |
+| 3'000'000     | 3536.76   | 5349.12                 | 4110.89       | 855.28        |
 
 We can observe an average speedup of approximately 40%.
 Note that the Array with ClassTag version is compiled without the miniboxing plugin.
+
 You can try it yourself by downloading the benchmarks [here](https://github.com/Roldak/mb-benchmarks).
 
 ## Conclusion
