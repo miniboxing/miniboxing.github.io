@@ -33,6 +33,11 @@ You can find more on the transformation <a href="https://github.com/miniboxing/i
 
 ## Talks
 
+### ICOOOLPS 2015
+
+<script async class="speakerdeck-embed" data-id="6fa0f3eecf43458b9315bb4f861da8c0" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+
+
 ### EcoCloud 2015 
 
 <script async class="speakerdeck-embed" data-id="369827bc85ee43ff9194ff4f8661559e" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
