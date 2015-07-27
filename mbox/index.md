@@ -19,24 +19,25 @@ The miniboxing plugin encodes all primitive values into long integers. To find o
 
 ## Talks
 
-### Miniboxing Transformation (ScalaDays 2014 Berlin, Germany)
+### Miniboxing Warnings (PNWScala, Portalnd, OR)
 
-<script async class="speakerdeck-embed" data-id="92685ec0dbaa0131d9c62a008baf6e6b" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+<center>
+<iframe width="800px" height="400px" src="//www.youtube.com/embed/RnIupOJv_oM" frameborder="0" allowfullscreen></iframe>
+</center>
 <br/>
+
+<script async class="speakerdeck-embed" data-id="aeecca804e97013264a712c8f4a94aec" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+<br/>
+
+### Miniboxing Transformation (ScalaDays 2014 Berlin, Germany)
 
 <center>
 <iframe type="text/html" width="800px" height="400px" mozallowfullscreen="true" allowfullscreen="true" webkitallowfullscreen="true" src="//www.parleys.com/share.html#play/53a7d2d0e4b0543940d9e567" frameborder="0">&lt;br /&gt;</iframe>
 </center>
 <br/>
 
-### Miniboxing Warnings (PNWScala, Portalnd, OR)
-
-<script async class="speakerdeck-embed" data-id="aeecca804e97013264a712c8f4a94aec" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+<script async class="speakerdeck-embed" data-id="92685ec0dbaa0131d9c62a008baf6e6b" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
 <br/>
-
-<center>
-<iframe width="800px" height="400px" src="//www.youtube.com/embed/RnIupOJv_oM" frameborder="0" allowfullscreen></iframe>
-</center>
 
 <!--
 | Topic             | Miniboxing                 | Specialization              |
