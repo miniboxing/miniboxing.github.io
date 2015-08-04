@@ -6,7 +6,7 @@ short_title: Data-Centric Metaprogramming with ildl
 
 <img src="/images/ildl-frog.png" width="18%" align="right">
 
-iLDL is a Scala compiler transformation that enables data-centric metaprogramming. Using the ildl compiler plugin, developers can target any composed data structure within their program and designate a better memory representatation for it. Based on this information, the Scala compiler automatically replaces the original data structure by the improved representation without any change on the programmer&amp;s side.
+iLDL is a Scala compiler transformation that enables data-centric metaprogramming. Using the ildl compiler plugin, developers can target any composed data structure within their program and designate a better memory representation for it. Based on this information, the Scala compiler automatically replaces the original data structure by the improved representation without any change on the programmer side.
 
 We have tested several cases of data-centric metaprogramming, [with exceptional results](#benchmarks). We also have a [paper and a poster](#paper-and-poster) describing the technique.
 
