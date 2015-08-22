@@ -18,7 +18,7 @@ We have tested several cases of data-centric metaprogramming, [with exceptional 
 ## Paper and Poster
 <br/>
 <center>
-<a href="https://github.com/miniboxing/miniboxing-plugin/blob/wip/docs/2015-03-ildl-draft.pdf?raw=true" target="_blank"><img src="/images/ildl-paper.png" width="45%" style="border:3px solid black; box-shadow: 10px 10px 5px #888888;"/></a>&nbsp;
+<a href="https://github.com/miniboxing/miniboxing-plugin/blob/wip/docs/2015-08-ildl-oopsla.pdf?raw=true" target="_blank"><img src="/images/ildl-paper.png" width="45%" style="border:3px solid black; box-shadow: 10px 10px 5px #888888;"/></a>&nbsp;
 <a href="https://github.com/miniboxing/miniboxing-plugin/blob/wip/docs/2015-05-ildl-poster.pdf?raw=true" target="_blank"><img src="/images/ildl-poster.png" width="45%" style="border:3px solid black; box-shadow: 10px 10px 5px #888888;"/></a>
 </center>
 
