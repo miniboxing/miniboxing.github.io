@@ -19,11 +19,11 @@ Miniboxing is a program transformation that improves the performance of Scala ge
 
 ## Why use Miniboxing?
 
-**Performance** The miniboxing plugin improves generics performance and has been tested on <a href="example_linkedlist.html">linked lists</a>, <a href="example_rrbvector.html">vectors</a>, <a href="example_streams.html">streams</a>, <a href="example_pureimage.html">image processing</a> and <a href="benchmarks.html">others</a>.
+**Performance** The miniboxing plugin improves generics performance and has been tested on <a href="example_linkedlist.html">linked lists</a>, <a href="example_rrbvector.html">vectors</a>, <a href="example_streams.html">streams</a>, <a href="example_pureimage.html">image processing</a> and <a href="benchmarks.html">other examples</a>.
 
 **Advisories** Miniboxing issues actionble performance advisories while compiling the code, so programmers know what they need to do to improve the performance of their code. 
 
-**Integration** The miniboxing transformation reuses the machinery in the Scala compiler, so it can easily and reliably integrate with the Scala compiler. This add seamless integration in the Scala IDE and IntelliJ.
+**Integration** The miniboxing transformation reuses the machinery in the Scala compiler, so it can easily and reliably integrate with existing tools, such as the Scala IDE and the IntelliJ Scala plugin.
 
 ## Disclaimer
 
