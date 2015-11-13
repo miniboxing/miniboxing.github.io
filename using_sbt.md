@@ -6,18 +6,7 @@ short_title: Using in Sbt
 
 This page will explain how to enable miniboxing with your <a href="http://www.scala-sbt.org" target="_blank">sbt</a> project.
 
-Miniboxing is a Scala compiler plugin and thus performs its transformations as part of the compilation pipeline. In order to use miniboxing, you will need to add two components:
-
- * the miniboxing runtime support library and
- * the miniboxing compiler plugin
-
-Fortunately, both artifacts are <a href="https://travis-ci.org/miniboxing/miniboxing-plugin" target="_blank">published nightly on sonatype</a>, so you can easily get them.
-
-{% include status.md %}
-
-## tl;dr
-
-Here it is:
+TL;DR:
 
 {% highlight scala %}
   resolvers += Resolver.sonatypeRepo("snapshots"),
@@ -27,8 +16,14 @@ Here it is:
                     "miniboxing-plugin" % "0.4-SNAPSHOT"),
 {% endhighlight %}
 
+## The Long Story
 
-## Adding Miniboxing
+Miniboxing is a Scala compiler plugin and thus performs its transformations as part of the compilation pipeline. In order to use miniboxing, you will need to add two components:
+
+ * the miniboxing runtime support library and
+ * the miniboxing compiler plugin
+
+Fortunately, both artifacts are <a href="https://travis-ci.org/miniboxing/miniboxing-plugin" target="_blank">published nightly on sonatype</a>, so you can easily get them.
 
 Depending on your project's size, you may be using the <a href="http://www.scala-sbt.org/0.13.5/docs/Getting-Started/Basic-Def.html" target="_blank">basic project definition</a> (in a `.sbt` file) or the <a href="http://www.scala-sbt.org/0.13.5/docs/Getting-Started/Full-Def.html" target="_blank">full project definition</a> (usually in `project/Build.scala`).
 

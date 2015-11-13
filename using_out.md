@@ -12,7 +12,6 @@ Miniboxing is a Scala compiler plugin and thus performs its transformations as p
  * the miniboxing compiler plugin
 
 Fortunately, both artifacts are <a href="https://travis-ci.org/miniboxing/miniboxing-plugin" target="_blank">published nightly on sonatype</a>, so you can easily get them.
-{% include status.md %}
 
 ## Getting the Artifact Jars
 
