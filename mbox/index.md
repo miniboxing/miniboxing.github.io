@@ -17,7 +17,34 @@ The miniboxing plugin encodes all primitive values into long integers. To find o
 <a href="https://github.com/miniboxing/miniboxing-plugin/blob/wip/docs/2013-11-miniboxing-poster.pdf" target="_blank"><img src="/images/mbox-poster.png" width="45%" style="border:3px solid black; box-shadow: 10px 10px 5px #888888;"/></a>
 </center>
 
+<p>
+<br/>
+<div class="paper">
+<b>Paper errata:</b>
+
+<p>
+We were notified by our peers that one of the times reported is impossible to reproduce. While this does not affect the paper&#39;s contributions, we would like explain the discrepancy in detail:
+</p>
+
+<p>
+Table 3 lists the times taken by the <b>List create</b> microbenchmark for the <b>generic</b> case as:
+<ul> 
+ <li>16.7ms for the "Single context" case</li>
+ <li>1841ms for the "Multi context" case</li>
+</ul>
+</p>
+<p>The number from the "Multi context" case was very noisy (with a standard deviation of 1068ms <a href="https://github.com/miniboxing/miniboxing-plugin/blob/wip/docs/2013-03-oopsla-draft.pdf" target="_blank">as shown in the first version of the paper</a>) and we are also not able to reproduce it. We think this number was affected by a job running on the server we used for benchmarking, which would explain the long running time and the huge standard deviation seen in the measurements. Our expectation is that the numbers for "Single context" and "Multi context" should be comparable. The measurements taken on the Graal virtual machine (in Table 4) exhibit this expected behavior. We apologize for not double-checking this number, misleading other authors who tried to reproduce it.
+</p>
+</div>
+</p>
+
 ## Talks
+
+### Devoxx UK 2015 (London, UK)
+
+<center>
+<div data-parleys-presentation="miniboxing-fast-generics-primitive-types" style="width:800px;height:400px"><script type = "text/javascript" src="//parleys.com/js/parleys-share.js"></script></div>
+</center>
 
 ### Miniboxing Warnings (PNWScala, Portalnd, OR)
 
@@ -32,7 +59,7 @@ The miniboxing plugin encodes all primitive values into long integers. To find o
 ### Miniboxing Transformation (ScalaDays 2014 Berlin, Germany)
 
 <center>
-<iframe type="text/html" width="800px" height="400px" mozallowfullscreen="true" allowfullscreen="true" webkitallowfullscreen="true" src="//www.parleys.com/share.html#play/53a7d2d0e4b0543940d9e567" frameborder="0">&lt;br /&gt;</iframe>
+<div data-parleys-presentation="miniboxing-specialization-diet" style="width:800px;height:400px"><script type = "text/javascript" src="//parleys.com/js/parleys-share.js"></script></div>
 </center>
 <br/>
 
